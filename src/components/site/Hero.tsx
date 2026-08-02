@@ -1,6 +1,5 @@
 import { ArrowRight, Award, BadgeCheck, Phone, ShieldCheck, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-electrician.jpg";
 import heroVideo from "@/assets/herovideo.mp4";
 import { useLanguage } from "@/hooks/useLanguage";
 
@@ -9,7 +8,7 @@ export function Hero() {
 
   return (
     <section className="relative isolate min-h-screen overflow-hidden pt-16 md:pt-20 flex items-center">
-      {/* Background Video with Image Fallback Poster */}
+      {/* Background Video */}
       <div className="absolute inset-0 -z-10">
         <video
           autoPlay
@@ -17,7 +16,6 @@ export function Hero() {
           muted
           playsInline
           className="h-full w-full object-cover"
-          poster={heroImg}
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
