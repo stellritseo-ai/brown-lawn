@@ -1,222 +1,398 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowRight, Battery, Bolt, Building2, Cable, Home, Plug, ShieldAlert, Video, Wrench, Zap } from "lucide-react";
-import resImg from "@/assets/service-residential.jpg";
-import comImg from "@/assets/service-commercial.jpg";
-import indImg from "@/assets/service-industrial.jpg";
-import panImg from "@/assets/service-panel.jpg";
-import evImg from "@/assets/service-ev.jpg";
-import genImg from "@/assets/service-generator.jpg";
-import cctvImg from "@/assets/service-cctv.png";
+import { useState } from "react";
+import {
+  ArrowRight,
+  Scissors,
+  Sparkles,
+  Trees,
+  Truck,
+  Home,
+  Building2,
+  Layers,
+  Trash2,
+  Star,
+  CheckCircle2,
+  ShieldCheck,
+  MapPin,
+  Clock,
+  Phone
+} from "lucide-react";
+
+import mowingImg from "@/assets/service-mowing.png";
+import landscapingImg from "@/assets/service-landscaping.png";
+import officeImg from "@/assets/service-office-cleaning.png";
+import wireHouseImg from "@/assets/service-wire-house.png";
+import treeImg from "@/assets/service-tree-removal.png";
+import brushImg from "@/assets/service-brush-removal.png";
+import gravelImg from "@/assets/service-gravel.png";
+import commercialImg from "@/assets/service-commercial-cleaning.png";
+
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
 import AutoScroll from "embla-carousel-auto-scroll";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
+import { Button } from "@/components/ui/button";
 
-/* ── Shared card inner content ─────────────────────────────── */
-function CardContent({ s }: { s: { icon: any; title: string; desc: string; image: string; to: string } }) {
+/* ── Service Card Component ─────────────────────────────── */
+function ServiceCard({
+  s,
+  aspectRatio = "min-h-[420px]"
+}: {
+  s: {
+    id: string;
+    category: string;
+    icon: any;
+    title: string;
+    categoryLabel: string;
+    desc: string;
+    features: string[];
+    image: string;
+    to: string;
+  };
+  aspectRatio?: string;
+}) {
   const Icon = s.icon;
   const { t } = useLanguage();
 
   return (
-    <>
-      {/* Image */}
+    <div
+      className={`group relative w-full ${aspectRatio} rounded-[32px] overflow-hidden bg-slate-950 border border-slate-200/80 hover:border-[#2E7D32] shadow-xl hover:shadow-[0_22px_60px_rgba(46,125,50,0.25)] transition-all duration-500 cursor-pointer flex flex-col justify-end select-none`}
+    >
+      {/* Background Image */}
       <img
         src={s.image}
         alt={s.title}
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+        className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
         loading="lazy"
       />
 
-      {/* Gradient — stronger on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent group-hover:from-black/95 group-hover:via-black/80 group-hover:to-black/20 transition-all duration-500" />
+      {/* Multi-stage Gradient Overlays */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#070D08]/98 via-[#070D08]/65 to-black/20 group-hover:from-[#070D08]/98 group-hover:via-[#070D08]/75 group-hover:to-black/40 transition-all duration-500" />
 
-      {/* Orange accent line at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#FF6B00] via-[#FF8533] to-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Gold & Green Accent Border Highlight on Hover */}
+      <div className="absolute inset-0 rounded-[32px] border-2 border-transparent group-hover:border-[#2E7D32]/80 transition-colors duration-500 pointer-events-none" />
 
-      {/* Icon badge — top-left */}
-      <div className="absolute top-4 left-4 w-9 h-9 rounded-xl bg-[#FF6B00]/90 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0">
-        <Icon className="h-4 w-4" />
+      {/* Top Glass Header Badges */}
+      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20 pointer-events-none">
+        {/* Icon Badge */}
+        <div className="w-11 h-11 rounded-2xl bg-white/95 backdrop-blur-md border border-white/60 text-[#2E7D32] flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:bg-[#2E7D32] group-hover:text-[#FFD54F] transition-all duration-300">
+          <Icon className="h-5 w-5" />
+        </div>
+
+        {/* Category Label */}
+        <span className="bg-black/75 backdrop-blur-md border border-white/20 text-[#FFD54F] text-[10px] font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
+          {s.categoryLabel}
+        </span>
       </div>
 
-      {/* Content */}
-      <div className="absolute inset-0 p-5 flex flex-col justify-end z-10">
-        <div className="transition-all duration-500 group-hover:-translate-y-2">
-          <h3 className="text-sm sm:text-[15px] font-extrabold text-white leading-tight uppercase tracking-wide">
-            {s.title}
-          </h3>
+      {/* Card Body Content */}
+      <div className="relative z-20 p-6 sm:p-7 flex flex-col justify-end transition-transform duration-500 group-hover:-translate-y-1">
 
-          {/* Hover reveal */}
-          <div className="grid grid-rows-[0fr] opacity-0 group-hover:grid-rows-[1fr] group-hover:opacity-100 transition-all duration-500 ease-out">
-            <div className="overflow-hidden">
-              <p className="text-[12px] text-white/80 leading-snug mt-2 line-clamp-3">
-                {s.desc}
-              </p>
-              <Link
-                to={s.to}
-                className="mt-3 inline-flex items-center gap-1.5 text-[#FF8533] font-black text-[10px] uppercase tracking-widest group/link"
-              >
-                <span className="border-b border-[#FF8533]/50 group-hover/link:border-[#FF8533] transition-colors">
-                  {t("Explore Service", "Explorar Servicio")}
-                </span>
-                <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform duration-300" />
-              </Link>
+        {/* Title */}
+        <h3 className="text-xl sm:text-2xl font-extrabold text-white leading-tight tracking-tight group-hover:text-[#FFD54F] transition-colors duration-300">
+          {s.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mt-2.5 font-medium line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
+          {s.desc}
+        </p>
+
+        {/* Feature Checkmarks list */}
+        <div className="mt-4 pt-3 border-t border-white/15 space-y-2">
+          {s.features.map((feat) => (
+            <div key={feat} className="flex items-center gap-2 text-xs font-bold text-slate-200">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#FFD54F] shrink-0" />
+              <span>{feat}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Action Link Footer — Hidden by default, revealed on hover */}
+        <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out">
+          <div className="overflow-hidden">
+            <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between text-[#FFD54F] text-xs font-black uppercase tracking-widest group/btn">
+              <span className="inline-flex items-center gap-1.5 group-hover/btn:underline">
+                {t("Get Free Estimate", "Cotización Gratis")}
+              </span>
+              <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-[#2E7D32] text-white group-hover:text-[#FFD54F] flex items-center justify-center transition-all duration-300">
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              </div>
             </div>
           </div>
         </div>
+
       </div>
-    </>
+    </div>
   );
 }
 
 export function Services() {
   const { t } = useLanguage();
+  const [activeFilter, setActiveFilter] = useState<string>("all");
 
   const services = [
-    { icon: Building2,   title: t("New Construction Electrical", "Electricidad de Nuevas Construcciones"), desc: t("Commercial & residential wiring, structural installations, and full system layouts.", "Cableado comercial y residencial, instalaciones estructurales y diseños completos de sistemas."), image: comImg, to: "/services/commercial" },
-    { icon: ShieldAlert, title: t("Fire Alarm Systems", "Sistemas de Alarma contra Incendios"),          desc: t("Safety-certified design, low-voltage wiring, code compliance, and testing.", "Diseño con certificación de seguridad, cableado de bajo voltaje, cumplimiento de códigos y pruebas."),   image: panImg, to: "/services/wiring-rewiring" },
-    { icon: Cable,       title: t("Internet & Security Cameras", "Internet y Cámaras de Seguridad"), desc: t("Structured Cat6 network cabling, IP surveillance setups, and smart locks.", "Cableado estructurado de red Cat6, configuraciones de vigilancia IP y cerraduras inteligentes."),   image: resImg, to: "/services/security-systems" },
-    { icon: Video,       title: t("CCTV Camera Install & Repair", "Instalación y Reparación de Cámaras CCTV"), desc: t("Premium HD surveillance, DVR configurations, IP setups, and diagnostics.", "Vigilancia HD premium, configuraciones de DVR, configuraciones IP y diagnósticos."), image: cctvImg, to: "/services/cctv-camera" },
-    { icon: Home,        title: t("Residential Electrical", "Electricidad Residencial"),      desc: t("Whole-home wiring, lighting setups, smart controls, and safety diagnostics.", "Cableado para todo el hogar, configuraciones de iluminación, controles inteligentes y diagnósticos de seguridad."), image: resImg, to: "/services/residential" },
-    { icon: Zap,         title: t("Panel Upgrades", "Actualizaciones de Panel"),              desc: t("Modernize circuit breaker panels to 200A or 400A service.", "Modernice los paneles de disyuntores a un servicio de 200A o 400A."),             image: panImg, to: "/services/panel-upgrades" },
-    { icon: Plug,        title: t("EV Charger Installation", "Instalación de Cargador EV"),     desc: t("Level 2 home chargers and commercial EV station installations.", "Cargadores domésticos de nivel 2 e instalaciones de estaciones de EV comerciales."),        image: evImg,  to: "/services/ev-charger" },
-    { icon: Battery,     title: t("Generator Installation", "Instalación de Generadores"),      desc: t("Whole-home emergency standby power setups with automatic transfer.", "Configuraciones de energía de reserva de emergencia para todo el hogar con transferencia automática."),    image: genImg, to: "/services/generator" },
-    { icon: Bolt,        title: t("Industrial Electrical", "Electricidad Industrial"),       desc: t("Heavy-duty power distribution, equipment hookups, and phase controls.", "Distribución de energía de servicio pesado, conexiones de equipos y controles de fase."), image: indImg, to: "/services/industrial" },
-    { icon: Wrench,      title: t("24/7 Emergency Service", "Servicio de Emergencia 24/7"),      desc: t("Rapid dispatch for power outages, sparking outlets, and hazards.", "Despacho rápido para cortes de energía, tomacorrientes con chispas y peligros."),      image: indImg, to: "/services/emergency" },
+    {
+      id: "mowing",
+      category: "lawn",
+      icon: Scissors,
+      title: t("Weekly Lawn Mowing & Edging", "Cortado Semanal y Orillado"),
+      categoryLabel: t("Lawn Care", "Cuidado de Césped"),
+      desc: t("Precision mowing, string trimming, hard surface edging, and complete clippings cleanup for pristine lawns.", "Corte de precisión, recortado de bordes y limpieza total para mantener céspedes siempre impecables."),
+      features: [
+        t("Striping & Precision Mowing", "Corte con Rayas de Precisión"),
+        t("String Trimming & Edging", "Orillado y Recortado"),
+        t("Blower Clean-Off", "Limpieza con Soplado")
+      ],
+      image: mowingImg,
+      to: "/services/lawn-care-landscaping"
+    },
+    {
+      id: "landscaping",
+      category: "lawn",
+      icon: Layers,
+      title: t("Landscape Design & Mulching", "Mantenimiento y Mantillo"),
+      categoryLabel: t("Landscaping", "Paisajismo"),
+      desc: t("Shrub trimming, fresh dark mulch installation, weed barrier installation, and flowerbed manicuring.", "Poda de arbustos, instalación de mantillo oscuro, barrera de maleza y cuidado de jardines."),
+      features: [
+        t("Fresh Dark Mulch Install", "Mantillo Oscuro Fresco"),
+        t("Shrub & Bush Trimming", "Poda de Arbustos"),
+        t("Bed Edging & Weed Barrier", "Orillado y Control de Maleza")
+      ],
+      image: landscapingImg,
+      to: "/services/lawn-care-landscaping"
+    },
+    {
+      id: "office-cleaning",
+      category: "cleaning",
+      icon: Sparkles,
+      title: t("Commercial Office Cleaning", "Limpieza de Oficinas Comerciales"),
+      categoryLabel: t("Cleaning", "Limpieza"),
+      desc: t("Daily or weekly janitorial cleaning, office sanitation, floor polishing, and trash disposal for corporate spaces.", "Limpieza diaria o semanal de conserjería, desinfección de oficinas y pulido de pisos."),
+      features: [
+        t("Floor Care & Polishing", "Cuidado y Pulido de Pisos"),
+        t("Desk & Glass Sanitization", "Desinfección de Cristal y Escritorios"),
+        t("Trash & Recycling Removal", "Remoción de Basura")
+      ],
+      image: officeImg,
+      to: "/services/cleaning-services"
+    },
+    {
+      id: "wire-house",
+      category: "cleaning",
+      icon: Building2,
+      title: t("Wherehouse & Barn Cleaning", "Limpieza de Almacén y Galpón"),
+      categoryLabel: t("Specialized", "Especializado"),
+      desc: t("Heavy-duty high pressure washing and deep sanitation for warehouses, barns, and farm structures.", "Lavado a presión de alto rendimiento y sanitización profunda para almacenes, galpones y granjas."),
+      features: [
+        t("High-Pressure Power Wash", "Lavado a Alta Presión"),
+        t("Agricultural Sanitation", "Desinfección Agrícola"),
+        t("Heavy Dirt & Stain Removal", "Remoción de Manchas y Suciedad")
+      ],
+      image: wireHouseImg,
+      to: "/services/cleaning-services"
+    },
+    {
+      id: "tree-removal",
+      category: "heavy",
+      icon: Trees,
+      title: t("Professional Tree Removal", "Remoción y Poda de Árboles"),
+      categoryLabel: t("Tree Care", "Cuidado de Árboles"),
+      desc: t("Safe, professional hazardous tree cutting, branch pruning, canopy thinning, and wood chipping.", "Corte seguro de árboles peligrosos, poda de ramas, despeje de copa y triturado de madera."),
+      features: [
+        t("Hazardous Tree Cutting", "Corte de Árboles Peligrosos"),
+        t("Limb & Branch Pruning", "Poda de Ramas"),
+        t("Debris & Wood Chipping", "Triturado y Limpieza de Madera")
+      ],
+      image: treeImg,
+      to: "/services/tree-brush-removal"
+    },
+    {
+      id: "brush-removal",
+      category: "heavy",
+      icon: Trash2,
+      title: t("Brush Cutting & Land Clearing", "Corte y Remoción de Maleza"),
+      categoryLabel: t("Land Clearing", "Limpieza de Terreno"),
+      desc: t("Clearing thick overgrown brush, briars, unwanted bushes, and wild vegetation to reclaim land.", "Limpieza de maleza espesa, zarzales y vegetación silvestre para despejar su terreno."),
+      features: [
+        t("Overgrown Brush Clearing", "Despeje de Maleza Espesa"),
+        t("Briar & Weed Cutting", "Corte de Zarzas y Maleza"),
+        t("Property Line Clearing", "Limpieza de Líneas de Propiedad")
+      ],
+      image: brushImg,
+      to: "/services/tree-brush-removal"
+    },
+    {
+      id: "gravel-work",
+      category: "heavy",
+      icon: Truck,
+      title: t("Gravel Driveway Repair & Install", "Entradas de Grava — Instalación"),
+      categoryLabel: t("Dirtwork", "Trabajo de Tierra"),
+      desc: t("Spreading fresh crushed gravel, filling potholes, grading driveways, and dirt leveling services.", "Nivelación con grava triturada, reparación de baches, acondicionamiento de entradas y tierra."),
+      features: [
+        t("Crushed Gravel Spreading", "Esparcido de Grava Triturada"),
+        t("Driveway Pothole Grading", "Nivelación de Baches"),
+        t("Dirt Leveling & Prep", "Nivelación y Preparación de Tierra")
+      ],
+      image: gravelImg,
+      to: "/services/gravel-dirt-work"
+    },
+    {
+      id: "commercial-cleaning",
+      category: "cleaning",
+      icon: Home,
+      title: t("Residential & Commercial Clean", "Limpieza Residencial y Comercial"),
+      categoryLabel: t("Cleaning", "Limpieza"),
+      desc: t("Comprehensive interior deep cleaning and exterior property wash tailored for homes and businesses.", "Limpieza interior profunda a medida y lavado de propiedad para casas y negocios."),
+      features: [
+        t("Deep Interior Sanitation", "Limpieza Interior Profunda"),
+        t("Exterior Power Washing", "Lavado Exterior a Presión"),
+        t("Tailored Maintenance", "Planes de Mantenimiento a Medida")
+      ],
+      image: commercialImg,
+      to: "/services/cleaning-services"
+    }
   ];
 
-  const topItems   = services.slice(0, 3);
-  const slideItems = [...services.slice(3), ...services.slice(3)];
+  const filterTabs = [
+    { id: "all", label: t("All Services", "Todos los Servicios"), count: services.length },
+    { id: "lawn", label: t("Lawn & Landscaping", "Césped y Paisajismo"), count: 2 },
+    { id: "cleaning", label: t("Cleaning Services", "Servicios de Limpieza"), count: 3 },
+    { id: "heavy", label: t("Tree & Dirt Work", "Árboles y Grava"), count: 3 },
+  ];
+
+  const filteredServices = activeFilter === "all"
+    ? services
+    : services.filter(s => s.category === activeFilter);
 
   return (
-    <section id="services" className="bg-[#F8FAFC] py-[60px] overflow-hidden border-y border-slate-100">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+    <section id="services" className="bg-[#F8FAFC] py-12 sm:py-16 lg:py-24 overflow-hidden border-y border-slate-200/60 relative">
+      {/* Background Decor Ambient Blobs */}
+      <div className="absolute top-1/4 left-0 w-[600px] h-[600px] rounded-full bg-[#2E7D32]/5 blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-0 w-[600px] h-[600px] rounded-full bg-[#D4AF37]/5 blur-3xl pointer-events-none -z-10" />
 
-        {/* ── Top Row: Text + 3 Hero Cards ──────────────────── */}
-        <div className="grid gap-10 lg:grid-cols-[38%_1fr] lg:gap-14 items-center">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full relative z-10">
 
-          {/* Left Text */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.75, ease: "easeOut" }}
-            className="flex flex-col justify-center text-left"
-          >
-            {/* Eyebrow badge */}
-            <span className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/20 text-[#FF6B00] rounded-full px-5 py-1.5 text-[11px] font-black uppercase tracking-widest mb-5 w-fit">
-              <svg className="w-3 h-3 fill-[#FF6B00]" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              {t("Our Services", "Nuestros Servicios")}
-              <svg className="w-3 h-3 fill-[#FF6B00]" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </span>
+        {/* ── Section Header ─────────────────────────────────── */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-8 sm:mb-10">
+          <div className="max-w-2xl text-left space-y-4">
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#2E7D32]/10 border border-[#2E7D32]/30 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#2E7D32]">
+              <Sparkles className="w-3.5 h-3.5 text-[#2E7D32]" />
+              {t("Our Core Services", "Nuestros Servicios Principales")}
+              <Sparkles className="w-3.5 h-3.5 text-[#2E7D32]" />
+            </div>
 
-            {/* Heading */}
-            <h2
-              className="text-neutral-900 tracking-tight leading-[1.2] font-extrabold"
-              style={{ fontSize: "clamp(28px, 4vw, 42px)" }}
-            >
-              {t("Full-Spectrum ", "Soluciones ")}
-              <span className="text-[#FF6B00]">{t("Electrical", "Eléctricas")}</span>{" "}
-              {t("Solutions", "Completas")}
+            {/* Headline */}
+            <h2 className="font-display text-[22px] sm:text-[28px] lg:text-[31px] mt-0 sm:mt-[-11px] mb-[8px] font-black text-slate-900 tracking-tight leading-tight">
+              {t("Professional Solutions for ", "Soluciones Profesionales para ")}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2E7D32] via-[#1B5E20] to-[#2E7D32]">
+                {t("Lawns, Landscaping & Cleaning.", "Césped, Paisajismo y Limpieza.")}
+              </span>
             </h2>
 
-            {/* Divider accent */}
-            <div className="flex items-center gap-3 mt-5 mb-5">
-              <div className="h-[2px] w-10 bg-[#FF6B00] rounded-full" />
-              <div className="h-[2px] w-4 bg-[#FF6B00]/40 rounded-full" />
-            </div>
-
-            <p className="text-slate-500 text-sm md:text-[15px] leading-[28px] font-medium max-w-[95%]">
-              {t("One licensed team. Every job — from a single outlet to a 50,000 sqft facility. High-quality electrical work with guaranteed safety and performance across Miami & South Florida.", "Un equipo autorizado. Cada trabajo, desde un solo tomacorriente hasta una instalación de 50,000 pies cuadrados. Trabajo eléctrico de alta calidad con seguridad y rendimiento garantizados en todo Miami y el sur de Florida.")}
+            <p className="text-slate-600 text-[13.5px] sm:text-base lg:text-lg leading-relaxed font-medium mb-0 sm:mb-[-25px]">
+              {t("Licensed, insured & bonded experts serving Horn Lake & a 50-mile radius with top-tier equipment and 15+ years of craftsmanship.", "Expertos con licencia y seguro que sirven a Horn Lake y 50 millas a la redonda con equipos de primera calidad.")}
             </p>
+          </div>
 
-            {/* Trust row */}
-            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[12px] font-bold text-slate-600">
-              {[t("Licensed & Insured", "Con Licencia y Seguro"), t("24/7 Emergency", "Emergencia 24/7"), t("Free Estimates", "Presupuestos Gratis")].map((itemText) => (
-                <span key={itemText} className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
-                  {itemText}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-7">
-              <Link
-                to="/services"
-                className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white rounded-full px-7 py-3.5 text-[13px] font-black uppercase tracking-wider shadow-[0_10px_25px_-5px_rgba(255,107,0,0.35)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-              >
-                {t("View All Services", "Ver Todos los Servicios")} <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </motion.div>
-
-          {/* Top 3 Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {topItems.map((s, idx) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.65, delay: idx * 0.12, ease: "easeOut" }}
-                className="group relative rounded-2xl overflow-hidden bg-neutral-950 h-[210px] sm:h-[290px] lg:h-[360px] xl:h-[400px] cursor-pointer shadow-[0_4px_24px_rgba(0,0,0,0.12)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.22)] transition-shadow duration-500"
-              >
-                <CardContent s={s} />
-              </motion.div>
-            ))}
+          {/* Quick Badges & Callout */}
+          <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
+            <Button variant="hero" size="xl" className="font-extrabold rounded-full px-8 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/50 shadow-md w-full md:w-auto justify-center">
+              {t("Explore All Services", "Explorar Todos los Servicios")}
+              <ArrowRight className="w-4 h-4 ml-1 text-[#FFD54F]" />
+            </Button>
           </div>
         </div>
 
-        {/* ── Auto-scroll Carousel ────────────────────────── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.75, delay: 0.15, ease: "easeOut" }}
-          className="mt-6 relative"
-        >
-          {/* Section divider with label */}
-          <div className="flex items-center gap-4 mb-5">
-            <div className="h-px flex-1 bg-slate-200" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 whitespace-nowrap">
-              {t("More Services", "Más Servicios")}
-            </span>
-            <div className="h-px flex-1 bg-slate-200" />
+        {/* ── Trust & Quality Guarantee Banner ─────────────────── */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-4 sm:p-5 rounded-3xl bg-white border border-slate-200/90 shadow-md mb-10">
+          <div className="flex items-center gap-3 p-2">
+            <div className="w-10 h-10 rounded-2xl bg-[#2E7D32]/10 text-[#2E7D32] flex items-center justify-center shrink-0">
+              <ShieldCheck className="w-5 h-5" />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="text-xs font-black text-slate-900 uppercase tracking-tight">{t("Licensed & Insured", "Licencia y Seguro")}</span>
+              <span className="text-[11px] font-bold text-slate-500">{t("100% Bonded Protection", "Protección 100% Garantizada")}</span>
+            </div>
           </div>
 
-          {/* Fade edges */}
-          <div className="absolute top-0 bottom-0 left-0 w-20 bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none hidden sm:block" />
-          <div className="absolute top-0 bottom-0 right-0 w-20 bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none hidden sm:block" />
+          <div className="flex items-center gap-3 p-2">
+            <div className="w-10 h-10 rounded-2xl bg-[#2E7D32]/10 text-[#2E7D32] flex items-center justify-center shrink-0">
+              <Clock className="w-5 h-5" />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="text-xs font-black text-slate-900 uppercase tracking-tight">{t("Punctual & Reliable", "Puntual y Confiable")}</span>
+              <span className="text-[11px] font-bold text-slate-500">{t("On-Time Job Guarantee", "Garantía de Tiempo")}</span>
+            </div>
+          </div>
 
-          <Carousel
-            plugins={[
-              AutoScroll({
-                speed: 1.2,
-                stopOnInteraction: false,
-                stopOnMouseEnter: true,
-                stopOnFocusIn: true,
-              }),
-            ]}
-            opts={{ align: "start", loop: true }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-4">
-              {slideItems.map((s, idx) => (
-                <CarouselItem
-                  key={`${s.title}-${idx}`}
-                  className="pl-4 basis-4/5 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-                >
-                  <div className="group relative rounded-xl overflow-hidden bg-neutral-950 h-[180px] sm:h-[220px] lg:h-[260px] cursor-pointer shadow-md hover:shadow-[0_12px_32px_rgba(0,0,0,0.2)] transition-shadow duration-500">
-                    <CardContent s={s} />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </motion.div>
+          <div className="flex items-center gap-3 p-2">
+            <div className="w-10 h-10 rounded-2xl bg-[#2E7D32]/10 text-[#2E7D32] flex items-center justify-center shrink-0">
+              <MapPin className="w-5 h-5" />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="text-xs font-black text-slate-900 uppercase tracking-tight">{t("50-Mile Radius", "Radio de 50 Millas")}</span>
+              <span className="text-[11px] font-bold text-slate-500">{t("Horn Lake & Surrounding", "Horn Lake y Alrededores")}</span>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 p-2">
+            <div className="w-10 h-10 rounded-2xl bg-[#2E7D32]/10 text-[#2E7D32] flex items-center justify-center shrink-0">
+              <Phone className="w-5 h-5" />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="text-xs font-black text-slate-900 uppercase tracking-tight">{t("Bilingual Service", "Servicio Bilingüe")}</span>
+              <span className="text-[11px] font-bold text-slate-500">{t("English & Español", "Inglés y Español")}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Category Filter Tabs ─────────────────────────────── */}
+        <div className="flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto pb-4 mb-10 scrollbar-none">
+          {filterTabs.map((tab) => {
+            const isActive = activeFilter === tab.id;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveFilter(tab.id)}
+                className={`px-5 py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider transition-all duration-300 whitespace-nowrap shadow-xs cursor-pointer flex items-center gap-2 ${isActive
+                    ? "bg-[#2E7D32] text-white shadow-md shadow-[#2E7D32]/25 scale-105"
+                    : "bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/90"
+                  }`}
+              >
+                <span>{tab.label}</span>
+                <span className={`text-[10px] px-2 py-0.5 rounded-full font-black ${isActive ? "bg-white/25 text-white" : "bg-slate-100 text-slate-600"
+                  }`}>
+                  {tab.count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* ── Filtered Main Grid ───────────────────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+          <AnimatePresence mode="popLayout">
+            {filteredServices.map((s, idx) => (
+              <motion.div
+                key={s.id}
+                layout
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, delay: idx * 0.04 }}
+              >
+                <div className="block w-full">
+                  <ServiceCard s={s} aspectRatio="min-h-[300px] sm:min-h-[380px] lg:min-h-[440px]" />
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
 
       </div>
     </section>

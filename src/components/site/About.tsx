@@ -7,44 +7,45 @@ export function About() {
   const { t } = useLanguage();
 
   const points = [
-    t("17+ years powering Florida residences and businesses", "Más de 17 años alimentando residencias y empresas de Florida"),
-    t("Master-licensed electricians and NEC-certified team", "Electricistas con licencia de maestro y equipo certificado por la NEC"),
-    t("Strict OSHA and NFPA 70E safety protocols", "Protocolos estrictos de seguridad de OSHA y NFPA 70E"),
-    t("Transparent fixed-quote pricing — no surprises", "Precios de cotización fijos y transparentes — sin sorpresas"),
+    t("15+ years serving Horn Lake and 50-mile radius", "Más de 15 años sirviendo a Horn Lake y 50 millas a la redonda"),
+    t("Roy Lee Brown & family-owned dedicated team", "Roy Lee Brown y equipo familiar dedicado"),
+    t("Licensed, insured, and bonded property care specialists", "Especialistas en cuidado de propiedad licenciados, asegurados y afianzados"),
+    t("Transparent no-obligation quotes within 24 hours", "Cotizaciones transparentes sin compromiso en 24 horas"),
   ];
 
   return (
-    <section id="about" className="section-padding">
+    <section id="about" className="section-padding bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div className="relative">
-          <div className="absolute -top-6 -left-6 h-32 w-32 rounded-3xl bg-primary/15" aria-hidden />
-          <div className="absolute -bottom-6 -right-6 h-40 w-40 rounded-3xl bg-accent/15" aria-hidden />
+          <div className="absolute -top-6 -left-6 h-32 w-32 rounded-3xl bg-[#2E7D32]/15" aria-hidden />
+          <div className="absolute -bottom-6 -right-6 h-40 w-40 rounded-3xl bg-[#D4AF37]/15" aria-hidden />
           <img
             src={aboutTeamImg}
-            alt="R&E Electrical Contractor Corp team"
-            className="relative rounded-3xl shadow-[var(--shadow-elegant)] object-cover object-top w-full aspect-[3/2] sm:aspect-[16/9] h-auto"
+            alt="Brown Lawn Care & Cleaning Service Team"
+            className="relative rounded-3xl shadow-xl object-cover object-top w-full aspect-[3/2] sm:aspect-[16/9] h-auto border border-slate-100"
             loading="lazy"
           />
-          <div className="glass-card absolute -bottom-8 left-6 right-6 rounded-2xl p-5 sm:left-10 sm:right-auto sm:w-72">
-            <div className="text-xs font-semibold uppercase tracking-wider text-primary">{t("Since 2009", "Desde 2009")}</div>
-            <div className="mt-1 font-display text-2xl font-extrabold text-secondary">{t("Family-owned & operated", "Propiedad y operación familiar")}</div>
-            <div className="mt-1 text-sm text-muted-foreground">{t("Built on trust, safety, and craftsmanship.", "Construido sobre la confianza, la seguridad y la artesanía.")}</div>
+          <div className="glass-card absolute -bottom-8 left-6 right-6 rounded-2xl p-5 sm:left-10 sm:right-auto sm:w-80 border border-[#D4AF37]/40 bg-white/95">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#2E7D32]">{t("Since 2009", "Desde 2009")}</div>
+            <div className="mt-1 font-display text-xl font-extrabold text-[#111111]">{t("Family-Owned & Operated", "Propiedad y Operación Familiar")}</div>
+            <div className="mt-1 text-xs text-slate-600 font-medium">{t("Where quality meets community.", "Donde la calidad encuentra la comunidad.")}</div>
           </div>
         </div>
 
-        <div>
-          <span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">{t("About R&E Electrical", "Acerca de R&E Electrical")}</span>
-          <h2 className="mt-4 font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-secondary whitespace-nowrap tracking-tight">
-            {t("Florida's Trusted Electrical Experts", "Expertos Eléctricos de Confianza de Florida")}
+        <div className="text-left">
+          <span className="inline-flex rounded-full bg-[#2E7D32]/10 border border-[#2E7D32]/30 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2E7D32]">{t("About Brown Lawn Care & Cleaning", "Acerca de Brown Lawn Care & Cleaning")}</span>
+          <h2 className="mt-4 font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-[#111111] tracking-tight">
+            {t("15 Years of Keeping Horn Lake ", "15 Años Manteniendo ")}
+            <span className="text-[#2E7D32]">{t("Beautiful", "Hermoso a Horn Lake")}</span>
           </h2>
-          <p className="mt-5 text-lg text-muted-foreground">
-            {t("From a single panel upgrade to a full commercial build-out, R&E Electrical Contractor Corp delivers code-perfect electrical work with a customer-first approach. Our master electricians treat every job site like their own home.", "Desde una simple actualización de panel hasta una instalación comercial completa, R&E Electrical Contractor Corp ofrece un trabajo eléctrico que cumple perfectamente con los códigos y con un enfoque centrado en el cliente. Nuestros maestros electricistas tratan cada lugar de trabajo como si fuera su propio hogar.")}
+          <p className="mt-5 text-slate-600 text-base leading-relaxed font-medium">
+            {t("For over 15 years, Roy Lee Brown and our family-owned team have been the trusted name for lawn care, landscaping, and cleaning services across Horn Lake and the surrounding 50-mile radius. We believe your property — whether commercial or residential — deserves the same care and attention we give our own.", "Durante más de 15 años, Roy Lee Brown y nuestro equipo familiar han sido el nombre de confianza para el cuidado de césped, paisajismo y limpieza en Horn Lake y 50 millas a la redonda.")}
           </p>
 
           <ul className="mt-6 space-y-3">
             {points.map((p) => (
-              <li key={p} className="flex items-start gap-3 text-secondary">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+              <li key={p} className="flex items-start gap-3 text-slate-800 font-semibold text-sm">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#2E7D32]" />
                 <span>{p}</span>
               </li>
             ))}
@@ -52,16 +53,16 @@ export function About() {
 
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
-              { v: 600, s: "+", l: t("Projects", "Proyectos") },
-              { v: 50, s: "+", l: t("Experts", "Expertos") },
+              { v: 1000, s: "+", l: t("Properties", "Propiedades") },
               { v: 15, s: "+", l: t("Years", "Años") },
-              { v: 100, s: "%", l: t("Satisfaction", "Satisfacción") },
+              { v: 50, s: " Miles", l: t("Radius", "Radio") },
+              { v: 100, s: "%", l: t("Dedicated", "Dedicados") },
             ].map((s) => (
-              <div key={s.l} className="rounded-2xl border border-border bg-white p-5 text-center shadow-sm">
-                <div className="font-display text-3xl font-extrabold text-primary">
+              <div key={s.l} className="rounded-2xl border border-slate-200 bg-[#F7F7F7] p-4 text-center shadow-xs">
+                <div className="font-display text-2xl font-black text-[#2E7D32]">
                   <Counter end={s.v} suffix={s.s} />
                 </div>
-                <div className="mt-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{s.l}</div>
+                <div className="mt-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">{s.l}</div>
               </div>
             ))}
           </div>

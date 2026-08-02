@@ -1,6 +1,8 @@
-import { useRef, useState, useEffect } from "react";
-import { Star } from "lucide-react";
-import { getReviews } from "@/lib/leads-store";
+import { useRef } from "react";
+import { Star, Quote, BadgeCheck } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 interface Review {
   text: string;
@@ -9,62 +11,83 @@ interface Review {
   rating: number;
   initials: string;
   avatarColor: string;
+  service?: string;
   replyText?: string;
 }
 
-import { useLanguage } from "@/hooks/useLanguage";
+const avatarColors = [
+  "#2E7D32", "#1B5E20", "#33691E", "#558B2F", "#1565C0", "#6D4C41", "#4527A0",
+];
 
 function StarRating({ count }: { count: number }) {
   return (
     <div className="flex gap-0.5">
-      {Array.from({ length: count }).map((_, i) => (
+      {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
-          className="w-3.5 h-3.5 fill-[#FBBF24] text-[#FBBF24]"
+          className={cn(
+            "w-3.5 h-3.5",
+            i < count ? "fill-[#FFD54F] text-[#FFD54F]" : "fill-slate-200 text-slate-200"
+          )}
         />
       ))}
     </div>
   );
 }
 
-import { cn } from "@/lib/utils";
-
 function TestimonialCard({ review, isGrid = false }: { review: Review; isGrid?: boolean }) {
   return (
     <div className={cn(
-      "relative bg-white border border-slate-200 shadow-[0_2px_20px_rgba(0,0,0,0.06)] rounded-2xl p-6 flex flex-col gap-4 group hover:shadow-[0_6px_30px_rgba(0,0,0,0.10)] hover:border-slate-300 transition-all duration-300 text-left justify-between",
-      isGrid ? "w-full" : "flex-shrink-0 w-[340px] sm:w-[380px] mx-3"
+      "relative bg-white border border-slate-100 rounded-2xl p-5 flex flex-col gap-3 group transition-all duration-300 text-left",
+      "shadow-[0_2px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_32px_rgba(46,125,50,0.14)] hover:border-[#2E7D32]/35",
+      isGrid ? "w-full" : "flex-shrink-0 w-[340px] sm:w-[370px] mx-3"
     )}>
-      <div className="space-y-4">
-        {/* Rating */}
+
+      {/* Top row: rating + verified badge */}
+      <div className="flex items-center justify-between">
         <StarRating count={review.rating} />
-
-        {/* Text */}
-        <p className="text-slate-655 text-sm leading-relaxed font-medium flex-1">
-          "{review.text}"
-        </p>
-
-        {review.replyText && (
-          <div className="mt-3 bg-slate-50 border border-slate-100 p-3.5 rounded-xl text-left text-xs">
-            <p className="font-extrabold text-[#FF6B00] uppercase tracking-wider text-[10px]">R&E Electrical Response</p>
-            <p className="text-slate-600 font-medium leading-relaxed mt-1">"{review.replyText}"</p>
-          </div>
-        )}
+        <span className="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-wider text-[#2E7D32] bg-[#2E7D32]/8 border border-[#2E7D32]/20 px-2 py-0.5 rounded-full">
+          <BadgeCheck className="w-3 h-3" />
+          Verified
+        </span>
       </div>
 
+      {/* Quote icon + text */}
+      <div className="relative">
+        <Quote className="absolute -top-1 -left-0.5 w-6 h-6 text-[#2E7D32]/15 fill-[#2E7D32]/15" />
+        <p className="text-slate-700 text-[13.5px] leading-relaxed font-medium pl-5 flex-1">
+          {review.text}
+        </p>
+      </div>
+
+      {/* Service tag */}
+      {review.service && (
+        <span className="self-start inline-flex items-center bg-[#2E7D32]/8 border border-[#2E7D32]/20 text-[#2E7D32] text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+          {review.service}
+        </span>
+      )}
+
+      {/* Business reply */}
+      {review.replyText && (
+        <div className="mt-1 bg-[#2E7D32]/8 border border-[#2E7D32]/20 p-3 rounded-xl text-xs">
+          <p className="font-extrabold text-[#2E7D32] uppercase tracking-wider text-[9px] mb-1">
+            Brown Lawn Care Response
+          </p>
+          <p className="text-slate-700 font-medium leading-relaxed">"{review.replyText}"</p>
+        </div>
+      )}
+
       {/* Author */}
-      <div className="flex items-center gap-3 pt-3 border-t border-slate-100 mt-2">
+      <div className="flex items-center gap-3 pt-3 border-t border-slate-100 mt-auto">
         <div
-          className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0"
+          className="w-9 h-9 rounded-full flex items-center justify-center text-[#FFD54F] text-xs font-black flex-shrink-0 shadow-sm"
           style={{ backgroundColor: review.avatarColor }}
         >
           {review.initials}
         </div>
         <div>
-          <p className="text-slate-900 font-semibold text-sm leading-tight">
-            {review.name}
-          </p>
-          <p className="text-slate-400 text-xs mt-0.5">{review.role}</p>
+          <p className="text-slate-900 font-extrabold text-sm leading-tight">{review.name}</p>
+          <p className="text-slate-400 text-[11px] font-semibold mt-0.5">{review.role}</p>
         </div>
       </div>
     </div>
@@ -74,33 +97,35 @@ function TestimonialCard({ review, isGrid = false }: { review: Review; isGrid?: 
 function MarqueeRow({
   items,
   direction = "left",
+  bgColor = "#F8FAFC",
 }: {
   items: Review[];
   direction?: "left" | "right";
+  bgColor?: string;
 }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const duplicated = [...items, ...items, ...items];
-
-  const animClass =
-    direction === "left" ? "marquee-track-left" : "marquee-track-right";
+  const animClass = direction === "left" ? "marquee-track-left" : "marquee-track-right";
 
   return (
     <div
-      className="overflow-hidden relative group/row"
+      className="overflow-hidden relative"
       onMouseEnter={() => {
-        if (trackRef.current) {
-          trackRef.current.style.animationPlayState = "paused";
-        }
+        if (trackRef.current) trackRef.current.style.animationPlayState = "paused";
       }}
       onMouseLeave={() => {
-        if (trackRef.current) {
-          trackRef.current.style.animationPlayState = "running";
-        }
+        if (trackRef.current) trackRef.current.style.animationPlayState = "running";
       }}
     >
       {/* Fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 z-10 bg-gradient-to-r from-[#F8FAFC] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 z-10 bg-gradient-to-l from-[#F8FAFC] to-transparent" />
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 w-28 z-10"
+        style={{ background: `linear-gradient(to right, ${bgColor}, transparent)` }}
+      />
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 w-28 z-10"
+        style={{ background: `linear-gradient(to left, ${bgColor}, transparent)` }}
+      />
 
       <div ref={trackRef} className={`flex ${animClass}`}>
         {duplicated.map((review, i) => (
@@ -113,160 +138,177 @@ function MarqueeRow({
 
 export function Testimonials({ isGrid = false }: { isGrid?: boolean }) {
   const { t } = useLanguage();
-  const [dbReviews, setDbReviews] = useState<Review[]>([]);
 
-  useEffect(() => {
-    getReviews().then((items) => {
-      if (Array.isArray(items)) {
-        const mapped = items
-          .filter((r) => r.featured)
-          .map((r) => {
-            const initials = r.author
-              .split(" ")
-              .map((n) => n.charAt(0))
-              .join("")
-              .toUpperCase()
-              .slice(0, 2) || "V";
-
-            const colors = ["#1D4ED8", "#7C3AED", "#065F46", "#B45309", "#BE185D", "#0F766E", "#9333EA", "#DC2626"];
-            const hash = r.author.charCodeAt(0) % colors.length;
-            const avatarColor = colors[isNaN(hash) ? 0 : hash];
-
-            return {
-              text: r.text,
-              name: r.author,
-              role: r.location,
-              rating: r.rating,
-              initials,
-              avatarColor,
-              replyText: r.replyText
-            };
-          });
-        
-        if (mapped.length > 0) {
-          setDbReviews(mapped);
-        }
-      }
-    }).catch(err => {
-      console.warn("Failed to load dynamic reviews, utilizing static fallbacks:", err);
-    });
-  }, []);
-
-  const fallbackReviews: Review[] = [
+  const reviews: Review[] = [
     {
-      text: t("The electrical panel upgrade they did for our home was outstanding. Professional, clean, and finished ahead of schedule. Zero issues since.", "La actualización del panel eléctrico que hicieron para nuestro hogar fue excelente. Profesional, limpia y terminada antes de lo previsto. Cero problemas desde entonces."),
-      name: "Marcus T.",
-      role: t("Homeowner, Miami", "Propietario, Miami"),
+      text: t("Roy and his team transformed our overgrown yard into a total showpiece! They arrived on time, stayed professional all day, and the price was more than fair. I've never seen our lawn look this good.", "¡Roy y su equipo transformaron nuestro jardín descuidado en una obra de arte! Puntuales, profesionales y precio justo."),
+      name: "Sarah M.",
+      role: t("Homeowner · Horn Lake, MS", "Propietaria · Horn Lake, MS"),
       rating: 5,
-      initials: "MT",
-      avatarColor: "#1D4ED8",
+      initials: "SM",
+      avatarColor: avatarColors[0],
+      service: t("Lawn Mowing", "Corte de Césped"),
     },
     {
-      text: t("Called them for an emergency at 11pm — they arrived within 45 minutes. Fixed the issue fast. Truly 24/7 service.", "Los llamé por una emergencia a las 11:00 pm; llegaron en 45 minutos. Solucionaron el problema rápido. Realmente un servicio 24/7."),
-      name: "Priya S.",
-      role: t("Business Owner", "Propietario de Negocio"),
+      text: t("We hired Brown Lawn Care for a full office deep cleaning. Everything was spotless — they even came back the next day to touch up a few areas at no charge. Incredible service and professionalism.", "Contratamos a Brown Lawn Care para limpieza profunda de oficina. Todo quedó impecable. Regresaron al día siguiente sin costo extra."),
+      name: "James T.",
+      role: t("Business Owner · Southaven, MS", "Dueño de Negocio · Southaven, MS"),
       rating: 5,
-      initials: "PS",
-      avatarColor: "#7C3AED",
+      initials: "JT",
+      avatarColor: avatarColors[1],
+      service: t("Office Cleaning", "Limpieza de Oficina"),
     },
     {
-      text: t("They installed 12 EV chargers across our fleet parking lot. Flawless execution. I'll never use another electrician again.", "Instalaron 12 cargadores EV en el estacionamiento de nuestra flota. Ejecución impecable. Nunca volveré a usar a otro electricista."),
-      name: "Jared W.",
-      role: t("Fleet Manager", "Gerente de Flota"),
+      text: t("A huge tree fell on our driveway during a storm. I called at 10 PM and Roy had his crew out at 7 AM the next morning. They cleared everything and even repaired the gravel. Absolute lifesavers!", "Un árbol cayó en nuestra entrada durante la tormenta. Llamé a las 10 PM y Roy envió a su equipo a las 7 AM. ¡Nos salvaron!"),
+      name: "Linda R.",
+      role: t("Homeowner · Olive Branch, MS", "Propietaria · Olive Branch, MS"),
       rating: 5,
-      initials: "JW",
-      avatarColor: "#065F46",
+      initials: "LR",
+      avatarColor: avatarColors[2],
+      service: t("Emergency Tree Removal", "Remoción de Árbol de Emergencia"),
     },
     {
-      text: t("Best electrical contractor in Miami. They wired our entire office renovation — on time, on budget, and zero punch list items.", "El mejor contratista eléctrico en Miami. Cablearon toda la renovación de nuestra oficina: a tiempo, dentro del presupuesto y sin detalles pendientes."),
-      name: "Diana L.",
-      role: t("Office Manager", "Administradora de Oficina"),
+      text: t("I love that they're bilingual! It made everything so much easier for my parents who speak Spanish. Our yard has never looked better. You can tell this is a family-owned business that truly cares.", "¡Me encanta que hablen español! Hizo todo mucho más fácil para mis padres. El jardín nunca se ha visto mejor. Se nota que esta familia se preocupa."),
+      name: "Carlos G.",
+      role: t("Homeowner · Memphis, TN", "Propietario · Memphis, TN"),
       rating: 5,
-      initials: "DL",
-      avatarColor: "#B45309",
+      initials: "CG",
+      avatarColor: avatarColors[5],
+      service: t("Landscaping", "Paisajismo"),
     },
     {
-      text: t("Smart home integration was seamless. They set up Lutron controls, automated lighting scenes, and a whole-home surge protector.", "La integración de la casa inteligente fue perfecta. Configuraron controles Lutron, escenas de iluminación automatizadas y un protector de sobretensión para todo el hogar."),
-      name: "Kenji M.",
-      role: t("Homeowner", "Propietario"),
+      text: t("We use Brown for our commercial property on a weekly basis — mowing, landscaping, and seasonal cleanups. Consistently on time and always professional. Highly recommend for any business property.", "Usamos a Brown para nuestra propiedad comercial semanalmente. Siempre puntuales y profesionales. Los recomiendo para cualquier propiedad comercial."),
+      name: "Diana K.",
+      role: t("Property Manager · Hernando, MS", "Gerente de Propiedad · Hernando, MS"),
       rating: 5,
-      initials: "KM",
-      avatarColor: "#BE185D",
+      initials: "DK",
+      avatarColor: avatarColors[1],
+      service: t("Commercial Maintenance", "Mantenimiento Comercial"),
     },
     {
-      text: t("Hired them for a complete rewire of a 1960s bungalow. They handled every permit, passed every inspection, amazing team.", "Los contratamos para un recableado completo de un bungalow de los años 60. Se encargaron de cada permiso, pasaron cada inspección, un equipo increíble."),
-      name: "Rosa F.",
-      role: t("Real Estate Investor", "Inversor de Bienes Raíces"),
+      text: t("Fantastic gravel driveway installation. Level, compacted perfectly, and it looks beautiful. They even hauled away all the old material without being asked. No mess, no hassle. Will definitely use again.", "Instalación de entrada de grava fantástica. Nivelado, perfectamente compactado y se ve hermoso. Retiraron todo el material viejo sin pedirlo."),
+      name: "Mike D.",
+      role: t("Homeowner · Nesbit, MS", "Propietario · Nesbit, MS"),
       rating: 5,
-      initials: "RF",
-      avatarColor: "#0F766E",
+      initials: "MD",
+      avatarColor: avatarColors[0],
+      service: t("Gravel Work", "Trabajo de Grava"),
     },
     {
-      text: t("Generator installation was smooth and the team was incredibly knowledgeable. They explained every step and left the site spotless.", "La instalación del generador fue sencilla y el equipo estuvo increíblemente capacitado. Explicaron cada paso y dejaron el lugar impecable."),
-      name: "Tony B.",
-      role: t("Restaurant Owner", "Dueño de Restaurante"),
+      text: t("Brown Lawn Care did a brush clearing job on our 3-acre property. It was a big job and they knocked it out in one day! Reasonable quote, zero mess left behind, and very courteous crew.", "Brown Lawn Care hizo el desmonte de nuestra propiedad de 3 acres. ¡Un trabajo grande terminado en un día! Precio razonable, sin desorden."),
+      name: "Patricia W.",
+      role: t("Homeowner · Horn Lake, MS", "Propietaria · Horn Lake, MS"),
       rating: 5,
-      initials: "TB",
-      avatarColor: "#9333EA",
+      initials: "PW",
+      avatarColor: avatarColors[3],
+      service: t("Brush Removal", "Remoción de Maleza"),
     },
     {
-      text: t("Outstanding service from start to finish. The crew was courteous, efficient, and clearly knew what they were doing. Highly recommend.", "Excelente servicio de principio a fin. El personal fue cortés, eficiente y claramente sabía lo que estaba haciendo. Muy recomendado."),
-      name: "Sandra K.",
-      role: t("Property Manager", "Administradora de Propiedades"),
+      text: t("We needed our entire apartment complex landscaped and maintained seasonally. Roy gave a very competitive bid and delivered on every promise. Our tenants constantly compliment the curb appeal now!", "Necesitamos nuestro complejo de apartamentos mantenido estacionalmente. Roy ofreció un precio competitivo y cumplió con todo."),
+      name: "Robert A.",
+      role: t("Landlord · Southaven, MS", "Arrendador · Southaven, MS"),
       rating: 5,
-      initials: "SK",
-      avatarColor: "#DC2626",
+      initials: "RA",
+      avatarColor: avatarColors[6],
+      service: t("Commercial Landscaping", "Paisajismo Comercial"),
     },
   ];
-
-  const reviews = dbReviews.length > 0 ? dbReviews : fallbackReviews;
 
   const row1 = reviews.slice(0, Math.ceil(reviews.length / 2));
   const row2 = reviews.slice(Math.ceil(reviews.length / 2));
 
+  const sectionBg = "#F1F5F9";
+
   return (
-    <section
-      id="reviews"
-      className="relative py-[60px] bg-[#F8FAFC] overflow-hidden"
-    >
-      {/* Background glow accents */}
-      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full bg-blue-200/40 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-violet-200/30 blur-[100px]" />
+    <section id="reviews" className="relative py-12 sm:py-16 lg:py-20 overflow-hidden" style={{ background: sectionBg }}>
+
+      {/* Background blobs */}
+      <div className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-[#2E7D32]/10 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-0 right-1/4 w-[400px] h-[300px] rounded-full bg-[#D4AF37]/10 blur-[100px]" />
+
+      {/* Dot grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage: "radial-gradient(circle, #2E7D32 1px, transparent 1px)",
+          backgroundSize: "30px 30px",
+        }}
+      />
 
       {/* Section Header */}
-      <div className="mx-auto w-[90%] max-w-7xl text-center mb-16 relative z-10">
-        <div className="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-500 uppercase tracking-widest mb-5 shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mx-auto w-[90%] max-w-7xl text-center mb-8 sm:mb-14 relative z-10"
+      >
+        {/* Eyebrow */}
+        <div className="inline-flex items-center gap-2 bg-white border border-[#2E7D32]/25 rounded-full px-5 py-1.5 text-[11px] font-black uppercase tracking-widest text-[#2E7D32] mb-5 shadow-sm">
+          <Star className="w-3.5 h-3.5 fill-[#FFD54F] text-[#FFD54F]" />
           {t("Client Reviews", "Opiniones de Clientes")}
+          <Star className="w-3.5 h-3.5 fill-[#FFD54F] text-[#FFD54F]" />
         </div>
 
-        <h2 className="text-[40px] font-extrabold text-slate-900 tracking-tight leading-tight capitalize -mt-[5px] mb-[10px]">
-          {t("Trusted by ", "Con la confianza de ")}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600">
-            {t("hundreds", "cientos")}
-          </span>{" "}
-          {t("of customers", "de clientes")}
+        <h2 className="text-[22px] sm:text-[32px] lg:text-[40px] font-black text-slate-900 tracking-tight leading-tight mt-0 sm:mt-[-8px] mb-[10px]">
+          {t("What Our ", "Lo Que Dicen ")}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2E7D32] to-[#1B5E20]">
+            {t("Customers Say", "Nuestros Clientes")}
+          </span>
         </h2>
 
         <p className={cn(
-          "mx-auto max-w-xl text-[#000] text-sm sm:text-base leading-relaxed",
-          isGrid ? "mb-0" : "-mb-[35px]"
+          "mx-auto max-w-xl text-slate-500 text-[14px] sm:text-[15px] leading-relaxed font-medium",
+          isGrid ? "mb-0" : "mb-[-30px]"
         )}>
-          {t("Real experiences from real clients across Miami & South Florida. See why homeowners and businesses choose us every time.", "Experiencias reales de clientes reales en todo Miami y el sur de Florida. Vea por qué los propietarios e inquilinos nos eligen siempre.")}
+          {t("Real 5-star experiences from homeowners and businesses across Horn Lake, MS and a 50-mile radius.", "Experiencias reales de propietarios y empresas en Horn Lake, MS y un radio de 50 millas.")}
         </p>
-      </div>
+
+        {/* Aggregate trust row */}
+        {!isGrid && (
+          <div className="flex items-center justify-center gap-3 mt-6">
+            <div className="flex -space-x-2">
+              {["SM","JT","LR","CG","DK"].map((init, i) => (
+                <div
+                  key={i}
+                  className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-black text-[#FFD54F] shadow-md"
+                  style={{ backgroundColor: avatarColors[i % avatarColors.length], zIndex: 5 - i }}
+                >
+                  {init}
+                </div>
+              ))}
+            </div>
+            <div className="text-left">
+              <div className="flex items-center gap-1">
+                {[1,2,3,4,5].map(i => <Star key={i} className="w-3.5 h-3.5 fill-[#FFD54F] text-[#FFD54F]" />)}
+                <span className="text-[13px] font-black text-slate-900 ml-1">5.0</span>
+              </div>
+              <p className="text-[11px] text-slate-500 font-medium">{t("200+ verified reviews", "200+ reseñas verificadas")}</p>
+            </div>
+          </div>
+        )}
+      </motion.div>
 
       {/* Grid or Marquee View */}
       {isGrid ? (
-        <div className="mx-auto w-[90%] max-w-7xl relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        <div className="mx-auto w-[90%] max-w-7xl relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
           {reviews.map((review, idx) => (
-            <TestimonialCard key={idx} review={review} isGrid={true} />
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.06 }}
+            >
+              <TestimonialCard review={review} isGrid />
+            </motion.div>
           ))}
         </div>
       ) : (
-        <div className="relative z-10 flex flex-col gap-5">
-          <MarqueeRow items={row1} direction="left" />
-          <MarqueeRow items={row2} direction="right" />
+        <div className="relative z-10 flex flex-col gap-4">
+          <MarqueeRow items={row1} direction="left" bgColor={sectionBg} />
+          <MarqueeRow items={row2} direction="right" bgColor={sectionBg} />
         </div>
       )}
 
@@ -281,11 +323,11 @@ export function Testimonials({ isGrid = false }: { isGrid?: boolean }) {
           100% { transform: translateX(0); }
         }
         .marquee-track-left {
-          animation: marquee-left 30s linear infinite;
+          animation: marquee-left 38s linear infinite;
           width: max-content;
         }
         .marquee-track-right {
-          animation: marquee-right 30s linear infinite;
+          animation: marquee-right 38s linear infinite;
           width: max-content;
         }
       `}</style>

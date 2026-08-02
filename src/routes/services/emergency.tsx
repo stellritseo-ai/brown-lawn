@@ -139,10 +139,10 @@ function EmergencyPage() {
 
                 <div className="mt-6 space-y-3.5">
                   <a
-                    href="tel:+17863075933"
+                    href="tel:+16625711048"
                     className="flex items-center justify-center gap-2.5 rounded-full bg-primary text-primary-foreground px-4 py-4 text-base font-bold shadow-lg hover:bg-primary/95 transition btn-glow animate-pulse-glow"
                   >
-                    <Phone className="h-5 w-5" /> {t("Call Hotline: (786) 307-5933", "Llamar Línea Directa: (786) 307-5933")}
+                    <Phone className="h-5 w-5" /> {t("Call Hotline: (662) 571-1048", "Llamar Línea Directa: (662) 571-1048")}
                   </a>
                   <Button asChild variant="outline" size="lg" className="w-full">
                     <Link to="/contact">{t("Request Estimate", "Solicitar Presupuesto")}</Link>

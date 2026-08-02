@@ -8,10 +8,10 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Electrical Services | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Residential, commercial, industrial, EV chargers, generators, panel upgrades and emergency electrical services in Florida." },
-      { property: "og:title", content: "Electrical Services | R&E Electrical" },
-      { property: "og:description", content: "Full-spectrum electrical services across Florida." },
+      { title: "Our Services | Brown Lawn Care & Cleaning Service, LLC" },
+      { name: "description", content: "Lawn care, landscaping, tree removal, brush cutting, gravel driveways, and office/residential cleaning in Horn Lake, MS & 50-mile radius." },
+      { property: "og:title", content: "Our Services | Brown Lawn Care & Cleaning Service, LLC" },
+      { property: "og:description", content: "Full-service lawn care, landscaping, and cleaning in Horn Lake, MS." },
     ],
   }),
   component: ServicesIndex,
@@ -23,8 +23,8 @@ function ServicesIndex() {
     <>
       <PageHeader
         eyebrow={t("Services", "Servicios")}
-        title={t("Every wire. Every watt.", "Cada cable. Cada vatio.")}
-        subtitle={t("One licensed team for every electrical need — residential to industrial.", "Un equipo autorizado para cada necesidad eléctrica, desde residencial hasta industrial.")}
+        title={t("What We Do — From Your Lawn to Your Office.", "Lo Que Hacemos — Desde Su Césped Hasta Su Oficina.")}
+        subtitle={t("Licensed, insured, and bonded property care across Horn Lake and the 50-mile radius.", "Cuidado de propiedad licenciado y asegurado en Horn Lake y 50 millas a la redonda.")}
       />
       <Services />
       <Process />

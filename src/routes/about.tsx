@@ -17,13 +17,13 @@ function AboutPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://www.brownlawncarecleaning.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "About Us",
-        "item": "https://www.randeelectrical.com/about"
+        "item": "https://www.brownlawncarecleaning.com/about"
       }
     ]
   };
@@ -36,8 +36,8 @@ function AboutPage() {
       />
       <PageHeader
         eyebrow={t("About Us", "Sobre Nosotros")}
-        title={t("Built on craft. Powered by trust.", "Construido sobre mano de obra. Impulsado por la confianza.")}
-        subtitle={t("A family-owned team of master electricians serving Florida since 2009.", "Un equipo familiar de maestros electricistas que sirve a Florida desde 2009.")}
+        title={t("15 Years of Keeping Horn Lake Beautiful.", "15 Años Manteniendo Hermoso a Horn Lake.")}
+        subtitle={t("A family-owned, licensed, insured, and bonded team led by Roy Lee Brown.", "Un equipo familiar, licenciado y asegurado liderado por Roy Lee Brown.")}
       />
       <About />
       <WhyChooseUs />
@@ -50,13 +50,10 @@ function AboutPage() {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About R&E Electrical Contractor Corp | Florida Master Electricians" },
-      { name: "description", content: "Family-owned electrical contractors with 17+ years powering Florida homes and businesses safely and beautifully." },
-      { property: "og:title", content: "About R&E Electrical Contractor Corp" },
-      { property: "og:description", content: "Florida's trusted licensed electrical contractors." },
-    ],
-    links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/about" }
+      { title: "About Us | Brown Lawn Care & Cleaning Service, LLC" },
+      { name: "description", content: "Learn about Brown Lawn Care & Cleaning Service, LLC. Family-owned since 2009, serving Horn Lake and a 50-mile radius with lawn care, landscaping, tree removal, and commercial cleaning." },
+      { property: "og:title", content: "About Us | Brown Lawn Care & Cleaning Service, LLC" },
+      { property: "og:description", content: "Family-owned lawn care, landscaping, and cleaning services in Horn Lake, MS." },
     ],
   }),
   component: AboutPage,

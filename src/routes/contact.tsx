@@ -15,13 +15,13 @@ function ContactPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://www.brownlawncarecleaning.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Contact Us",
-        "item": "https://www.randeelectrical.com/contact"
+        "item": "https://www.brownlawncarecleaning.com/contact"
       }
     ]
   };
@@ -34,8 +34,8 @@ function ContactPage() {
       />
       <PageHeader
         eyebrow={t("Contact", "Contacto")}
-        title={t("Let's power your next project.", "Alimentemos su próximo proyecto.")}
-        subtitle={t("Free estimates within 24 hours — no pressure, fully transparent.", "Presupuestos gratuitos en 24 horas — sin presiones, totalmente transparentes.")}
+        title={t("Get Your Free, No-Obligation Quote.", "Obtenga Su Cotización Sin Compromiso.")}
+        subtitle={t("Tell us what you need — lawn care, landscaping, cleaning, tree removal, or gravel work — replies within 24 hours.", "Díganos lo que necesita — respuestas en 24 horas.")}
       />
       <Estimate />
       <Toaster />
@@ -46,13 +46,10 @@ function ContactPage() {
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Free Estimate & Contact | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Get a free, transparent electrical estimate from Florida's trusted licensed contractors. Call (786) 307-5933." },
-      { property: "og:title", content: "Contact R&E Electrical Contractor Corp" },
-      { property: "og:description", content: "Free electrical estimates within 24 hours." },
-    ],
-    links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/contact" }
+      { title: "Get a Free Quote | Brown Lawn Care & Cleaning Service, LLC" },
+      { name: "description", content: "Get a free, no-obligation quote from Brown Lawn Care & Cleaning Service, LLC. Call (662) 571-1048 or submit our online form." },
+      { property: "og:title", content: "Contact Brown Lawn Care & Cleaning Service, LLC" },
+      { property: "og:description", content: "Free lawn care, landscaping, and cleaning estimates within 24 hours." },
     ],
   }),
   component: ContactPage,

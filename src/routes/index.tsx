@@ -12,21 +12,16 @@ import { ServiceArea } from "@/components/site/ServiceArea";
 import { GetInTouch } from "@/components/site/GetInTouch";
 import { Process } from "@/components/site/Process";
 import { EmergencyCTA } from "@/components/site/EmergencyCTA";
-// import { Estimate } from "@/components/site/Estimate";
-// import { CTASection } from "@/components/site/CTASection";
 import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Licensed Electrician Miami & South Florida | R&E Electrical" },
-      { name: "description", content: "Need a reliable electrician in Miami or South Florida? R&E Electrical Contractor Corp is licensed & insured. Call (786) 307-5933 for 24/7 emergency service, commercial wiring, panel upgrades, and EV charger installs." },
-      { name: "keywords", content: "miami electrician, emergency electrician miami, residential electrician broward, commercial electrician south florida, panel upgrade miami, ev charger install miami, generator services florida" },
-      { property: "og:title", content: "Licensed Electrician Miami & South Florida | R&E Electrical" },
-      { property: "og:description", content: "R&E Electrical Contractor Corp: 24/7 electrical repairs, commercial projects, panel upgrades, and Level 2 EV charging setup in Florida." },
-    ],
-    links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/" }
+      { title: "Brown Lawn Care & Cleaning Service, LLC | Horn Lake, MS" },
+      { name: "description", content: "Family-owned lawn care, landscaping, tree removal, gravel driveway repair, and commercial/residential cleaning in Horn Lake, MS & 50-mile radius. Call (662) 571-1048." },
+      { name: "keywords", content: "lawn care horn lake, landscaping horn lake ms, office cleaning southhaven, tree removal olive branch, gravel driveway repair memphis, residential cleaning horn lake" },
+      { property: "og:title", content: "Brown Lawn Care & Cleaning Service, LLC | Horn Lake, MS" },
+      { property: "og:description", content: "Licensed, insured & bonded family business with 15+ years experience. Serving a 50-mile radius with 24/7 emergency dispatch." },
     ],
   }),
   component: Index,
@@ -35,37 +30,35 @@ export const Route = createFileRoute("/")({
 function Index() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Electrician",
-    "name": "R&E Electrical Contractor Corp",
-    "image": "https://www.randeelectrical.com/assets/logo.png",
-    "@id": "https://www.randeelectrical.com/#organization",
-    "url": "https://www.randeelectrical.com",
-    "telephone": "+17863075933",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Brown Lawn Care & Cleaning Service, LLC",
+    "image": "https://www.brownlawncarecleaning.com/assets/logo.png",
+    "@id": "https://www.brownlawncarecleaning.com/#organization",
+    "url": "https://www.brownlawncarecleaning.com",
+    "telephone": "+16625711048",
+    "email": "royleebrown@ymail.com",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Serving Miami-Dade and Broward Counties",
-      "addressLocality": "Miami",
-      "addressRegion": "FL",
-      "postalCode": "33101",
+      "streetAddress": "Alden Lake Dr W",
+      "addressLocality": "Horn Lake",
+      "addressRegion": "MS",
+      "postalCode": "38637",
       "addressCountry": "US"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "25.7617",
-      "longitude": "-80.1918"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-      ],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    "sameAs": [
-      "https://www.facebook.com/electricalcontractorcrop",
-      "https://www.instagram.com/randeelectricalcontractorcrop/"
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "10:00",
+        "closes": "19:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "15:00",
+        "closes": "20:00"
+      }
     ]
   };
 
@@ -76,7 +69,7 @@ function Index() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <Hero />
-      <TrustBar />
+      {/* <TrustBar /> */}
       <Welcome />
       <Services />
       <EmergencyCTA />
@@ -87,9 +80,7 @@ function Index() {
       <ContactIllustrationSection />
       <ServiceArea />
       <GetInTouch />
-      {/* <Estimate /> */}
-      {/* <CTASection /> */}
-      <Toaster />
+      {/* <Toaster /> */}
     </SiteLayout>
   );
 }

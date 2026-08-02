@@ -15,13 +15,13 @@ function ProjectsPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://www.brownlawncarecleaning.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Projects",
-        "item": "https://www.randeelectrical.com/projects"
+        "name": "Gallery",
+        "item": "https://www.brownlawncarecleaning.com/projects"
       }
     ]
   };
@@ -33,9 +33,9 @@ function ProjectsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <PageHeader
-        eyebrow={t("Projects", "Proyectos")}
-        title={t("Work we're proud of.", "Trabajo del cual estamos orgullosos.")}
-        subtitle={t("A snapshot of recent installations from the R&E Electrical crew.", "Una muestra de las instalaciones recientes del equipo de R&E Electrical.")}
+        eyebrow={t("Gallery", "Galería")}
+        title={t("See Our Work — Before & After.", "Vea Nuestro Trabajo — Antes y Después.")}
+        subtitle={t("Every project tells a story. Browse our gallery to see the Brown difference.", "Cada proyecto cuenta una historia. Explore nuestra galería para ver la diferencia de Brown.")}
       />
       <Projects />
       <EmergencyCTA />
@@ -46,13 +46,10 @@ function ProjectsPage() {
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Featured Projects | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Recent residential, commercial, and industrial electrical projects across Florida." },
-      { property: "og:title", content: "Featured Projects | R&E Electrical Contractor Corp" },
-      { property: "og:description", content: "Hand-picked recent electrical installations." },
-    ],
-    links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/projects" }
+      { title: "Work Gallery | Brown Lawn Care & Cleaning Service, LLC" },
+      { name: "description", content: "Before & after gallery of lawn care, landscaping, tree removal, gravel driveways, and cleaning projects by Brown Lawn Care & Cleaning Service." },
+      { property: "og:title", content: "Work Gallery | Brown Lawn Care & Cleaning Service, LLC" },
+      { property: "og:description", content: "Browse our gallery of lawn care and cleaning work in Horn Lake, MS." },
     ],
   }),
   component: ProjectsPage,

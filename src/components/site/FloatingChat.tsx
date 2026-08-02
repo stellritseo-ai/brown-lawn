@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { MessageCircle, X, Send, Phone, Calendar, CheckCircle2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "@tanstack/react-router";
 import { io } from "socket.io-client";
 import { createChatSession, sendChatMessage, getChatSessionById, ChatMessage } from "@/lib/leads-store";
 import { toast } from "sonner";
-import favIcon from "@/assets/fav.png";
+import logoImg from "@/assets/logo.png";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export function FloatingChat() {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [name, setName] = useState("");
@@ -20,8 +21,8 @@ export function FloatingChat() {
 
   // 1. Retrieve localStorage session on mount
   useEffect(() => {
-    const storedId = localStorage.getItem("electrical-chat-session-id");
-    const storedName = localStorage.getItem("electrical-chat-client-name");
+    const storedId = localStorage.getItem("brown-chat-session-id");
+    const storedName = localStorage.getItem("brown-chat-client-name");
     if (storedId) {
       setSessionId(storedId);
       if (storedName) setName(storedName);
@@ -52,7 +53,6 @@ export function FloatingChat() {
     // Listen for incoming messages
     socket.on("message", (msg: ChatMessage) => {
       setMessages((prev) => {
-        // Prevent duplicate appending
         if (prev.some((m) => m.id === msg.id)) return prev;
         return [...prev, msg];
       });
@@ -83,26 +83,22 @@ export function FloatingChat() {
     setIsSubmitting(true);
 
     try {
-      // Create session in the database if this is the first message
       if (!activeId) {
-        const session = await createChatSession(clientName, "Miami", "", "");
+        const session = await createChatSession(clientName, "Horn Lake", "", "");
         activeId = session.id;
         setSessionId(activeId);
         setName(clientName);
-        localStorage.setItem("electrical-chat-session-id", activeId);
-        localStorage.setItem("electrical-chat-client-name", clientName);
+        localStorage.setItem("brown-chat-session-id", activeId);
+        localStorage.setItem("brown-chat-client-name", clientName);
 
-        // Notify socket connection that session was created
         const tempSocket = socketRef.current || io();
         tempSocket.emit("session-created", { sessionId: activeId, clientName });
       }
 
-      // Save message to MongoDB
       const updatedSession = await sendChatMessage(activeId, "client", message.trim());
       if (updatedSession) {
         const lastMsg = updatedSession.messages[updatedSession.messages.length - 1];
 
-        // Broadcast message to Socket.io so the admin panel updates instantly
         if (socketRef.current) {
           socketRef.current.emit("send-message", {
             ...lastMsg,
@@ -122,8 +118,8 @@ export function FloatingChat() {
   };
 
   const handleClearChat = () => {
-    localStorage.removeItem("electrical-chat-session-id");
-    localStorage.removeItem("electrical-chat-client-name");
+    localStorage.removeItem("brown-chat-session-id");
+    localStorage.removeItem("brown-chat-client-name");
     setSessionId(null);
     setName("");
     setMessages([]);
@@ -139,20 +135,20 @@ export function FloatingChat() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="pointer-events-auto mb-4 w-[290px] sm:w-[350px] bg-white border border-slate-100 rounded-3xl shadow-[0_20px_50px_-12px_rgba(15,23,42,0.15)] overflow-hidden flex flex-col"
+            className="pointer-events-auto mb-4 w-[290px] sm:w-[350px] bg-white border border-slate-200 rounded-3xl shadow-[0_20px_50px_-12px_rgba(15,23,42,0.25)] overflow-hidden flex flex-col"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-[#0F172A] to-[#1E293B] p-4 text-white flex justify-between items-center">
+            <div className="bg-gradient-to-r from-[#111111] via-[#1B5E20] to-[#2E7D32] p-4 text-white flex justify-between items-center border-b border-[#D4AF37]/40">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center select-none overflow-hidden p-1 border border-slate-100">
-                    <img src={favIcon} alt="R&E Logo" className="w-full h-full object-contain" />
+                  <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center select-none overflow-hidden p-1 border-2 border-[#D4AF37] shadow-md">
+                    <img src={logoImg} alt="Brown Lawn Care Logo" className="w-full h-full object-contain" />
                   </div>
-                  <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-emerald-500 border-2 border-[#0F172A] animate-pulse" />
+                  <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full bg-[#FFD54F] border-2 border-[#111111] animate-pulse" />
                 </div>
                 <div className="flex flex-col text-left">
-                  <span className="font-extrabold text-sm tracking-wide">R&E Assistant</span>
-                  <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">Online · Dispatch Active</span>
+                  <span className="font-extrabold text-sm tracking-wide text-white">Brown Support</span>
+                  <span className="text-[10px] text-[#FFD54F] font-bold uppercase tracking-wider">Online · Horn Lake 50-Mile Dispatch</span>
                 </div>
               </div>
               <div className="flex items-center gap-1.5">
@@ -160,7 +156,7 @@ export function FloatingChat() {
                   <button
                     onClick={handleClearChat}
                     title="Clear Chat History"
-                    className="text-white/60 hover:text-white transition text-[10px] bg-white/10 px-2 py-1 rounded cursor-pointer font-bold uppercase tracking-wider"
+                    className="text-white/70 hover:text-white transition text-[10px] bg-white/10 px-2 py-1 rounded cursor-pointer font-bold uppercase tracking-wider"
                   >
                     Reset
                   </button>
@@ -178,12 +174,15 @@ export function FloatingChat() {
             <div className="flex-1 p-4 h-[260px] overflow-y-auto bg-slate-50/50 flex flex-col gap-3">
               {/* Default Welcome Message */}
               <div className="flex gap-2.5 items-start">
-                <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center select-none shrink-0 overflow-hidden p-0.5 border border-slate-100">
-                  <img src={favIcon} alt="R&E Logo" className="w-full h-full object-contain" />
+                <div className="w-7 h-7 rounded-xl bg-white flex items-center justify-center select-none shrink-0 overflow-hidden p-0.5 border border-[#D4AF37]/50 shadow-sm">
+                  <img src={logoImg} alt="Brown Logo" className="w-full h-full object-contain" />
                 </div>
-                <div className="bg-white border border-slate-100 rounded-2xl rounded-tl-none p-3 shadow-sm text-left max-w-[80%]">
+                <div className="bg-white border border-slate-200/80 rounded-2xl rounded-tl-none p-3 shadow-sm text-left max-w-[82%]">
                   <p className="text-xs text-slate-800 font-semibold leading-relaxed">
-                    Hi! Thanks for visiting R&E Electrical Contractor Corp. We serve the entire state of Florida. How can we help you today?
+                    {t(
+                      "Hi! Welcome to Brown Lawn Care & Cleaning Service. We serve Horn Lake, MS and a 50-mile radius. How can we help you today?",
+                      "¡Hola! Bienvenido a Brown Lawn Care & Cleaning Service. Servimos en Horn Lake, MS y 50 millas a la redonda. ¿En qué podemos ayudarle hoy?"
+                    )}
                   </p>
                 </div>
               </div>
@@ -197,19 +196,19 @@ export function FloatingChat() {
                     className={`flex gap-2.5 items-start ${isAdmin ? "" : "flex-row-reverse"}`}
                   >
                     {isAdmin ? (
-                      <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center select-none shrink-0 overflow-hidden p-0.5 border border-slate-100">
-                        <img src={favIcon} alt="R&E Logo" className="w-full h-full object-contain" />
+                      <div className="w-7 h-7 rounded-xl bg-white flex items-center justify-center select-none shrink-0 overflow-hidden p-0.5 border border-[#D4AF37]/50 shadow-sm">
+                        <img src={logoImg} alt="Brown Logo" className="w-full h-full object-contain" />
                       </div>
                     ) : (
-                      <div className="w-7 h-7 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center select-none shrink-0 text-[10px] font-bold text-slate-700 capitalize">
+                      <div className="w-7 h-7 rounded-full bg-[#2E7D32] border border-[#D4AF37]/50 flex items-center justify-center select-none shrink-0 text-[10px] font-black text-[#FFD54F] capitalize">
                         {name.charAt(0) || "V"}
                       </div>
                     )}
                     <div
                       className={`rounded-2xl p-3 shadow-sm text-left max-w-[80%] border ${
                         isAdmin
-                          ? "bg-white border-slate-100 text-slate-800 rounded-tl-none"
-                          : "bg-[#FF6B00] text-white border-[#FF6B00] rounded-tr-none"
+                          ? "bg-white border-slate-200 text-slate-800 rounded-tl-none"
+                          : "bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-white border-[#2E7D32] rounded-tr-none"
                       }`}
                     >
                       <p className="text-xs font-semibold leading-relaxed whitespace-pre-wrap">{msg.text}</p>
@@ -225,21 +224,15 @@ export function FloatingChat() {
               {!sessionId && (
                 <>
                   <div className="text-[10px] font-black uppercase text-slate-400 tracking-wider text-left pl-1">
-                    Quick Actions
+                    Direct Contact
                   </div>
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 gap-2">
                     <a
-                      href="tel:+17863075933"
-                      className="flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 border border-slate-200/80 hover:border-[#FF6B00]/30 rounded-xl py-2 px-1 text-[10px] sm:text-xs font-bold text-slate-700 transition"
+                      href="tel:6625711048"
+                      className="flex items-center justify-center gap-2 bg-[#2E7D32]/10 hover:bg-[#2E7D32]/20 border border-[#2E7D32]/30 rounded-xl py-2 px-2 text-xs font-extrabold text-[#2E7D32] transition"
                     >
-                      <Phone className="h-3.5 w-3.5 text-[#FF6B00] shrink-0" /> Call 24/7 Support
+                      <Phone className="h-3.5 w-3.5 text-[#2E7D32] shrink-0" /> Call (662) 571-1048
                     </a>
-                    <Link
-                      to="/contact"
-                      className="flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 border border-slate-200/80 hover:border-[#FF6B00]/30 rounded-xl py-2 px-1 text-[10px] sm:text-xs font-bold text-slate-700 transition"
-                    >
-                      <Calendar className="h-3.5 w-3.5 text-[#FF6B00] shrink-0" /> Free Estimate
-                    </Link>
                   </div>
                 </>
               )}
@@ -252,7 +245,7 @@ export function FloatingChat() {
                     placeholder="Your Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/10 focus:border-[#FF6B00] transition"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20 focus:border-[#2E7D32] transition"
                   />
                 )}
                 <div className="relative flex items-center">
@@ -262,12 +255,12 @@ export function FloatingChat() {
                     placeholder="Type a message..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50/50 pl-3 pr-10 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/10 focus:border-[#FF6B00] transition"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50/50 pl-3 pr-10 py-2 text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#2E7D32]/20 focus:border-[#2E7D32] transition"
                   />
                   <button
                     type="submit"
                     disabled={isSubmitting || !message.trim() || (!sessionId && !name.trim())}
-                    className="absolute right-1.5 p-1.5 rounded-lg text-white bg-[#FF6B00] hover:bg-[#E05E00] transition disabled:opacity-50 disabled:hover:bg-[#FF6B00] cursor-pointer"
+                    className="absolute right-1.5 p-1.5 rounded-lg text-[#FFD54F] bg-[#2E7D32] hover:bg-[#1B5E20] transition disabled:opacity-50 cursor-pointer shadow-sm"
                   >
                     <Send className="h-3 w-3" />
                   </button>
@@ -278,21 +271,20 @@ export function FloatingChat() {
         )}
       </AnimatePresence>
 
-      {/* Floating Button */}
+      {/* Floating Trigger Button displaying the logo */}
       <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-        className="pointer-events-auto relative h-12 w-12 sm:h-14 sm:w-14 rounded-full bg-gradient-to-r from-[#FF6B00] to-[#E05E00] text-white flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 focus:outline-none select-none cursor-pointer overflow-hidden p-0 border-0"
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.94 }}
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Open Chat"
+        className="pointer-events-auto relative h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-gradient-to-br from-[#2E7D32] via-[#1B5E20] to-[#111111] text-white flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 focus:outline-none select-none cursor-pointer overflow-hidden p-1 border-2 border-[#D4AF37]"
       >
-        <span className="absolute inset-0 rounded-full bg-[#FF6B00] opacity-35 animate-ping -z-10" />
+        <span className="absolute inset-0 rounded-full bg-[#2E7D32] opacity-40 animate-ping -z-10" />
         {isOpen ? (
-          <X className="h-6 w-6 sm:h-7 sm:w-7" />
+          <X className="h-7 w-7 text-[#FFD54F]" />
         ) : (
-          <div className="h-10 w-10 sm:h-12 sm:w-12 bg-white rounded-full flex items-center justify-center p-1.5 shadow-inner">
-            <img src={favIcon} alt="Chat Logo" className="w-full h-full object-contain" />
+          <div className="h-full w-full bg-white rounded-full flex items-center justify-center p-1.5 shadow-inner">
+            <img src={logoImg} alt="Brown Lawn Care Logo" className="w-full h-full object-contain" />
           </div>
         )}
       </motion.button>

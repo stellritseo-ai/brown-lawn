@@ -1,139 +1,136 @@
-import { ArrowRight } from "lucide-react";
-import { Link } from "@tanstack/react-router";
+import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Star } from "lucide-react";
 import welcomeImg from "@/assets/welcome-img.png";
-import topIcon from "@/assets/topicon.png";
-import bottomIcon from "@/assets/buttomicon.png";
-import { Counter } from "./Counter";
+import welcomeVideo from "@/assets/welcome.mp4";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
 
-const TinyLightningIcon = () => (
-  <svg className="w-3.5 h-3.5 text-[#FF6B00] fill-[#FF6B00] shrink-0" viewBox="0 0 24 24">
-    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-  </svg>
-);
-
-const PointingHandIcon = () => (
-  <svg className="w-5 h-5 text-[#FF6B00] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 10h4v8H3z" />
-    <path d="M7 10c0-1.5 1.5-2 2.5-2s1.5 1.5 1.5 2.5V12" />
-    <path d="M11 10h10a1.5 1.5 0 0 1 0 3H11" />
-    <path d="M11 13h8a1.5 1.5 0 0 1 0 3H11" />
-    <path d="M11 16h6a1.5 1.5 0 0 1 0 3H11" />
+const TinySparkleIcon = () => (
+  <svg className="w-3.5 h-3.5 text-[#2E7D32] fill-[#2E7D32] shrink-0" viewBox="0 0 24 24">
+    <path d="M12 2l2.4 7.2L21.6 12l-7.2 2.4L12 21.6l-2.4-7.2L2.4 12l7.2-2.4z" />
   </svg>
 );
 
 export function Welcome() {
   const { t } = useLanguage();
 
-  const checklistPoints = [
-    t("New construction and residential remodeling", "Construcción nueva y remodelación residencial"),
-    t("New construction and commercial remodeling such as buildings", "Construcción nueva y remodelación comercial como edificios"),
-    t("Restaurants, offices, shopping centers, hotels, clinics (with electrical permits)", "Restaurantes, oficinas, centros comerciales, hoteles, clínicas (con permisos eléctricos)"),
-    t("Service Area: Entire state of Florida", "Área de Servicio: Todo el estado de Florida"),
+  const promisePoints = [
+    t("Show up on time — Reliable, punctual, and professional.", "Llegar a tiempo — Confiable, puntual y profesional."),
+    t("Do the job right — Over 15 years of proven craftsmanship.", "Hacer el trabajo bien — Más de 15 años de experiencia."),
+    t("Leave your property looking better than we found it.", "Dejar su propiedad luciendo mejor de como la encontramos."),
+    t("Bilingual Service: English & Español", "Servicio Bilingüe: Inglés y Español"),
   ];
 
   return (
-    <section id="welcome" className="bg-white overflow-hidden py-[60px] border-b border-gray-100">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+    <section id="welcome" className="bg-white overflow-hidden py-12 sm:py-16 lg:py-24 border-b border-slate-100 relative">
+      {/* Ambient background decoration */}
+      <div className="absolute top-0 right-1/3 w-96 h-96 rounded-full bg-[#2E7D32]/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-96 h-96 rounded-full bg-[#D4AF37]/5 blur-3xl pointer-events-none" />
 
-        {/* Main layout: stack on mobile, 3-col on desktop */}
-        <div className="grid gap-10 lg:grid-cols-[1.5fr_0.7fr_0.7fr] lg:gap-5 items-center">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full relative z-10">
+
+        {/* Premium 2-Column Grid: Copy Left (7 cols), Visual Right (5 cols) */}
+        <div className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:gap-16 items-center">
 
           {/* Left Column: Copy & Checklist */}
-          <div className="animate-fade-up flex flex-col items-start text-left">
-            <div className="flex items-center gap-1 text-[11px] font-black uppercase tracking-widest text-[#0F172A]">
-              <TinyLightningIcon /> {t("About Us", "Sobre Nosotros")} <TinyLightningIcon />
+          <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
+
+            {/* Eyebrow Badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-[#2E7D32]/10 border border-[#2E7D32]/30 px-4 py-1.5 text-xs font-black uppercase tracking-widest text-[#2E7D32] shadow-xs">
+              <TinySparkleIcon /> {t("Welcome", "Nota de Bienvenida")} <TinySparkleIcon />
             </div>
-            <h2 className="mt-4 font-display text-[26px] sm:text-[30px] lg:text-[33px] leading-[1.35] font-extrabold text-[#0F172A]">
-              {t("Best Electrical Company In", "La Mejor Compañía Eléctrica en")}<br className="hidden md:inline" /> {t("Miami. Residential & Commercial ", "Miami. Servicio Residencial y Comercial ")}
-              <span className="text-[#FF6B00]">{t("Electrical", "Eléctrico")}</span> {t("Service", " ")}
+
+            {/* Main Headline */}
+            <h2 className="font-display text-[22px] sm:text-[26px] lg:text-[29px] mt-0 sm:mt-[-11px] mb-3 sm:mb-[14px] font-extrabold leading-tight text-[#111111] tracking-tight">
+              {t("Welcome to Brown Lawn Care & Cleaning Service, LLC — ", "Bienvenido a Brown Lawn Care & Cleaning Service, LLC — ")}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2E7D32] to-[#1B5E20]">
+                {t("Where Quality Meets Community.", "Donde la Calidad Encuentra la Comunidad.")}
+              </span>
             </h2>
-            <p className="font-medium text-black mt-[13px] mb-[-15px] text-[14px] sm:text-[15px] leading-relaxed sm:leading-[32px]">
-              {t("We have been offering a wide range of electrical services to residential, commercial and industrial customers across Miami, FL and its surrounding areas since 2009. We provide a high quality service no matter the size of the project.", "Hemos estado ofreciendo una amplia gama de servicios eléctricos a clientes residenciales, comerciales e industriales en Miami, FL y sus áreas circundantes desde 2009. Brindamos un servicio de alta calidad sin importar el tamaño del proyecto.")}
-            </p>
 
-            <ul className="mt-6 space-y-4">
-              {checklistPoints.map((point) => (
-                <li key={point} className="flex items-start gap-3.5 text-slate-800 font-bold text-sm leading-snug">
-                  <PointingHandIcon />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
+            {/* Paragraphs */}
+            <div className="space-y-3 text-slate-600 text-[13.5px] sm:text-base leading-relaxed font-medium">
+              <p>
+                {t("For over 15 years, Roy Lee Brown and our family-owned team have been the trusted name for lawn care, landscaping, and cleaning services across Horn Lake and the surrounding 50-mile radius. We believe your property — whether commercial or residential — deserves the same care and attention we give our own.", "Durante más de 15 años, Roy Lee Brown y nuestro equipo familiar han sido el nombre de confianza para el cuidado de césped, paisajismo y limpieza en Horn Lake y 50 millas a la redonda.")}
+              </p>
+              <p>
+                {t("From restoring overgrown landscapes and repairing gravel driveways to deep-cleaning office spaces and warehouses, we bring professionalism, pride, and a personal touch to every job. We're licensed, insured, and bonded, so you can have peace of mind knowing your property is in good hands.", "Desde la restauración de jardines hasta la limpieza profunda de oficinas y almacenes, traemos profesionalismo a cada trabajo.")}
+              </p>
+            </div>
 
-            <Button asChild variant="hero" size="lg" className="mt-8 font-extrabold rounded-full px-8 bg-[#FF6B00] hover:bg-[#E05E00] shadow-[0_10px_25px_-5px_rgba(255,107,0,0.4)]">
-              <Link to="/about">
-                {t("Read More", "Leer Más")} <span className="ml-1 text-sm font-black">≫</span>
-              </Link>
-            </Button>
+            {/* Spanish Language Banner */}
+            <div className="w-full bg-gradient-to-r from-[#2E7D32]/10 via-[#2E7D32]/5 to-transparent border-l-4 border-[#2E7D32] p-4 rounded-r-2xl text-xs sm:text-sm font-bold text-[#1B5E20] flex items-center gap-3">
+              <span className="text-lg">🇲🇽</span>
+              <span>{t("Do you speak Spanish? Yes, we speak Spanish! Ask us about any of our services in Spanish or English.", "¿Hablas español? ¡Sí, hablamos español! Pregúntenos sobre nuestros servicios en español.")}</span>
+            </div>
+
+            {/* Promise Points List */}
+            <div className="w-full pt-1">
+              <ul className="grid gap-3 sm:grid-cols-2">
+                {promisePoints.map((point) => (
+                  <li key={point} className="flex items-start gap-3 text-slate-800 font-bold text-xs sm:text-sm leading-snug">
+                    <CheckCircle2 className="h-5 w-5 text-[#2E7D32] shrink-0 mt-0.5" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA Button */}
+            <div className="pt-2">
+              <Button variant="hero" size="xl" className="font-extrabold rounded-full px-8 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/50 shadow-md">
+                {t("Read More About Us", "Leer Más Sobre Nosotros")} <ArrowRight className="ml-2 h-4 w-4 text-[#FFD54F]" />
+              </Button>
+            </div>
+
           </div>
 
-          {/* Middle Column: Lightning Bolt Image – hidden on mobile/tablet */}
-          <div
-            className="group relative hidden lg:flex justify-center items-center h-[560px] w-full shrink-0 lg:translate-x-[80px] transition-all duration-700 ease-out hover:scale-105 filter drop-shadow-[0_20px_30px_rgba(15,23,42,0.18)] hover:drop-shadow-[0_30px_50px_rgba(255,107,0,0.25)]"
-          >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#FF6B00]/10 blur-3xl -z-10 animate-pulse transition-all duration-1000 ease-out group-hover:scale-125 group-hover:bg-[#FF6B00]/20" />
-            <img
-              src={welcomeImg}
-              alt="Professional electrician working on breaker panel board"
-              className="w-full h-full object-contain object-center animate-welcome-float transition-all duration-700 ease-out group-hover:brightness-105"
-            />
-          </div>
+          {/* Right Column: Premium Visual Video Container */}
+          <div className="lg:col-span-5 relative w-full flex justify-center items-center max-w-sm sm:max-w-md mx-auto lg:max-w-none">
 
-          {/* Right Column: Statistics – horizontal row on mobile, vertical column on desktop */}
-          <div className="animate-fade-up grid grid-cols-3 gap-4 lg:flex lg:flex-col lg:gap-12 text-left lg:justify-self-end w-full lg:w-fit">
-            {/* Stat 1 */}
-            <div className="flex flex-col lg:flex-row items-start gap-2 lg:gap-4">
-              <div className="w-10 h-10 lg:w-14 lg:h-14 shrink-0 flex items-center justify-center">
-                <img src={topIcon} alt="Successful Projects Icon" className="w-10 h-10 lg:w-14 lg:h-14 object-contain" />
+            {/* Soft Ambient Glow backdrop */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] rounded-full bg-[#2E7D32]/10 blur-3xl -z-10 animate-pulse" />
+
+            <div className="relative w-full max-w-[360px] sm:max-w-[460px] aspect-square lg:aspect-[4/5] rounded-[24px] sm:rounded-[32px] border border-slate-200/80 bg-gradient-to-b from-white to-[#F7F7F7] p-2 sm:p-3 lg:p-4 shadow-xl overflow-hidden group">
+
+              {/* Card glowing edge overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#2E7D32]/0 via-[#2E7D32]/0 to-[#D4AF37]/15 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-10" />
+
+              {/* Video Element */}
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster={welcomeImg}
+                className="w-full h-full object-cover rounded-[24px] select-none transition-transform duration-700 group-hover:scale-105"
+              >
+                <source src={welcomeVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
+              {/* Top Floating Glass Badge */}
+              <div className="absolute top-5 left-5 z-20 flex items-center gap-2 bg-white/90 backdrop-blur-md border border-[#D4AF37]/40 px-3.5 py-2 rounded-2xl shadow-md select-none">
+                <ShieldCheck className="h-4 w-4 text-[#2E7D32]" />
+                <div className="flex flex-col text-left">
+                  <span className="text-[10px] font-black uppercase text-[#111111]">Licensed &amp; Insured</span>
+                  <span className="text-[9px] font-bold text-slate-500">100% Bonded Protection</span>
+                </div>
               </div>
-              <div className="flex flex-col text-left">
-                <span className="font-display text-3xl lg:text-5xl font-black text-[#0F172A] leading-none">
-                  <Counter end={600} suffix="+" />
-                </span>
-                <span className="text-xs lg:text-sm font-extrabold text-[#0F172A] tracking-tight leading-tight mt-1.5 lg:mt-2.5">
-                  {t("Successful Projects", "Proyectos Exitosos")}
-                </span>
-                <span className="text-[10px] lg:text-[11px] font-semibold text-gray-400 mt-0.5 lg:mt-1">
-                  {t("Amazing Project Done", "Proyectos Realizados")}
-                </span>
+
+              {/* Bottom Floating Glass Badge */}
+              <div className="absolute bottom-5 right-5 z-20 flex items-center gap-2 bg-[#111111]/90 backdrop-blur-md border border-[#D4AF37]/50 text-white px-4 py-2.5 rounded-2xl shadow-lg select-none">
+                <div className="flex text-[#FFD54F]">
+                  <Star className="h-3.5 w-3.5 fill-current" />
+                  <Star className="h-3.5 w-3.5 fill-current" />
+                  <Star className="h-3.5 w-3.5 fill-current" />
+                  <Star className="h-3.5 w-3.5 fill-current" />
+                  <Star className="h-3.5 w-3.5 fill-current" />
+                </div>
+                <span className="text-xs font-black text-[#FFD54F]">Since 2009</span>
               </div>
+
             </div>
 
-            {/* Stat 2 */}
-            <div className="flex flex-col lg:flex-row items-start gap-2 lg:gap-4">
-              <div className="w-10 h-10 lg:w-14 lg:h-14 shrink-0" />
-              <div className="flex flex-col text-left">
-                <span className="font-display text-3xl lg:text-5xl font-black text-[#0F172A] leading-none">
-                  <Counter end={17} suffix="+" />
-                </span>
-                <span className="text-xs lg:text-sm font-extrabold text-[#0F172A] tracking-tight leading-tight mt-1.5 lg:mt-2.5">
-                  {t("Years Of Experience", "Años de Experiencia")}
-                </span>
-                <span className="text-[10px] lg:text-[11px] font-semibold text-gray-400 mt-0.5 lg:mt-1">
-                  {t("Quality Electrical Services", "Servicios de Calidad")}
-                </span>
-              </div>
-            </div>
-
-            {/* Stat 3 */}
-            <div className="flex flex-col lg:flex-row items-start gap-2 lg:gap-4">
-              <div className="w-10 h-10 lg:w-14 lg:h-14 shrink-0 flex items-center justify-center">
-                <img src={bottomIcon} alt="Experienced Staff Icon" className="w-10 h-10 lg:w-14 lg:h-14 object-contain" />
-              </div>
-              <div className="flex flex-col text-left">
-                <span className="font-display text-3xl lg:text-5xl font-black text-[#0F172A] leading-none">
-                  <Counter end={50} suffix="+" />
-                </span>
-                <span className="text-xs lg:text-sm font-extrabold text-[#0F172A] tracking-tight leading-tight mt-1.5 lg:mt-2.5">
-                  {t("Experienced Staff", "Personal Experto")}
-                </span>
-                <span className="text-[10px] lg:text-[11px] font-semibold text-gray-400 mt-0.5 lg:mt-1">
-                  {t("Expert Electrician", "Electricistas Expertos")}
-                </span>
-              </div>
-            </div>
           </div>
 
         </div>

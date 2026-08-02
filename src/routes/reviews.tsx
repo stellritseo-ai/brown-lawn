@@ -15,13 +15,13 @@ function ReviewsPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://www.brownlawncarecleaning.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Reviews",
-        "item": "https://www.randeelectrical.com/reviews"
+        "name": "Testimonials",
+        "item": "https://www.brownlawncarecleaning.com/reviews"
       }
     ]
   };
@@ -33,9 +33,9 @@ function ReviewsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <PageHeader
-        eyebrow={t("Reviews", "Opiniones")}
-        title={t("Trusted by 300+ homes & businesses.", "Con la confianza de más de 300 hogares y empresas.")}
-        subtitle={t("See what our customers say about the R&E Electrical Contractor Corp experience.", "Vea lo que dicen nuestros clientes sobre la experiencia con R&E Electrical Contractor Corp.")}
+        eyebrow={t("Testimonials", "Testimonios")}
+        title={t("What Our Customers Say", "Lo Que Dicen Nuestros Clientes")}
+        subtitle={t("Real experiences from homeowners and businesses across Horn Lake, MS & 50-mile radius.", "Experiencias reales de propietarios y empresas en Horn Lake, MS y 50 millas a la redonda.")}
       />
       <Testimonials isGrid={true} />
       <EmergencyCTA />
@@ -46,13 +46,10 @@ function ReviewsPage() {
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
-      { title: "Customer Reviews | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Read 300+ five-star reviews from R&E Electrical Contractor Corp's residential and commercial electrical clients." },
-      { property: "og:title", content: "Customer Reviews | R&E Electrical Contractor Corp" },
-      { property: "og:description", content: "4.9 average rating from 300+ customers." },
-    ],
-    links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/reviews" }
+      { title: "Customer Reviews | Brown Lawn Care & Cleaning Service, LLC" },
+      { name: "description", content: "Read customer reviews for Brown Lawn Care & Cleaning Service, LLC. Trusted lawn care, landscaping, tree removal, and office cleaning." },
+      { property: "og:title", content: "Customer Reviews | Brown Lawn Care & Cleaning Service, LLC" },
+      { property: "og:description", content: "5-star customer reviews from Horn Lake, Southaven, Olive Branch, and Memphis." },
     ],
   }),
   component: ReviewsPage,

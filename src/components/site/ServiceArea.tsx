@@ -1,50 +1,93 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPin, Phone, ArrowRight, Navigation, CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const areasData = [
-  { name: "Miami", x: "55%", y: "50%", primary: true },
-  { name: "Coral Gables", x: "42%", y: "58%" },
-  { name: "Brickell", x: "58%", y: "48%" },
-  { name: "Doral", x: "32%", y: "42%" },
-  { name: "Wynwood", x: "56%", y: "40%" },
-  { name: "Aventura", x: "72%", y: "22%" },
-  { name: "Pinecrest", x: "38%", y: "72%" },
-  { name: "Miami Beach", x: "68%", y: "38%" },
-  { name: "Hialeah", x: "42%", y: "32%" },
+  { name: "Horn Lake", x: "50%", y: "45%", primary: true },
+  { name: "Southaven", x: "55%", y: "38%" },
+  { name: "Olive Branch", x: "65%", y: "40%" },
+  { name: "Memphis, TN", x: "52%", y: "25%" },
+  { name: "Hernando", x: "50%", y: "58%" },
+  { name: "Nesbit", x: "46%", y: "52%" },
+  { name: "Walls", x: "35%", y: "42%" },
+  { name: "Tunica", x: "28%", y: "68%" },
+  { name: "Collierville", x: "72%", y: "30%" },
+  { name: "Germantown", x: "62%", y: "28%" },
+  { name: "Bartlett", x: "58%", y: "18%" },
+  { name: "Senatobia", x: "48%", y: "72%" },
+  { name: "Batesville", x: "42%", y: "82%" },
+  { name: "Oxford", x: "65%", y: "85%" },
+  { name: "West Memphis, AR", x: "32%", y: "26%" },
 ];
 
-const TinyLightningIcon = () => (
-  <svg className="w-3.5 h-3.5 text-[#FF6B00] fill-[#FF6B00] shrink-0" viewBox="0 0 24 24">
-    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-  </svg>
-);
+const statCards = [
+  { value: "50mi", label: "Coverage Radius" },
+  { value: "3", label: "States Served" },
+  { value: "15+", label: "Cities Covered" },
+  { value: "24/7", label: "Available" },
+];
 
 export function ServiceArea() {
+  const { t } = useLanguage();
   const [hoveredArea, setHoveredArea] = useState<string | null>(null);
 
   return (
-    <section id="service-area" className="relative py-[60px] bg-white border-b border-slate-100 overflow-hidden">
-      <div className="mx-auto w-[90%] max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Column: Heading & Chips (50% width) */}
-          <div className="z-10 text-left">
-            <span className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/20 text-[#FF6B00] rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider mb-5">
-              <TinyLightningIcon /> Service Area <TinyLightningIcon />
-            </span>
-            <h2 
-              className="text-[#0F172A] leading-tight tracking-tight"
-              style={{ fontSize: "40px", fontWeight: 800, marginBottom: "10px" }}
-            >
-              Proudly Serving The Entire State Of <span className="text-[#FF6B00]">Florida</span>.
-            </h2>
-            <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed max-w-lg mb-8">
-              We provide prompt, dependable electrical solutions across the entire state of Florida — typically dispatched from our local Miami operations center.
-            </p>
-            
-            {/* Premium Capsule Chips */}
-            <div className="flex flex-wrap gap-2.5">
+    <section id="service-area" className="relative py-12 sm:py-16 lg:py-24 bg-white border-b border-slate-100 overflow-hidden">
+
+      {/* Background decorations */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:26px_26px] opacity-60" />
+        <div className="absolute -top-40 left-0 w-[500px] h-[500px] rounded-full bg-[#2E7D32]/6 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-[#D4AF37]/6 blur-[100px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-[90%] max-w-7xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-14 lg:gap-20 items-center">
+
+          {/* ── LEFT COLUMN ─────────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-left space-y-6"
+          >
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 bg-[#2E7D32]/8 border border-[#2E7D32]/25 text-[#2E7D32] rounded-full px-5 py-1.5 text-[11px] font-black uppercase tracking-widest shadow-sm">
+              <Navigation className="w-3.5 h-3.5" />
+              {t("Service Area", "Área de Servicio")}
+            </div>
+
+            {/* Headline */}
+            <div>
+              <h2
+                className="text-slate-900 leading-tight tracking-tight font-black text-[26px] sm:text-[35px] mb-3"
+                style={{ fontSize: undefined }}
+              >
+                {t("Proudly Serving a ", "Servimos Con Orgullo un Radio de ")}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2E7D32] to-[#1B5E20]">
+                  {t("50-Mile Radius", "50 Millas")}
+                </span>
+                .
+              </h2>
+              <p className="text-[14.5px] text-slate-500 font-medium leading-relaxed max-w-md">
+                {t("Based in Horn Lake, MS — we serve homeowners and businesses across Mississippi, Tennessee, and Arkansas within our 50-mile service corridor.", "Ubicados en Horn Lake, MS — servimos a propietarios y empresas a través de Mississippi, Tennessee y Arkansas.")}
+              </p>
+            </div>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-4 gap-3">
+              {statCards.map((s) => (
+                <div key={s.label} className="flex flex-col items-center p-3 rounded-2xl bg-[#2E7D32]/5 border border-[#2E7D32]/15 text-center">
+                  <span className="text-[#2E7D32] font-black text-[18px] leading-tight">{s.value}</span>
+                  <span className="text-slate-400 text-[9px] font-bold uppercase tracking-wide mt-0.5 leading-tight">{s.label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Area chips */}
+            <div className="flex flex-wrap gap-2">
               {areasData.map((a) => {
                 const isActive = hoveredArea === a.name;
                 return (
@@ -52,155 +95,125 @@ export function ServiceArea() {
                     key={a.name}
                     onMouseEnter={() => setHoveredArea(a.name)}
                     onMouseLeave={() => setHoveredArea(null)}
-                    whileHover={{ scale: 1.03, y: -1 }}
-                    className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider rounded-xl py-2.5 px-4 transition-all duration-300 shadow-sm cursor-pointer border ${
+                    whileHover={{ scale: 1.04, y: -1 }}
+                    transition={{ duration: 0.15 }}
+                    className={`flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider rounded-xl py-1.5 px-3 cursor-pointer border transition-all duration-200 ${
                       isActive
-                        ? "bg-[#FF6B00]/10 border-[#FF6B00]/45 text-[#FF6B00] scale-[1.03] -translate-y-0.5 shadow-md shadow-[#FF6B00]/5"
-                        : "text-slate-600 bg-slate-50 border-slate-100 hover:bg-[#FF6B00]/5 hover:border-[#FF6B00]/25 hover:text-[#FF6B00]"
+                        ? "bg-[#2E7D32] border-[#D4AF37]/50 text-[#FFD54F] shadow-md"
+                        : a.primary
+                        ? "bg-[#2E7D32]/10 border-[#2E7D32]/30 text-[#2E7D32]"
+                        : "text-slate-600 bg-slate-50 border-slate-200 hover:bg-[#2E7D32]/5 hover:border-[#2E7D32]/30 hover:text-[#2E7D32]"
                     }`}
                   >
-                    <MapPin className={`h-3.5 w-3.5 shrink-0 transition-colors duration-300 ${
-                      isActive ? "text-[#FF6B00]" : "text-[#FF6B00]/75"
-                    }`} />
+                    <MapPin className="h-3 w-3 shrink-0" />
                     {a.name}
+                    {a.primary && !isActive && (
+                      <span className="ml-0.5 text-[8px] font-black bg-[#2E7D32] text-[#FFD54F] px-1.5 py-0.5 rounded-full">HQ</span>
+                    )}
                   </motion.div>
                 );
               })}
             </div>
-          </div>
 
-          {/* Right Column: Sleek Dispatch Telemetry Map (50% width) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-[#0c1324] to-[#040814] border border-slate-800 shadow-glow"
-          >
-            {/* Embedded Google Map Background (Centered on Miami, FL) */}
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114964.38556488344!2d-80.31343714240751!3d25.782390691515715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b0a587445113%3A0x56f105b54d8ab115!2sMiami%2C%20FL%2C%20USA!5e0!3m2!1sen!2s!4v1782259191322!5m2!1sen!2s"
-              className="absolute inset-0 w-full h-full opacity-80 grayscale invert contrast-[1.2] brightness-[0.85] pointer-events-none"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-
-            <div className="absolute inset-0 bg-grid opacity-[0.05] pointer-events-none" />
-            
-            {/* Stylized map grid and contour boundary */}
-            <svg
-              viewBox="0 0 600 450"
-              className="absolute inset-0 h-full w-full"
-              aria-hidden
-            >
-              <defs>
-                <radialGradient id="mapGlow" cx="55%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#FF6B00" stopOpacity="0.25" />
-                  <stop offset="60%" stopColor="#FF6B00" stopOpacity="0.05" />
-                  <stop offset="100%" stopColor="#FF6B00" stopOpacity="0" />
-                </radialGradient>
-              </defs>
-              
-              {/* Coverage radial glow under Miami */}
-              <circle cx="330" cy="225" r="200" fill="url(#mapGlow)" />
-
-              {/* Radar Sweep Line */}
-              <line
-                x1="330"
-                y1="225"
-                x2="330"
-                y2="45"
-                stroke="rgba(255, 107, 0, 0.4)"
-                strokeWidth="1.5"
-                className="radar-sweep-line"
-              />
-
-              {/* Styled coverage contour boundary */}
-              <path
-                d="M 120 280 C 150 160, 230 110, 350 140 S 530 200, 520 310 C 470 380, 350 400, 230 370 S 100 340, 120 280 Z"
-                fill="rgba(255, 107, 0, 0.01)"
-                stroke="#FF6B00"
-                strokeWidth="2"
-                className="animated-boundary"
-                opacity="0.6"
-              />
-
-              {/* Grid coordinates overlay */}
-              {Array.from({ length: 6 }).map((_, i) => (
-                <line
-                  key={i}
-                  x1={60 + i * 90}
-                  y1="0"
-                  x2={60 + i * 90 - 30}
-                  y2="450"
-                  stroke="#1e293b"
-                  strokeWidth="1"
-                  opacity="0.4"
-                />
-              ))}
-              {Array.from({ length: 5 }).map((_, i) => (
-                <line
-                  key={`h${i}`}
-                  x1="0"
-                  y1={60 + i * 80}
-                  x2="600"
-                  y2={40 + i * 80}
-                  stroke="#1e293b"
-                  strokeWidth="1"
-                  opacity="0.4"
-                />
-              ))}
-            </svg>
-
-            {/* Pins with glowing radar rings */}
-            {areasData.map((pin) => (
-              <Pin
-                key={pin.name}
-                x={pin.x}
-                y={pin.y}
-                label={pin.name}
-                primary={pin.primary}
-                active={hoveredArea === pin.name}
-                onMouseEnter={() => setHoveredArea(pin.name)}
-                onMouseLeave={() => setHoveredArea(null)}
-              />
-            ))}
-
-            {/* Coverage badge */}
-            <div className="absolute bottom-5 left-5 bg-slate-950/75 border border-slate-800/80 backdrop-blur-md text-white rounded-2xl px-4 py-3 select-none z-20">
-              <div className="text-[9px] uppercase tracking-widest text-slate-400 font-bold">
-                Service Area
-              </div>
-              <div className="font-display font-bold text-sm text-[#FF6B00] mt-0.5">
-                Entire State of Florida
+            {/* "Don't see your city" card */}
+            <div className="relative group max-w-lg w-full">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#2E7D32] to-[#D4AF37] rounded-2xl blur opacity-15 group-hover:opacity-30 transition duration-500" />
+              <div className="relative flex items-center justify-between gap-4 bg-white border border-slate-200 rounded-2xl p-4 shadow-sm">
+                <div className="flex items-start gap-3">
+                  <div className="shrink-0 w-8 h-8 rounded-xl bg-[#2E7D32]/10 border border-[#2E7D32]/20 flex items-center justify-center mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 text-[#2E7D32]" />
+                  </div>
+                  <p className="text-[12.5px] font-bold text-slate-700 leading-relaxed">
+                    {t("Don't see your city? Call us — we may still be able to serve you within our 50-mile radius.", "¿No ve su ciudad? Llámenos — es posible que aún podamos servirle en nuestro radio de 50 millas.")}
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  className="shrink-0 inline-flex items-center gap-1.5 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/40 text-[10px] font-black uppercase tracking-wider px-3.5 py-2 rounded-xl transition-all duration-200 hover:scale-[1.04] shadow-md cursor-pointer"
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                  {t("Call", "Llamar")}
+                  <ArrowRight className="h-3 w-3" />
+                </button>
               </div>
             </div>
-
           </motion.div>
+
+          {/* ── RIGHT COLUMN: Map ─────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="relative"
+          >
+            {/* Outer glow */}
+            <div className="absolute -inset-3 rounded-[36px] bg-gradient-to-br from-[#2E7D32]/12 via-transparent to-[#D4AF37]/12 blur-xl pointer-events-none" />
+
+            <div className="relative aspect-[4/3] sm:aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#0c1324] to-[#040814] border border-slate-800/60 shadow-[0_30px_80px_-12px_rgba(0,0,0,0.4)]">
+
+              {/* Google Map */}
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d104595.67493214!2d-90.0463!3d34.9545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87d581fb620023a9%3A0xd6e54522a76f2f27!2sHorn%20Lake%2C%20MS!5e0!3m2!1sen!2s!4v1782259191322!5m2!1sen!2s"
+                className="absolute inset-0 w-full h-full opacity-70 grayscale invert contrast-[1.15] brightness-[0.8] pointer-events-none"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+
+              {/* Radial coverage overlay */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div
+                  className="absolute rounded-full border border-[#2E7D32]/30 bg-[#2E7D32]/10"
+                  style={{ width: "62%", height: "62%", top: "20%", left: "20%" }}
+                />
+                <div
+                  className="absolute rounded-full border border-dashed border-[#D4AF37]/20"
+                  style={{ width: "78%", height: "78%", top: "12%", left: "12%" }}
+                />
+              </div>
+
+              {/* Pins */}
+              {areasData.map((pin) => (
+                <Pin
+                  key={pin.name}
+                  x={pin.x}
+                  y={pin.y}
+                  label={pin.name}
+                  primary={pin.primary}
+                  active={hoveredArea === pin.name}
+                  onMouseEnter={() => setHoveredArea(pin.name)}
+                  onMouseLeave={() => setHoveredArea(null)}
+                />
+              ))}
+
+              {/* Coverage badge — bottom left */}
+              <div className="absolute bottom-4 left-4 bg-slate-950/80 border border-[#D4AF37]/35 backdrop-blur-md text-white rounded-2xl px-4 py-2.5 select-none z-20 shadow-lg">
+                <div className="text-[9px] uppercase tracking-widest text-slate-400 font-bold leading-tight">
+                  Horn Lake HQ · 50-Mile Radius
+                </div>
+                <div className="font-bold text-[13px] text-[#FFD54F] mt-0.5">
+                  MS · TN · AR Coverage
+                </div>
+              </div>
+
+              {/* Live badge — top right */}
+              <div className="absolute top-4 right-4 bg-slate-950/80 border border-white/10 backdrop-blur-md text-white rounded-full px-3 py-1.5 select-none z-20 flex items-center gap-1.5 shadow-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#2E7D32] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#2E7D32]" />
+                </span>
+                <span className="text-[10px] font-black uppercase tracking-wider text-[#2E7D32]">
+                  Active Coverage
+                </span>
+              </div>
+
+            </div>
+          </motion.div>
+
         </div>
       </div>
-
-      <style>{`
-        @keyframes radar-sweep {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-        @keyframes boundary-dash {
-          to {
-            stroke-dashoffset: -20;
-          }
-        }
-        .radar-sweep-line {
-          transform-origin: 330px 225px;
-          animation: radar-sweep 10s linear infinite;
-        }
-        .animated-boundary {
-          stroke-dasharray: 6 4;
-          animation: boundary-dash 15s linear infinite;
-        }
-      `}</style>
     </section>
   );
 }
@@ -232,33 +245,31 @@ function Pin({
       <div className="flex flex-col items-center gap-1.5">
         {/* Glowing hotspot */}
         <div className="relative flex h-8 w-8 items-center justify-center">
-          {/* Pulsing ring */}
-          <span className={`animate-ping absolute inline-flex h-6 w-6 rounded-full opacity-75 transition-all duration-300 ${
-            active 
-              ? "bg-[#FF6B00] scale-125" 
-              : primary 
-                ? "bg-[#FF8C33]" 
-                : "bg-orange-400"
-          }`}></span>
-          {/* Inner solid ring */}
-          <span className={`relative inline-flex rounded-full h-4.5 w-4.5 items-center justify-center text-white shadow-md transition-all duration-300 ${
-            active 
-              ? "bg-[#FF6B00] scale-110 shadow-[0_0_12px_rgba(255,107,0,0.5)]" 
-              : primary 
-                ? "bg-[#FF8C33]" 
-                : "bg-gradient-to-r from-[#FF6B00] to-orange-400"
+          <span className={`animate-ping absolute inline-flex rounded-full opacity-70 transition-all duration-300 ${
+            active ? "h-7 w-7 bg-[#2E7D32] scale-125" : primary ? "h-6 w-6 bg-[#2E7D32]" : "h-5 w-5 bg-emerald-400"
+          }`} />
+          <span className={`relative inline-flex rounded-full items-center justify-center shadow-lg transition-all duration-300 ${
+            primary ? "h-5 w-5" : "h-4 w-4"
+          } ${
+            active
+              ? "bg-[#2E7D32] scale-125 shadow-[0_0_14px_rgba(46,125,50,0.7)]"
+              : primary
+              ? "bg-[#2E7D32] shadow-[0_0_10px_rgba(46,125,50,0.5)]"
+              : "bg-gradient-to-br from-[#2E7D32] to-emerald-500"
           }`}>
-            <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+            <span className={`rounded-full bg-[#FFD54F] animate-pulse ${primary ? "h-2 w-2" : "h-1.5 w-1.5"}`} />
           </span>
         </div>
-        
-        {/* Label frame */}
+
+        {/* Label */}
         <span className={`px-2.5 py-0.5 rounded-lg backdrop-blur-sm border transition-all duration-300 text-[10px] font-bold uppercase tracking-wider whitespace-nowrap shadow-sm ${
           primary || active ? "inline-block" : "hidden sm:inline-block"
         } ${
           active
-            ? "bg-[#FF6B00] border-[#FF6B00] text-white scale-105 shadow-[0_4px_12px_rgba(255,107,0,0.3)]"
-            : "bg-[#0c1324]/85 border-slate-800/80 text-white group-hover:bg-[#FF6B00] group-hover:border-[#FF6B00]/50 group-hover:text-white"
+            ? "bg-[#2E7D32] border-[#D4AF37]/50 text-[#FFD54F] scale-105 shadow-md"
+            : primary
+            ? "bg-[#2E7D32]/90 border-[#D4AF37]/40 text-[#FFD54F]"
+            : "bg-[#0c1324]/85 border-slate-700/80 text-white group-hover:bg-[#2E7D32] group-hover:border-[#D4AF37]/40 group-hover:text-[#FFD54F]"
         }`}>
           {label}
         </span>

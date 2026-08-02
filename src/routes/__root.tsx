@@ -11,7 +11,7 @@ import {
 import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import favIcon from "../assets/fav.png";
+import favIcon from "../assets/logo.png";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "../hooks/useLanguage";
 import { getSiteSettings } from "../lib/leads-store";
@@ -81,21 +81,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "R&E Electrical Contractor Corp | Licensed Electricians Miami & South Florida" },
-      { name: "description", content: "Licensed and insured electrical contractors delivering residential, commercial, and industrial services with 17+ years of expert craftsmanship in Miami & South Florida." },
-      { name: "keywords", content: "licensed electrician miami, electrical contractor south florida, emergency electrician miami, commercial electrician miami, residential electrician broward, panel upgrade miami, home ev charger installation florida, backup generator installation" },
+      { title: "Brown Lawn Care & Cleaning Service, LLC | Horn Lake, MS" },
+      { name: "description", content: "Family-owned lawn care, landscaping, tree removal, gravel driveway repair, and commercial/residential cleaning in Horn Lake, MS & 50-mile radius. Licensed, insured, bonded." },
+      { name: "keywords", content: "lawn care horn lake ms, landscaping horn lake, tree removal olive branch ms, office cleaning southhaven ms, gravel driveway repair memphis, residential cleaning horn lake" },
       { name: "robots", content: "index, follow" },
-      { name: "author", content: "R&E Electrical Contractor Corp" },
-      { property: "og:title", content: "R&E Electrical Contractor Corp | Licensed Electricians" },
-      { property: "og:description", content: "Powering South Florida homes & businesses with expert electrical solutions." },
+      { name: "author", content: "Brown Lawn Care & Cleaning Service, LLC" },
+      { property: "og:title", content: "Brown Lawn Care & Cleaning Service, LLC" },
+      { property: "og:description", content: "15 Years of Keeping Horn Lake Beautiful — One Lawn & Home at a Time." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://www.randeelectrical.com" },
-      { property: "og:image", content: "https://www.randeelectrical.com/assets/logo.png" },
-      { property: "og:site_name", content: "R&E Electrical Contractor Corp" },
+      { property: "og:url", content: "https://www.brownlawncarecleaning.com" },
+      { property: "og:image", content: "https://www.brownlawncarecleaning.com/assets/logo.png" },
+      { property: "og:site_name", content: "Brown Lawn Care & Cleaning Service, LLC" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "icon", href: favIcon, type: "image/png" },
+      { rel: "shortcut icon", href: favIcon, type: "image/png" },
+      { rel: "apple-touch-icon", href: favIcon },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" },
@@ -166,76 +168,60 @@ function RootComponent() {
 
 function MaintenanceScreen() {
   return (
-    <div className="min-h-screen w-full bg-[#0F172A] relative flex flex-col items-center justify-center p-6 overflow-hidden font-sans text-white select-none">
-      {/* Dynamic Background Gradients */}
-      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#FF6B00]/10 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#E05E00]/10 rounded-full blur-[150px] pointer-events-none" />
+    <div className="min-h-screen w-full bg-[#111111] relative flex flex-col items-center justify-center p-6 overflow-hidden font-sans text-white select-none">
+      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-[#2E7D32]/20 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-[#D4AF37]/10 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(#ffffff03_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
 
-      {/* Main Glassmorphic Container */}
       <div className="relative z-10 max-w-xl w-full bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-12 rounded-[32px] text-center shadow-[0_24px_60px_rgba(0,0,0,0.4)] flex flex-col items-center gap-6">
-        
-        {/* Pulsing Lightning Bolt Icon */}
-        <div className="relative flex items-center justify-center w-20 h-20 bg-gradient-to-tr from-[#FF6B00]/20 to-[#E05E00]/20 border border-[#FF6B00]/30 rounded-full shadow-[0_0_30px_rgba(255,107,0,0.15)] animate-pulse">
-          <svg className="w-10 h-10 text-[#FF6B00] fill-[#FF6B00]" viewBox="0 0 24 24">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-          </svg>
+
+        <div className="relative flex items-center justify-center w-20 h-20 bg-gradient-to-tr from-[#2E7D32]/30 to-[#1B5E20]/30 border border-[#D4AF37]/40 rounded-full shadow-[0_0_30px_rgba(46,125,50,0.2)] animate-pulse">
+          <span className="text-3xl font-black text-[#FFD54F]">B</span>
         </div>
 
-        {/* Badge */}
-        <span className="bg-[#FF6B00]/10 border border-[#FF6B00]/20 text-[#FF6B00] text-[10px] font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full">
+        <span className="bg-[#2E7D32]/20 border border-[#D4AF37]/40 text-[#FFD54F] text-[10px] font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full">
           System Update in Progress
         </span>
 
-        {/* Title */}
         <div className="space-y-3">
           <h1 className="text-3xl sm:text-4xl font-black tracking-tight leading-none">
-            Under <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#E05E00]">Construction</span>
+            Under <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2E7D32] to-[#FFD54F]">Optimization</span>
           </h1>
-          <p className="text-slate-400 text-sm font-medium leading-relaxed max-w-md mx-auto">
-            We are currently optimizing R&E Electrical Contractor Corp's portal to serve you better. We'll be back online shortly.
+          <p className="text-slate-300 text-sm font-medium leading-relaxed max-w-md mx-auto">
+            We are currently optimizing Brown Lawn Care &amp; Cleaning Service's portal to serve you better. We'll be back online shortly.
           </p>
         </div>
 
-        {/* Divider */}
         <div className="w-full h-px bg-white/10" />
 
-        {/* Urgent Service Block */}
         <div className="space-y-4 w-full">
           <div className="text-left bg-white/[0.02] border border-white/5 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-center sm:text-left">
-              <h3 className="text-xs font-black uppercase tracking-wider text-[#FF6B00]">24/7 Emergency Dispatch</h3>
-              <p className="text-[11px] text-slate-400 font-semibold mt-0.5">Electrical hazards don't wait. We remain fully open.</p>
+              <h3 className="text-xs font-black uppercase tracking-wider text-[#FFD54F]">24/7 Emergency Dispatch</h3>
+              <p className="text-[11px] text-slate-400 font-semibold mt-0.5">Storm damage &amp; tree emergencies. Call anytime.</p>
             </div>
-            <a 
-              href="tel:+17863075933" 
-              className="bg-[#FF6B00] hover:bg-[#E05E00] text-white text-xs font-black uppercase tracking-wider px-5 py-3 rounded-xl transition-all duration-300 shadow-[0_4px_12px_rgba(255,107,0,0.3)] hover:-translate-y-0.5 active:translate-y-0 text-center whitespace-nowrap"
+            <a
+              href="tel:6625711048"
+              className="bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/50 text-xs font-black uppercase tracking-wider px-5 py-3 rounded-xl transition-all duration-300 shadow-md text-center whitespace-nowrap"
             >
-              Call (786) 307-5933
+              Call (662) 571-1048
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between text-xs text-slate-400 font-bold px-1.5">
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between text-xs text-slate-300 font-bold px-1.5">
             <div className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-[#FF6B00] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              <span>Williams@electricalcontractorcorp.com</span>
+              <span>royleebrown@ymail.com</span>
             </div>
             <div className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-[#FF6B00] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              <span>Licensed & Insured</span>
+              <span>Licensed · Insured · Bonded</span>
             </div>
           </div>
         </div>
 
       </div>
 
-      {/* Footer */}
       <span className="relative z-10 text-[9px] uppercase font-bold tracking-[0.2em] text-slate-500 mt-8">
-        &copy; {new Date().getFullYear()} R&E Electrical Contractor Corp. All rights reserved.
+        &copy; {new Date().getFullYear()} Brown Lawn Care &amp; Cleaning Service, LLC. All rights reserved.
       </span>
     </div>
   );
