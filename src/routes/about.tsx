@@ -36,7 +36,7 @@ function AboutPage() {
       />
       <PageHeader
         eyebrow={t("About Us", "Sobre Nosotros")}
-        title={t("15 Years of Keeping Horn Lake Beautiful.", "15 Años Manteniendo Hermoso a Horn Lake.")}
+        title={t("6 Years of Keeping Horn Lake Beautiful.", "6 Años Manteniendo Hermoso a Horn Lake.")}
         subtitle={t("A family-owned, licensed, insured, and bonded team led by Roy Lee Brown.", "Un equipo familiar, licenciado y asegurado liderado por Roy Lee Brown.")}
       />
       <About />
@@ -51,7 +51,7 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About Us | Brown Lawn Care & Cleaning Service, LLC" },
-      { name: "description", content: "Learn about Brown Lawn Care & Cleaning Service, LLC. Family-owned since 2009, serving Horn Lake and a 50-mile radius with lawn care, landscaping, tree removal, and commercial cleaning." },
+      { name: "description", content: "Learn about Brown Lawn Care & Cleaning Service, LLC. Family-owned with 6 years in business and 15+ years experience, serving Horn Lake and a 50-mile radius with lawn care, landscaping, tree removal, and commercial cleaning." },
       { property: "og:title", content: "About Us | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Family-owned lawn care, landscaping, and cleaning services in Horn Lake, MS." },
     ],

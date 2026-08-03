@@ -99,12 +99,12 @@ export function Footer() {
   const servicesLinks = [
     { label: t("Lawn Care", "Cuidado de Césped"), href: "#" },
     { label: t("Landscaping", "Paisajismo"), href: "#" },
-    { label: t("Tree Removal", "Remoción de Árboles"), href: "#" },
+    // { label: t("Tree Removal", "Remoción de Árboles"), href: "#" },
     { label: t("Brush Cutting", "Corte de Maleza"), href: "#" },
-    { label: t("Gravel Driveways", "Entradas de Grava"), href: "#" },
+    // { label: t("Gravel Driveways", "Entradas de Grava"), href: "#" },
     { label: t("Seeding & Dirt Work", "Siembra y Tierra"), href: "#" },
     { label: t("Office Cleaning", "Limpieza de Oficinas"), href: "#" },
-    { label: t("Wherehouse Cleaning", "Limpieza de Almacén"), href: "#" },
+    { label: t("Wire House Cleaning", "Limpieza de Almacén"), href: "#" },
     { label: t("Commercial & Residential", "Comercial y Residencial"), href: "#" },
   ];
 
@@ -129,8 +129,8 @@ export function Footer() {
 
             <p className="text-[13px] text-slate-300 leading-relaxed font-medium mb-4">
               {t(
-                "For over 15 years, Roy Lee Brown and our family-owned team have provided licensed, insured, and bonded lawn care, landscaping, and cleaning across Horn Lake and the 50-mile radius.",
-                "Durante más de 15 años, Roy Lee Brown y nuestro equipo familiar han brindado servicios autorizados y asegurados en Horn Lake."
+                "Backed by 15+ years of experience and 6 years in business, Roy Lee Brown and our family-owned team provide licensed, insured, and bonded lawn care, landscaping, and cleaning across Horn Lake and the 50-mile radius.",
+                "Respaldados por más de 15 años de experiencia y 6 años en el negocio, Roy Lee Brown y nuestro equipo familiar brindan servicios autorizados y asegurados en Horn Lake."
               )}
             </p>
 
@@ -143,7 +143,7 @@ export function Footer() {
                 <Phone className="h-4 w-4 text-[#FFD54F] animate-bounce" />
               </div>
               <div className="flex flex-col text-left">
-                <span className="text-[10px] uppercase tracking-widest text-[#FFD54F]/80 font-bold">24/7 Emergency Line</span>
+                <span className="text-[10px] uppercase tracking-widest text-[#FFD54F]/80 font-bold">Emergency Dispatch Line</span>
                 <span className="font-black text-white text-[15px] tracking-tight leading-tight">(662) 571-1048</span>
               </div>
             </a>
@@ -227,7 +227,7 @@ export function Footer() {
           <MobileCollapsibleSection title={t("Business Hours", "Horario Comercial")}>
             <div className="bg-[#152217]/90 border border-[#D4AF37]/40 rounded-xl p-3 text-xs text-slate-300 leading-relaxed font-semibold space-y-1">
               <span className="text-[#FFD54F] font-black uppercase tracking-wider block mb-1 text-[10px]">
-                🚨 24/7 Emergency Available
+                🚨 Emergency Service (Business Hours)
               </span>
               <p>Mon–Fri: 10:00 AM – 7:00 PM</p>
               <p>Saturday: 3:00 PM – 8:00 PM</p>
@@ -247,8 +247,8 @@ export function Footer() {
 
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm font-medium">
               {t(
-                "For over 15 years, Roy Lee Brown and our family-owned team have provided licensed, insured, and bonded lawn care, landscaping, and cleaning across Horn Lake and the 50-mile radius.",
-                "Durante más de 15 años, Roy Lee Brown y nuestro equipo familiar han brindado servicios autorizados y asegurados en Horn Lake."
+                "Backed by 15+ years of experience and 6 years in business, Roy Lee Brown and our family-owned team provide licensed, insured, and bonded lawn care, landscaping, and cleaning across Horn Lake and the 50-mile radius.",
+                "Respaldados por más de 15 años de experiencia y 6 años en el negocio, Roy Lee Brown y nuestro equipo familiar brindan servicios autorizados y asegurados en Horn Lake."
               )}
             </p>
 
@@ -380,7 +380,7 @@ export function Footer() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD54F] opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FFD54F]" />
                 </span>
-                🚨 24/7 Emergency Service
+                🚨 Emergency Service (Business Hours)
               </span>
               <div className="text-xs text-slate-300 leading-relaxed font-semibold space-y-1">
                 <p>Mon–Fri: 10:00 AM – 7:00 PM</p>
@@ -397,7 +397,7 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 order-2 sm:order-1 text-xs text-slate-400 font-semibold">
             <p>
               © 2026 Brown Lawn Care &amp; Cleaning Service, LLC.{" "}
-              {t("Family Owned & Operated Since 2009.", "Familiares y Operados Desde 2009.")}
+              {t("Family Owned & Operated • 6 Years in Business.", "Empresa Familiar • 6 Años en el Negocio.")}
             </p>
             <span className="hidden sm:inline text-white/20">|</span>
             <p className="text-slate-400">

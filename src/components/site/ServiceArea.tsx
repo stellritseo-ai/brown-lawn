@@ -25,7 +25,7 @@ const statCards = [
   { value: "50mi", label: "Coverage Radius" },
   { value: "3", label: "States Served" },
   { value: "15+", label: "Cities Covered" },
-  { value: "24/7", label: "Available" },
+  { value: "Fast", label: "Emergency Response" },
 ];
 
 export function ServiceArea() {

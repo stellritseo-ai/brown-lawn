@@ -73,8 +73,8 @@ export function Header() {
     },
     {
       to: "#",
-      l: t("Residential & Wherehouse Cleaning", "Limpieza Residencial y Almacén"),
-      desc: t("Deep home cleaning, move-in/out & warehouses", "Limpieza profunda, mudanzas y almacenes"),
+      l: t("Residential & Wire House Cleaning", "Limpieza Residencial y Almacén"),
+      desc: t("Deep home cleaning, move-in/out & wire houses", "Limpieza profunda, mudanzas y almacenes"),
       icon: Home,
       tag: "Residential",
     },
@@ -128,7 +128,7 @@ export function Header() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FFD54F]"></span>
               </span>
               <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#FFD54F]">
-                {t("24/7 Emergency Service", "Servicio de Emergencia 24/7")}
+                {t("Emergency Service (Business Hours)", "Servicio de Emergencia (Horario Comercial)")}
               </span>
             </div>
 
@@ -312,7 +312,7 @@ export function Header() {
                                     {t("Storm Damage or Fallen Trees on Property?", "¿Daños por Tormenta o Árboles Caídos?")}
                                   </span>
                                   <span className="text-[10px] text-slate-300 font-semibold mt-0.5">
-                                    {t("24/7 emergency dispatch across Horn Lake & 50-mi radius.", "Despacho de emergencia 24/7 en Horn Lake y 50 millas.")}
+                                    {t("Emergency dispatch during business hours across Horn Lake & 50-mi radius.", "Despacho de emergencia en horario comercial en Horn Lake y 50 millas.")}
                                   </span>
                                 </div>
                               </div>
@@ -320,7 +320,7 @@ export function Header() {
                                 href="tel:6625711048"
                                 className="bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] hover:from-[#1B5E20] hover:to-[#2E7D32] text-[#FFD54F] text-[11px] font-black uppercase tracking-wider px-4 py-2.5 rounded-xl transition-all border border-[#D4AF37]/50 shadow-md whitespace-nowrap active:scale-95 flex items-center gap-1.5"
                               >
-                                <span>{t("Call (662) 571-1048", "Llamar 24/7")}</span>
+                                <span>{t("Call (662) 571-1048", "Llamar Ahora")}</span>
                                 <ArrowRight className="w-3.5 h-3.5 text-[#FFD54F]" />
                               </a>
                             </div>

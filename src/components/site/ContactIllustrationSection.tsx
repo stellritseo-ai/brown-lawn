@@ -27,8 +27,8 @@ const faqs: FAQItem[] = [
     id: "faq-1",
     q: "How quickly can you respond to storm emergencies or fallen trees?",
     qEs: "¿Con qué rapidez pueden responder a emergencias por tormentas o árboles caídos?",
-    a: "We provide 24/7 emergency dispatch. For urgent storm damage, tree blockages, or fallen limbs in Horn Lake and surrounding areas, our crew can be on-site rapidly to secure your property and clear debris.",
-    aEs: "Ofrecemos despacho de emergencia 24/7. Para daños urgentes por tormentas o árboles caídos en Horn Lake y áreas cercanas, nuestro equipo estará en el lugar rápidamente.",
+    a: "We provide emergency dispatch during business hours. For urgent storm damage, tree blockages, or fallen limbs in Horn Lake and surrounding areas, our crew can be on-site rapidly to secure your property and clear debris.",
+    aEs: "Ofrecemos despacho de emergencia en horario comercial. Para daños urgentes por tormentas o árboles caídos en Horn Lake y áreas cercanas, nuestro equipo estará en el lugar rápidamente.",
   },
   {
     id: "faq-2",

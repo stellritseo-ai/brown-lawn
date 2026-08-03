@@ -176,7 +176,7 @@ export function CTASection() {
                   <option value="generator">Generator Installation</option>
                   <option value="wiring-rewiring">Wiring & Rewiring</option>
                   <option value="security-systems">Security Systems</option>
-                  <option value="emergency">24/7 Emergency Service</option>
+                  <option value="emergency">Emergency Service</option>
                 </select>
                 <div className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 flex items-center">
                   <ChevronDown className="h-4.5 w-4.5 text-[#FF6B00]" />

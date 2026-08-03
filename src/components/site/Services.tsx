@@ -3,8 +3,6 @@ import {
   ArrowRight,
   Scissors,
   Sparkles,
-  Trees,
-  Truck,
   Home,
   Building2,
   Layers,
@@ -21,9 +19,7 @@ import mowingImg from "@/assets/service-mowing.png";
 import landscapingImg from "@/assets/service-landscaping.png";
 import officeImg from "@/assets/service-office-cleaning.png";
 import wireHouseImg from "@/assets/service-wire-house.png";
-import treeImg from "@/assets/service-tree-removal.png";
 import brushImg from "@/assets/service-brush-removal.png";
-import gravelImg from "@/assets/service-gravel.png";
 import commercialImg from "@/assets/service-commercial-cleaning.png";
 
 import {
@@ -184,9 +180,9 @@ export function Services() {
       id: "wire-house",
       category: "cleaning",
       icon: Building2,
-      title: t("Wherehouse & Barn Cleaning", "Limpieza de Almacén y Galpón"),
+      title: t("Wire House & Barn Cleaning", "Limpieza de Almacén y Galpón"),
       categoryLabel: t("Specialized", "Especializado"),
-      desc: t("Heavy-duty high pressure washing and deep sanitation for warehouses, barns, and farm structures.", "Lavado a presión de alto rendimiento y sanitización profunda para almacenes, galpones y granjas."),
+      desc: t("Heavy-duty high pressure washing and deep sanitation for wire houses, barns, and farm structures.", "Lavado a presión de alto rendimiento y sanitización profunda para almacenes, galpones y granjas."),
       features: [
         t("High-Pressure Power Wash", "Lavado a Alta Presión"),
         t("Agricultural Sanitation", "Desinfección Agrícola"),
@@ -194,21 +190,6 @@ export function Services() {
       ],
       image: wireHouseImg,
       to: "/services/cleaning-services"
-    },
-    {
-      id: "tree-removal",
-      category: "heavy",
-      icon: Trees,
-      title: t("Professional Tree Removal", "Remoción y Poda de Árboles"),
-      categoryLabel: t("Tree Care", "Cuidado de Árboles"),
-      desc: t("Safe, professional hazardous tree cutting, branch pruning, canopy thinning, and wood chipping.", "Corte seguro de árboles peligrosos, poda de ramas, despeje de copa y triturado de madera."),
-      features: [
-        t("Hazardous Tree Cutting", "Corte de Árboles Peligrosos"),
-        t("Limb & Branch Pruning", "Poda de Ramas"),
-        t("Debris & Wood Chipping", "Triturado y Limpieza de Madera")
-      ],
-      image: treeImg,
-      to: "/services/tree-brush-removal"
     },
     {
       id: "brush-removal",
@@ -224,21 +205,6 @@ export function Services() {
       ],
       image: brushImg,
       to: "/services/tree-brush-removal"
-    },
-    {
-      id: "gravel-work",
-      category: "heavy",
-      icon: Truck,
-      title: t("Gravel Driveway Repair & Install", "Entradas de Grava — Instalación"),
-      categoryLabel: t("Dirtwork", "Trabajo de Tierra"),
-      desc: t("Spreading fresh crushed gravel, filling potholes, grading driveways, and dirt leveling services.", "Nivelación con grava triturada, reparación de baches, acondicionamiento de entradas y tierra."),
-      features: [
-        t("Crushed Gravel Spreading", "Esparcido de Grava Triturada"),
-        t("Driveway Pothole Grading", "Nivelación de Baches"),
-        t("Dirt Leveling & Prep", "Nivelación y Preparación de Tierra")
-      ],
-      image: gravelImg,
-      to: "/services/gravel-dirt-work"
     },
     {
       id: "commercial-cleaning",
@@ -259,9 +225,9 @@ export function Services() {
 
   const filterTabs = [
     { id: "all", label: t("All Services", "Todos los Servicios"), count: services.length },
-    { id: "lawn", label: t("Lawn & Landscaping", "Césped y Paisajismo"), count: 2 },
-    { id: "cleaning", label: t("Cleaning Services", "Servicios de Limpieza"), count: 3 },
-    { id: "heavy", label: t("Tree & Dirt Work", "Árboles y Grava"), count: 3 },
+    { id: "lawn", label: t("Lawn & Landscaping", "Césped y Paisajismo"), count: services.filter(s => s.category === "lawn").length },
+    { id: "cleaning", label: t("Cleaning Services", "Servicios de Limpieza"), count: services.filter(s => s.category === "cleaning").length },
+    { id: "heavy", label: t("Land Clearing", "Limpieza de Terreno"), count: services.filter(s => s.category === "heavy").length },
   ];
 
   const filteredServices = activeFilter === "all"
@@ -374,8 +340,8 @@ export function Services() {
           })}
         </div>
 
-        {/* ── Filtered Main Grid ───────────────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+        {/* ── Filtered Main Grid (Balanced 3-column layout for 6 cards) ──────────────── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredServices.map((s, idx) => (
               <motion.div
@@ -387,7 +353,7 @@ export function Services() {
                 transition={{ duration: 0.4, delay: idx * 0.04 }}
               >
                 <div className="block w-full">
-                  <ServiceCard s={s} aspectRatio="min-h-[300px] sm:min-h-[380px] lg:min-h-[440px]" />
+                  <ServiceCard s={s} aspectRatio="min-h-[360px] sm:min-h-[420px] lg:min-h-[470px]" />
                 </div>
               </motion.div>
             ))}

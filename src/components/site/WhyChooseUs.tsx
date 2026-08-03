@@ -24,7 +24,7 @@ const features = (t: (en: string, es: string) => string) => [
   {
     icon: Award,
     title: t("15+ Years of Experience", "15+ Años de Experiencia"),
-    desc: t("Over a decade and a half of expert lawn care, landscaping & cleaning.", "Más de una década de experiencia en cuidado de césped, paisajismo y limpieza."),
+    desc: t("Over 15 years of industry experience in lawn care, landscaping & cleaning.", "Más de 15 años de experiencia en la industria en cuidado de césped, paisajismo y limpieza."),
   },
   {
     icon: ShieldCheck,
@@ -33,8 +33,8 @@ const features = (t: (en: string, es: string) => string) => [
   },
   {
     icon: Clock,
-    title: t("24/7 Emergency Service", "Servicio de Emergencia 24/7"),
-    desc: t("Storm damage? Fallen tree? We're ready to respond anytime.", "¿Daños por tormenta o árbol caído? Respondemos en cualquier momento."),
+    title: t("Emergency Service (Business Hours)", "Servicio de Emergencia (Horario Comercial)"),
+    desc: t("Storm damage or fallen branches? We're ready to respond during business hours.", "¿Daños por tormenta o ramas caídas? Respondemos en horario comercial."),
   },
   {
     icon: MapPin,
@@ -48,7 +48,7 @@ const features = (t: (en: string, es: string) => string) => [
   },
   {
     icon: Home,
-    title: t("Family-Owned Since 2009", "Familiar Desde 2009"),
+    title: t("Family-Owned (6 Years Open)", "Empresa Familiar (6 Años Abiertos)"),
     desc: t("Not a franchise. A local family committed to the community.", "No somos franquicia. Somos una familia local comprometida."),
   },
   {
@@ -64,10 +64,10 @@ const features = (t: (en: string, es: string) => string) => [
 ];
 
 const trustStats = [
-  { value: "15+", label: "Years in Business" },
+  { value: "15+", label: "Years Experience" },
+  { value: "6+", label: "Years in Business" },
   { value: "500+", label: "Happy Clients" },
   { value: "50mi", label: "Service Radius" },
-  { value: "24/7", label: "Emergency Line" },
 ];
 
 export function WhyChooseUs() {

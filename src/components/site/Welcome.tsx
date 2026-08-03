@@ -50,7 +50,7 @@ export function Welcome() {
             {/* Paragraphs */}
             <div className="space-y-3 text-slate-600 text-[13.5px] sm:text-base leading-relaxed font-medium">
               <p>
-                {t("For over 15 years, Roy Lee Brown and our family-owned team have been the trusted name for lawn care, landscaping, and cleaning services across Horn Lake and the surrounding 50-mile radius. We believe your property — whether commercial or residential — deserves the same care and attention we give our own.", "Durante más de 15 años, Roy Lee Brown y nuestro equipo familiar han sido el nombre de confianza para el cuidado de césped, paisajismo y limpieza en Horn Lake y 50 millas a la redonda.")}
+                {t("Backed by over 15 years of experience and 6 years in business, Roy Lee Brown and our family-owned team have been the trusted name for lawn care, landscaping, and cleaning services across Horn Lake and the surrounding 50-mile radius. We believe your property — whether commercial or residential — deserves the same care and attention we give our own.", "Con más de 15 años de experiencia y 6 años en el negocio, Roy Lee Brown y nuestro equipo familiar han sido el nombre de confianza para el cuidado de césped, paisajismo y limpieza en Horn Lake y 50 millas a la redonda.")}
               </p>
               <p>
                 {t("From restoring overgrown landscapes and repairing gravel driveways to deep-cleaning office spaces and warehouses, we bring professionalism, pride, and a personal touch to every job. We're licensed, insured, and bonded, so you can have peace of mind knowing your property is in good hands.", "Desde la restauración de jardines hasta la limpieza profunda de oficinas y almacenes, traemos profesionalismo a cada trabajo.")}
@@ -126,7 +126,7 @@ export function Welcome() {
                   <Star className="h-3.5 w-3.5 fill-current" />
                   <Star className="h-3.5 w-3.5 fill-current" />
                 </div>
-                <span className="text-xs font-black text-[#FFD54F]">Since 2009</span>
+                <span className="text-xs font-black text-[#FFD54F]">6 Years Open</span>
               </div>
 
             </div>

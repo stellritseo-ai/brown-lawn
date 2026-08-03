@@ -21,7 +21,7 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Family-owned lawn care, landscaping, tree removal, gravel driveway repair, and commercial/residential cleaning in Horn Lake, MS & 50-mile radius. Call (662) 571-1048." },
       { name: "keywords", content: "lawn care horn lake, landscaping horn lake ms, office cleaning southhaven, tree removal olive branch, gravel driveway repair memphis, residential cleaning horn lake" },
       { property: "og:title", content: "Brown Lawn Care & Cleaning Service, LLC | Horn Lake, MS" },
-      { property: "og:description", content: "Licensed, insured & bonded family business with 15+ years experience. Serving a 50-mile radius with 24/7 emergency dispatch." },
+      { property: "og:description", content: "Licensed, insured & bonded family business with 15+ years experience. Serving a 50-mile radius with emergency dispatch during business hours." },
     ],
   }),
   component: Index,

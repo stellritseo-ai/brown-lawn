@@ -7,7 +7,7 @@ export function About() {
   const { t } = useLanguage();
 
   const points = [
-    t("15+ years serving Horn Lake and 50-mile radius", "Más de 15 años sirviendo a Horn Lake y 50 millas a la redonda"),
+    t("15+ years of experience serving Horn Lake and 50-mile radius", "Más de 15 años de experiencia sirviendo a Horn Lake y 50 millas a la redonda"),
     t("Roy Lee Brown & family-owned dedicated team", "Roy Lee Brown y equipo familiar dedicado"),
     t("Licensed, insured, and bonded property care specialists", "Especialistas en cuidado de propiedad licenciados, asegurados y afianzados"),
     t("Transparent no-obligation quotes within 24 hours", "Cotizaciones transparentes sin compromiso en 24 horas"),
@@ -26,7 +26,7 @@ export function About() {
             loading="lazy"
           />
           <div className="glass-card absolute -bottom-8 left-6 right-6 rounded-2xl p-5 sm:left-10 sm:right-auto sm:w-80 border border-[#D4AF37]/40 bg-white/95">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#2E7D32]">{t("Since 2009", "Desde 2009")}</div>
+            <div className="text-xs font-bold uppercase tracking-wider text-[#2E7D32]">{t("6 Years in Business", "6 Años en el Negocio")}</div>
             <div className="mt-1 font-display text-xl font-extrabold text-[#111111]">{t("Family-Owned & Operated", "Propiedad y Operación Familiar")}</div>
             <div className="mt-1 text-xs text-slate-600 font-medium">{t("Where quality meets community.", "Donde la calidad encuentra la comunidad.")}</div>
           </div>
@@ -35,11 +35,11 @@ export function About() {
         <div className="text-left">
           <span className="inline-flex rounded-full bg-[#2E7D32]/10 border border-[#2E7D32]/30 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2E7D32]">{t("About Brown Lawn Care & Cleaning", "Acerca de Brown Lawn Care & Cleaning")}</span>
           <h2 className="mt-4 font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-[#111111] tracking-tight">
-            {t("15 Years of Keeping Horn Lake ", "15 Años Manteniendo ")}
+            {t("6 Years of Keeping Horn Lake ", "6 Años Manteniendo ")}
             <span className="text-[#2E7D32]">{t("Beautiful", "Hermoso a Horn Lake")}</span>
           </h2>
           <p className="mt-5 text-slate-600 text-base leading-relaxed font-medium">
-            {t("For over 15 years, Roy Lee Brown and our family-owned team have been the trusted name for lawn care, landscaping, and cleaning services across Horn Lake and the surrounding 50-mile radius. We believe your property — whether commercial or residential — deserves the same care and attention we give our own.", "Durante más de 15 años, Roy Lee Brown y nuestro equipo familiar han sido el nombre de confianza para el cuidado de césped, paisajismo y limpieza en Horn Lake y 50 millas a la redonda.")}
+            {t("With over 15 years of industry experience and 6 years open as a business, Roy Lee Brown and our family-owned team have been the trusted name for lawn care, landscaping, and cleaning services across Horn Lake and the surrounding 50-mile radius. We believe your property — whether commercial or residential — deserves the same care and attention we give our own.", "Con más de 15 años de experiencia en la industria y 6 años de operaciones como empresa, Roy Lee Brown y nuestro equipo familiar han sido el nombre de confianza para el cuidado de césped, paisajismo y limpieza en Horn Lake y 50 millas a la redonda.")}
           </p>
 
           <ul className="mt-6 space-y-3">
@@ -54,7 +54,7 @@ export function About() {
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {[
               { v: 1000, s: "+", l: t("Properties", "Propiedades") },
-              { v: 15, s: "+", l: t("Years", "Años") },
+              { v: 6, s: "+ Yrs", l: t("In Business", "En el Negocio") },
               { v: 50, s: " Miles", l: t("Radius", "Radio") },
               { v: 100, s: "%", l: t("Dedicated", "Dedicados") },
             ].map((s) => (

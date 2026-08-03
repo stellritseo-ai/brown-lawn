@@ -50,7 +50,7 @@ export function EmergencyCTA() {
               </span>
               <span className="flex items-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 fill-[#FFD54F] text-[#FFD54F]" />
-                {t("24/7 Emergency Dispatch Available", "Despacho de Emergencia 24/7 Disponible")}
+                {t("Emergency Dispatch (Business Hours)", "Despacho de Emergencia (Horario Comercial)")}
               </span>
             </motion.div>
 
@@ -65,7 +65,7 @@ export function EmergencyCTA() {
                 {t("Storm Damage or Fallen Trees on Your Property?", "¿Daños por Tormenta o Árboles Caídos en su Propiedad?")}
               </span>
               <span className="block mt-1 text-transparent bg-clip-text bg-gradient-to-r from-[#FFD54F] via-amber-200 to-[#D4AF37]">
-                {t("24/7 Immediate Response.", "Respuesta Inmediata 24/7.")}
+                {t("Immediate Response During Business Hours.", "Respuesta Inmediata en Horario Comercial.")}
               </span>
             </motion.h2>
 
@@ -77,7 +77,7 @@ export function EmergencyCTA() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed font-medium"
             >
-              {t("Did severe weather damage your yard or block your driveway with fallen limbs? We dispatch emergency clearing crews 24/7 across Horn Lake and the 50-mile radius.", "¿Tormentas dañaron su propiedad o árboles cayeron en su entrada? Despachamos equipos de emergencia 24/7 en Horn Lake y 50 millas a la redonda.")}
+              {t("Did severe weather damage your yard or block your driveway with fallen limbs? We dispatch emergency clearing crews during business hours across Horn Lake and the 50-mile radius.", "¿Tormentas dañaron su propiedad o árboles cayeron en su entrada? Despachamos equipos de emergencia en horario comercial en Horn Lake y 50 millas a la redonda.")}
             </motion.p>
 
             {/* Feature Cards Grid */}
@@ -93,8 +93,8 @@ export function EmergencyCTA() {
                   <Clock className="h-4 w-4" />
                 </div>
                 <div className="flex flex-col text-left">
-                  <span className="text-xs font-extrabold text-white">{t("24/7 Call Line", "Línea de Llamadas 24/7")}</span>
-                  <span className="text-[11px] text-slate-400 font-medium">{t("Always Standing By", "Siempre Listos")}</span>
+                  <span className="text-xs font-extrabold text-white">{t("Business Hours Line", "Línea en Horario Comercial")}</span>
+                  <span className="text-[11px] text-slate-400 font-medium">{t("Mon-Fri 10am-7pm | Sat 3pm-8pm", "Lun-Vie 10am-7pm | Sáb 3pm-8pm")}</span>
                 </div>
               </div>
 
@@ -158,7 +158,7 @@ export function EmergencyCTA() {
                   <div className="flex flex-col">
                     <span className="text-[10px] uppercase tracking-widest text-[#FFD54F] font-black flex items-center gap-1.5">
                       <span className="h-2 w-2 rounded-full bg-[#FFD54F] animate-ping" />
-                      {t("24/7 Direct Emergency Line", "Línea Directa de Emergencia 24/7")}
+                      {t("Direct Emergency Line", "Línea Directa de Emergencia")}
                     </span>
                     <span className="text-[22px] sm:text-[23px] font-display font-black leading-tight tracking-tight mt-1 text-white">
                       (662) 571-1048

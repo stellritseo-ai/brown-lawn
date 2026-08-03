@@ -37,19 +37,19 @@ export function Hero() {
             <span className="flex text-amber-400 gap-0.5">
               {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-current text-amber-400" />)}
             </span>
-            {t("Family Owned & Operated Since 2009", "Familiar y Operado Desde 2009")}
+            {t("Family Owned & Operated • 6 Years in Business", "Empresa Familiar • 6 Años en el Negocio")}
           </span>
 
           {/* Main Headline */}
           <h1 className="mt-4 sm:mt-6 font-display text-[28px] sm:text-[36px] md:text-[41px] leading-[1.2] sm:leading-[1.25] md:leading-[54px] font-extrabold tracking-tight">
-            {t("15 Years of Keeping ", "15 Años Manteniendo ")}
+            {t("15+ Years Experience Keeping ", "15+ Años de Experiencia Manteniendo ")}
             <span className="gradient-text-orange">{t("Horn Lake Beautiful", "Hermoso a Horn Lake")}</span>{" "}
             {t("— One Lawn & Home at a Time.", "— Un Césped y Hogar a la Vez.")}
           </h1>
 
           {/* Description */}
           <p className="max-w-2xl mt-3 mb-0 text-white text-[13px] sm:text-[15px] md:text-[17px] leading-relaxed sm:leading-relaxed md:leading-[40px]">
-            {t("From weekly mowing and landscaping to office cleaning and tree removal, Brown Lawn Care & Cleaning Service is your family-owned, licensed, insured, and bonded partner for commercial and residential properties. Serving a 50-mile radius. 24/7 emergency service available.", "Desde cortado semanal de césped y paisajismo hasta limpieza de oficinas y remoción de árboles, Brown Lawn Care & Cleaning Service es su socio familiar, licenciado y asegurado.")}
+            {t("From weekly mowing and landscaping to office cleaning and tree removal, Brown Lawn Care & Cleaning Service is your family-owned, licensed, insured, and bonded partner for commercial and residential properties. Serving a 50-mile radius. Emergency service available during business hours.", "Desde cortado semanal de césped y paisajismo hasta limpieza de oficinas y remoción de árboles, Brown Lawn Care & Cleaning Service es su socio familiar, licenciado y asegurado. Servicio de emergencia disponible en horario comercial.")}
           </p>
 
           {/* CTA Buttons — stacked on mobile, row on sm+ */}

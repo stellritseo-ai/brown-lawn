@@ -87,7 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "robots", content: "index, follow" },
       { name: "author", content: "Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:title", content: "Brown Lawn Care & Cleaning Service, LLC" },
-      { property: "og:description", content: "15 Years of Keeping Horn Lake Beautiful — One Lawn & Home at a Time." },
+      { property: "og:description", content: "6 Years in Business with 15+ Years Experience — Keeping Horn Lake Beautiful One Lawn & Home at a Time." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.brownlawncarecleaning.com" },
       { property: "og:image", content: "https://www.brownlawncarecleaning.com/assets/logo.png" },
@@ -197,8 +197,8 @@ function MaintenanceScreen() {
         <div className="space-y-4 w-full">
           <div className="text-left bg-white/[0.02] border border-white/5 rounded-2xl p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-center sm:text-left">
-              <h3 className="text-xs font-black uppercase tracking-wider text-[#FFD54F]">24/7 Emergency Dispatch</h3>
-              <p className="text-[11px] text-slate-400 font-semibold mt-0.5">Storm damage &amp; tree emergencies. Call anytime.</p>
+              <h3 className="text-xs font-black uppercase tracking-wider text-[#FFD54F]">Emergency Dispatch</h3>
+              <p className="text-[11px] text-slate-400 font-semibold mt-0.5">Storm damage &amp; tree emergencies during business hours.</p>
             </div>
             <a
               href="tel:6625711048"

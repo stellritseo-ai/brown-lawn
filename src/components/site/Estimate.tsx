@@ -122,7 +122,7 @@ export function Estimate() {
               />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              <InfoCard icon={Phone} title={t("Call Us", "Llámenos")} lines={["(662) 571-1048", t("24/7 Emergency Available", "Emergencia 24/7 Disponible")]} />
+              <InfoCard icon={Phone} title={t("Call Us", "Llámenos")} lines={["(662) 571-1048", t("Emergency Service Available", "Servicio de Emergencia Disponible")]} />
               <InfoCard icon={Mail} title={t("Email Us", "Correo")} lines={["royleebrown@ymail.com"]} />
               <InfoCard icon={MapPin} title={t("Office Address", "Dirección de Oficina")} lines={["Alden Lake Dr W", "Horn Lake, MS"]} />
               <InfoCard icon={Clock} title={t("Business Hours", "Horarios")} lines={[t("Mon–Fri: 10am–7pm", "Lun–Vie: 10am–7pm"), t("Sat: 3pm–8pm | Sun: Closed", "Sáb: 3pm–8pm | Dom: Cerrado")]} />

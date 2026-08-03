@@ -112,7 +112,7 @@ export function GetInTouch() {
                 Contact Info
               </h3>
               <p className="mt-3 text-sm text-white/90 font-medium leading-relaxed">
-                Brown Lawn Care &amp; Cleaning Service, LLC — Family Owned &amp; Operated Since 2009.
+                Brown Lawn Care &amp; Cleaning Service, LLC — Family Owned • 6 Years in Business (15+ Yrs Experience).
               </p>
 
               <ul className="mt-8 space-y-6">
@@ -137,7 +137,7 @@ export function GetInTouch() {
                 <Item
                   icon={Clock}
                   label="Business Hours"
-                  value="Mon–Fri: 10am–7pm | Sat: 3pm–8pm | Sun: Closed | 24/7 Emergency Available"
+                  value="Mon–Fri: 10am–7pm | Sat: 3pm–8pm | Sun: Closed | Emergency Service (Business Hours)"
                 />
               </ul>
             </div>
@@ -218,7 +218,7 @@ export function GetInTouch() {
                       >
                         <option value="Residential">Residential</option>
                         <option value="Commercial">Commercial</option>
-                        <option value="Wherehouse Cleaning">Wherehouse Cleaning</option>
+                        <option value="Wire House Cleaning">Wire House Cleaning</option>
                         <option value="Other">Other</option>
                       </select>
                     </div>
