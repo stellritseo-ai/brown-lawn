@@ -7,6 +7,7 @@ import {
   Building2,
   Layers,
   Trash2,
+  Trees,
   Star,
   CheckCircle2,
   ShieldCheck,
@@ -21,6 +22,8 @@ import officeImg from "@/assets/service-office-cleaning.png";
 import wireHouseImg from "@/assets/service-wire-house.png";
 import brushImg from "@/assets/service-brush-removal.png";
 import commercialImg from "@/assets/service-commercial-cleaning.png";
+import smallTreeCuttingImg from "@/assets/service-small-tree-cutting.png";
+import smallTreeTrimmingImg from "@/assets/service-small-tree-trimming.png";
 
 import {
   Carousel,
@@ -162,6 +165,36 @@ export function Services() {
       to: "/services/lawn-care-landscaping"
     },
     {
+      id: "small-tree-cutting",
+      category: "tree",
+      icon: Trees,
+      title: t("Small Tree Cutting", "Corte de Árboles Pequeños"),
+      categoryLabel: t("Tree Care", "Cuidado de Árboles"),
+      desc: t("Safe, professional cutting and removal of small trees, saplings, and hazardous low branches.", "Corte y remoción profesional y segura de árboles pequeños, retoños y ramas bajas peligrosas."),
+      features: [
+        t("Small Tree & Sapling Cutting", "Corte de Árboles Pequeños y Retoños"),
+        t("Overgrown Stem Clearing", "Limpieza de Tallos Sobrecultivados"),
+        t("Clean Debris Removal", "Remoción Limpia de Escombros")
+      ],
+      image: smallTreeCuttingImg,
+      to: "/services/tree-brush-removal"
+    },
+    {
+      id: "small-tree-trimming",
+      category: "tree",
+      icon: Scissors,
+      title: t("Small Tree Trimming", "Poda de Árboles Pequeños"),
+      categoryLabel: t("Tree Care", "Cuidado de Árboles"),
+      desc: t("Precision trimming, branch pruning, crown shaping, and deadwood thinning for healthy small trees.", "Poda de precisión, recortado de ramas, moldeo de copas y eliminación de madera muerta."),
+      features: [
+        t("Precision Branch Pruning", "Poda de Ramas de Precisión"),
+        t("Crown Shaping & Care", "Moldeo y Cuidado de Copas"),
+        t("Deadwood Removal", "Remoción de Madera Muerta")
+      ],
+      image: smallTreeTrimmingImg,
+      to: "/services/tree-brush-removal"
+    },
+    {
       id: "office-cleaning",
       category: "cleaning",
       icon: Sparkles,
@@ -227,12 +260,12 @@ export function Services() {
     { id: "all", label: t("All Services", "Todos los Servicios"), count: services.length },
     { id: "lawn", label: t("Lawn & Landscaping", "Césped y Paisajismo"), count: services.filter(s => s.category === "lawn").length },
     { id: "cleaning", label: t("Cleaning Services", "Servicios de Limpieza"), count: services.filter(s => s.category === "cleaning").length },
-    { id: "heavy", label: t("Land Clearing", "Limpieza de Terreno"), count: services.filter(s => s.category === "heavy").length },
+    { id: "tree", label: t("Tree & Brush Care", "Árboles y Maleza"), count: services.filter(s => s.category === "tree" || s.category === "heavy").length },
   ];
 
   const filteredServices = activeFilter === "all"
     ? services
-    : services.filter(s => s.category === activeFilter);
+    : services.filter(s => s.category === activeFilter || (activeFilter === "tree" && (s.category === "tree" || s.category === "heavy")));
 
   return (
     <section id="services" className="bg-[#F8FAFC] py-12 sm:py-16 lg:py-24 overflow-hidden border-y border-slate-200/60 relative">
@@ -340,8 +373,8 @@ export function Services() {
           })}
         </div>
 
-        {/* ── Filtered Main Grid (Balanced 3-column layout for 6 cards) ──────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* ── Filtered Main Grid (Balanced 4-column layout for 8 cards) ──────────────── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           <AnimatePresence mode="popLayout">
             {filteredServices.map((s, idx) => (
               <motion.div
