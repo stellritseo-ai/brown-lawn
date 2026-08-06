@@ -229,7 +229,7 @@ export function AboutPageContent() {
       items: [
         t("Scheduled commercial office & building janitorial", "Limpieza programada de oficinas y edificios comerciales"),
         t("Move-in and move-out residential deep cleaning", "Limpieza profunda residencial para mudanzas"),
-        t("Wire house, industrial warehouse, and barn cleaning", "Limpieza de almacenes, naves y granjas"),
+        t("Warehouse, industrial building, and barn cleaning", "Limpieza de almacenes, naves e instalaciones industrial"),
         t("High-pressure power washing and floor sanitation", "Lavado a alta presión y desinfección de pisos"),
       ],
     },

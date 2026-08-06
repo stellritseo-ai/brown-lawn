@@ -106,7 +106,7 @@ export function OfficeCommercialCleaningContent() {
       icon: GraduationCap,
     },
     {
-      title: t("Wire House, Barn & Agricultural Cleaning", "Limpieza de Estructuras Agrícolas"),
+      title: t("Warehouse, Barn & Agricultural Cleaning", "Limpieza de Almacenes y Estructuras Agrícolas"),
       desc: t("High-pressure power washing, agricultural sanitation, heavy dirt removal, and equipment room washing.", "Lavado a presión de alta fuerza, desinfección agrícola y limpieza de cuartos de equipos."),
       icon: Construction,
     },

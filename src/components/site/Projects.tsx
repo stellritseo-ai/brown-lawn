@@ -139,7 +139,7 @@ export function Projects({ isLanding = false }: { isLanding?: boolean }) {
     },
     {
       img: g11,
-      title: t("Wire House & Agricultural Facility Cleaning", "Limpieza de Almacén y Galpón"),
+      title: t("Warehouse & Agricultural Facility Cleaning", "Limpieza de Almacén y Galpón"),
       cat: "Cleaning",
       loc: "Nesbit, MS",
       year: "2023",

@@ -218,7 +218,7 @@ export function GetInTouch() {
                       >
                         <option value="Residential">Residential</option>
                         <option value="Commercial">Commercial</option>
-                        <option value="Wire House Cleaning">Wire House Cleaning</option>
+                        <option value="Warehouse Cleaning">Warehouse Cleaning</option>
                         <option value="Other">Other</option>
                       </select>
                     </div>

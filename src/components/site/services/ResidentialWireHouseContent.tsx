@@ -74,7 +74,7 @@ export function ResidentialWireHouseContent() {
 
   const wireHouseServicesList = [
     {
-      title: t("Wire House & Poultry Structure Sanitization", "Desinfección de Galpones y Estructuras Avícolas"),
+      title: t("Warehouse & Poultry Structure Sanitization", "Desinfección de Galpones y Estructuras Avícolas"),
       desc: t("Complete interior sanitization, high-pressure power washing, fan & ventilation clearing, litter/waste removal, and EPA-registered biosecurity disinfection for poultry and livestock houses.", "Desinfección interior completa, lavado a presión de alta fuerza, limpieza de ventilación y retiro de residuos para avícolas."),
       icon: Warehouse,
     },
@@ -169,11 +169,11 @@ export function ResidentialWireHouseContent() {
   const faqs = [
     {
       q: t("Do you provide all cleaning supplies and equipment?", "¿Proporcionan todos los suministros y equipos de limpieza?"),
-      a: t("Yes! For residential house cleaning, we supply 100% of all eco-friendly products, micro-fiber towels, HEPA vacuums, and mops. For wire house and agricultural power washing, we bring heavy-duty high-psi power washing rigs and EPA-registered disinfectants.", "¡Sí! Proporcionamos el 100% de los productos ecológicos, toallas, aspiradoras y equipos de lavado a presión agrícola."),
+      a: t("Yes! For residential house cleaning, we supply 100% of all eco-friendly products, micro-fiber towels, HEPA vacuums, and mops. For warehouse and agricultural power washing, we bring heavy-duty high-psi power washing rigs and EPA-registered disinfectants.", "¡Sí! Proporcionamos el 100% de los productos ecológicos, toallas, aspiradoras y equipos de lavado a presión agrícola."),
     },
     {
-      q: t("What is wire house cleaning?", "¿Qué es la limpieza de galpones agrícolas (wire house)?"),
-      a: t("Wire house cleaning refers to the specialized cleaning, pressure washing, and biosecurity sanitization of agricultural structures—such as poultry houses, livestock barns, equipment sheds, and holding facilities—to control pathogens and protect animal health.", "Es la limpieza especializada, lavado a presión y desinfección de estructuras agrícolas (avícolas, establos, galpones)."),
+      q: t("What is warehouse cleaning?", "¿Qué es la limpieza de almacenes y galpones (warehouse cleaning)?"),
+      a: t("Warehouse cleaning refers to the specialized cleaning, pressure washing, and biosecurity sanitization of agricultural and commercial structures—such as poultry houses, livestock barns, equipment sheds, and holding facilities—to control pathogens and protect health.", "Es la limpieza especializada, lavado a presión y desinfección de estructuras comerciales y agrícolas (avícolas, establos, galpones)."),
     },
     {
       q: t("Are your residential cleaning products safe for kids and pets?", "¿Sus productos residenciales son seguros para niños y mascotas?"),
@@ -184,7 +184,7 @@ export function ResidentialWireHouseContent() {
       a: t("Yes! Move-in and move-out deep cleaning is one of our most popular residential services. We clean inside all appliances, cabinets, drawers, baseboards, and closets so the house is 100% ready.", "¡Sí! La limpieza de mudanzas incluye el interior de electrodomésticos, armarios, cajones y zócalos."),
     },
     {
-      q: t("What areas do you serve for residential and wire house cleaning?", "¿Qué áreas cubren para limpieza residencial y agrícola?"),
+      q: t("What areas do you serve for residential and warehouse cleaning?", "¿Qué áreas cubren para limpieza residencial y agrícola?"),
       a: t("We proudly serve Horn Lake and a 50-mile radius across Mississippi (Southaven, Olive Branch, Hernando, Oxford, etc.), Tennessee (Memphis, Germantown, Collierville, etc.), and Arkansas (West Memphis, Marion).", "Servimos a Horn Lake y 50 millas a la redonda en Mississippi, Tennessee y Arkansas."),
     },
   ];
@@ -223,7 +223,7 @@ export function ResidentialWireHouseContent() {
 
               {/* Title */}
               <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black text-[#111111] tracking-tight leading-[1.15]">
-                {t("Residential & Wire House ", "Limpieza Residencial y de ")}
+                {t("Residential & Warehouse ", "Limpieza Residencial y de ")}
                 <span className="bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] bg-clip-text text-transparent">
                   {t("Cleaning", "Galpones Agrícolas")}
                 </span>
@@ -231,14 +231,14 @@ export function ResidentialWireHouseContent() {
 
               {/* Subheadline Tagline */}
               <h2 className="mt-3 text-lg sm:text-xl font-extrabold text-[#2E7D32] tracking-tight">
-                {t("Expert Cleaning Services for Your Home and Agricultural Properties", "Servicios Expertos de Limpieza para Su Hogar y Propiedades Agrícolas")}
+                {t("Expert Cleaning Services for Your Home and Commercial Warehouses", "Servicios Expertos de Limpieza para Su Hogar y Almacenes")}
               </h2>
 
               {/* Intro Paragraph */}
               <p className="mt-5 text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
                 {t(
-                  "Your home is your sanctuary, and agricultural facilities require specialized care to maintain safety, biosecurity, and functionality. At Brown Lawn Care & Cleaning Service, we provide professional residential and wire house cleaning services that deliver exceptional results for both living spaces and agricultural structures. With over 15 years of experience, our family-owned team brings thoroughness, reliability, and attention to detail to every project across Horn Lake and a 50-mile radius. We're licensed, insured, and bonded, so you can trust us with your home, barns, and agricultural facilities.",
-                  "Su hogar es su santuario, y las instalaciones agrícolas requieren un cuidado especializado. En Brown Lawn Care & Cleaning Service ofrecemos servicios profesionales de limpieza residencial y agrícola con más de 15 años de experiencia."
+                  "Your home is your sanctuary, and commercial warehouse facilities require specialized care to maintain safety, biosecurity, and functionality. At Brown Lawn Care & Cleaning Service, we provide professional residential and warehouse cleaning services that deliver exceptional results for both living spaces and commercial structures. With over 15 years of experience, our family-owned team brings thoroughness, reliability, and attention to detail to every project across Horn Lake and a 50-mile radius. We're licensed, insured, and bonded, so you can trust us with your home, barns, and warehouse facilities.",
+                  "Su hogar es su santuario, y las instalaciones comerciales y de almacén requieren un cuidado especializado. En Brown Lawn Care & Cleaning Service ofrecemos servicios profesionales de limpieza residencial y de almacenes con más de 15 años de experiencia."
                 )}
               </p>
 
@@ -287,7 +287,7 @@ export function ResidentialWireHouseContent() {
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 group">
                 <img
                   src={serviceWireHouse}
-                  alt="Residential Home Interior and Agricultural Wire House Cleaning"
+                  alt="Residential Home Interior and Commercial Warehouse Cleaning"
                   className="w-full h-[400px] sm:h-[500px] object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -295,8 +295,8 @@ export function ResidentialWireHouseContent() {
                 <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-[#D4AF37]/50 shadow-xl">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-[10px] font-black uppercase tracking-widest text-[#2E7D32]">{t("Home & Farm Sanitation", "Sanidad para el Hogar y la Granja")}</div>
-                      <div className="text-sm font-extrabold text-[#111111] mt-0.5">{t("Deep Cleaning, Housekeeping & Wire House Washing", "Limpieza Profunda, Hogar y Lavado Agrícola")}</div>
+                      <div className="text-[10px] font-black uppercase tracking-widest text-[#2E7D32]">{t("Home & Warehouse Sanitation", "Sanidad para el Hogar y Almacenes")}</div>
+                      <div className="text-sm font-extrabold text-[#111111] mt-0.5">{t("Deep Cleaning, Housekeeping & Warehouse Washing", "Limpieza Profunda, Hogar y Lavado de Almacenes")}</div>
                     </div>
                     <img src={bbbLogo} alt="BBB Logo" className="h-9 w-auto object-contain" />
                   </div>
@@ -431,15 +431,15 @@ export function ResidentialWireHouseContent() {
         </div>
       </section>
 
-      {/* ── WIRE HOUSE & AGRICULTURAL CLEANING SECTION ─────────────────── */}
+      {/* ── WAREHOUSE & AGRICULTURAL CLEANING SECTION ─────────────────── */}
       <section className="py-16 sm:py-24 bg-[#F7F7F7] border-y border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <span className="text-xs font-black uppercase tracking-widest text-[#2E7D32] bg-[#2E7D32]/10 px-3.5 py-1 rounded-full border border-[#2E7D32]/30">
-              {t("Agricultural Sanitation", "Desinfección Agrícola")}
+              {t("Warehouse Sanitation", "Desinfección de Almacenes")}
             </span>
             <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-black text-[#111111] tracking-tight">
-              {t("Wire House, Barn & Agricultural Facility Services", "Servicios de Galpones, Establos e Instalaciones Agrícolas")}
+              {t("Warehouse, Barn & Agricultural Facility Services", "Servicios de Almacenes, Galpones, Establos e Instalaciones")}
             </h2>
             <p className="mt-3 text-slate-600 text-sm sm:text-base font-medium">
               {t(
@@ -476,7 +476,7 @@ export function ResidentialWireHouseContent() {
               {t("Thorough Workflow", "Flujo de Trabajo Exhaustivo")}
             </span>
             <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-black text-[#111111] tracking-tight">
-              {t("Our Residential & Wire House Cleaning Process", "Nuestro Proceso de Limpieza Residencial y Agrícola")}
+              {t("Our Residential & Warehouse Cleaning Process", "Nuestro Proceso de Limpieza Residencial y de Almacenes")}
             </h2>
           </div>
 
@@ -517,7 +517,7 @@ export function ResidentialWireHouseContent() {
               {t("Dedicated Excellence", "Excelencia Dedicada")}
             </span>
             <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-black text-[#111111] tracking-tight">
-              {t("Why Choose Brown Lawn Care for Residential & Wire House Cleaning?", "¿Por Qué Elegir Brown Lawn Care para Limpieza Residencial y Agrícola?")}
+              {t("Why Choose Brown Lawn Care for Residential & Warehouse Cleaning?", "¿Por Qué Elegir Brown Lawn Care para Limpieza Residencial y de Almacenes?")}
             </h2>
           </div>
 
@@ -546,7 +546,7 @@ export function ResidentialWireHouseContent() {
               {t("Complete Coverage", "Cobertura Completa")}
             </span>
             <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-black text-[#111111] tracking-tight">
-              {t("Residential vs. Wire House & Agricultural Cleaning", "Limpieza Residencial vs. Galpones Agrícolas")}
+              {t("Residential vs. Warehouse & Agricultural Cleaning", "Limpieza Residencial vs. Almacenes y Galpones Agrícolas")}
             </h2>
 
             {/* Toggle Switch */}
@@ -571,7 +571,7 @@ export function ResidentialWireHouseContent() {
                 }`}
               >
                 <Tractor className="w-4 h-4" />
-                <span>{t("Wire House & Agricultural", "Galpones y Agrícola")}</span>
+                <span>{t("Warehouse & Agricultural", "Almacenes y Agrícola")}</span>
               </button>
             </div>
           </div>
@@ -608,17 +608,17 @@ export function ResidentialWireHouseContent() {
             ) : (
               <div className="space-y-4">
                 <h3 className="text-2xl font-black text-[#111111]">
-                  {t("Wire House, Barn & Farm Equipment Cleaning", "Limpieza de Galpones, Establos y Equipos")}
+                  {t("Warehouse, Barn & Farm Equipment Cleaning", "Limpieza de Almacenes, Galpones, Establos y Equipos")}
                 </h3>
                 <p className="text-slate-600 text-sm sm:text-base font-medium leading-relaxed">
                   {t(
-                    "Heavy-duty power washing, pathogen disinfection, litter removal, and biosecurity sanitation for poultry houses, barns, and agricultural machinery.",
-                    "Lavado a presión de alta fuerza, desinfección de patógenos, remoción de residuos y sanidad para avícolas y maquinaria."
+                    "Heavy-duty power washing, pathogen disinfection, litter removal, and biosecurity sanitation for warehouses, poultry houses, barns, and machinery.",
+                    "Lavado a presión de alta fuerza, desinfección de patógenos, remoción de residuos y sanidad para almacenes, avícolas y maquinaria."
                   )}
                 </p>
                 <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {[
-                    t("Poultry wire house complete high-pressure washing", "Lavado completo a alta presión de galpones avícolas"),
+                    t("Warehouse & poultry structure complete high-pressure washing", "Lavado completo a alta presión de almacenes y galpones avícolas"),
                     t("EPA-registered biosecurity & pathogen disinfection", "Desinfección de bioseguridad y patógenos con registro EPA"),
                     t("Litter, manure & heavy debris removal", "Remoción de estiércol y residuos pesados"),
                     t("Barn wall, stable & concrete pad power washing", "Lavado a presión de paredes de establos y concreto"),
@@ -715,12 +715,12 @@ export function ResidentialWireHouseContent() {
                 {t("Service Radius", "Radio de Servicio")}
               </span>
               <h2 className="mt-4 text-2xl sm:text-3xl font-black text-white tracking-tight">
-                {t("Residential & Wire House Cleaning Service Areas (50-Mile Radius)", "Áreas de Servicio de Limpieza Residencial y Agrícola (50 Millas)")}
+                {t("Residential & Warehouse Cleaning Service Areas (50-Mile Radius)", "Áreas de Servicio de Limpieza Residencial y de Almacenes (50 Millas)")}
               </h2>
               <p className="mt-2 text-slate-300 text-xs sm:text-sm font-medium">
                 {t(
-                  "We provide home housekeeping, move-in deep cleaning, and agricultural wire house power washing across Horn Lake and a 50-mile radius:",
-                  "Ofrecemos limpieza del hogar, mudanzas y lavado a presión agrícola en Horn Lake y 50 millas a la redonda:"
+                  "We provide home housekeeping, move-in deep cleaning, and warehouse power washing across Horn Lake and a 50-mile radius:",
+                  "Ofrecemos limpieza del hogar, mudanzas y lavado a presión de almacenes en Horn Lake y 50 millas a la redonda:"
                 )}
               </p>
             </div>
@@ -767,7 +767,7 @@ export function ResidentialWireHouseContent() {
 
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-3xl sm:text-4xl font-black text-[#FFD54F] tracking-tight">
-            {t("Get Your Free Residential & Wire House Cleaning Quote", "Obtenga Su Cotización Gratis de Limpieza Residencial y Agrícola")}
+            {t("Get Your Free Residential & Warehouse Cleaning Quote", "Obtenga Su Cotización Gratis de Limpieza Residencial y de Almacenes")}
           </h2>
           <p className="mt-4 text-slate-100 text-sm sm:text-base font-semibold max-w-2xl mx-auto leading-relaxed">
             {t(

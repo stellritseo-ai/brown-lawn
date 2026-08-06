@@ -111,7 +111,7 @@ export function FreeQuoteContent() {
         t("Floor Care & Maintenance", "Cuidado y Encerado de Pisos"),
         t("Window & Glass Cleaning", "Limpieza de Ventanas y Vidrios"),
         t("Residential Cleaning", "Limpieza Residencial del Hogar"),
-        t("Wire House & Agricultural Cleaning", "Limpieza de Galpones Agrícolas"),
+        t("Warehouse & Agricultural Cleaning", "Limpieza de Almacenes y Galpones"),
         t("Pressure Washing", "Lavado a Presión Exterior"),
       ],
     },
@@ -268,7 +268,7 @@ export function FreeQuoteContent() {
     { service: t("Gravel Driveway Installation", "Instalación de Entrada de Grava"), price: "$1,500 – $5,000+" },
     { service: t("Office Cleaning (per visit)", "Limpieza de Oficinas (por visita)"), price: "$100 – $300+" },
     { service: t("Residential Deep Cleaning", "Limpieza Profunda Residencial"), price: "$200 – $600+" },
-    { service: t("Wire House & Agricultural Cleaning", "Limpieza de Galpones Agrícolas"), price: "Varies by facility size" },
+    { service: t("Warehouse & Agricultural Cleaning", "Limpieza de Almacenes y Galpones"), price: "Varies by facility size" },
     { service: t("Storm Emergency Response", "Respuesta de Emergencias"), price: "Call for pricing" },
   ];
 

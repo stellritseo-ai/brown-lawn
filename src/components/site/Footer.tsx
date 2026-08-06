@@ -102,7 +102,7 @@ export function Footer() {
     { label: t("Tree & Brush Removal", "Remoción de Árboles y Maleza"), href: "/services/tree-brush-removal" },
     { label: t("Gravel & Dirt Work", "Trabajos de Grava y Tierra"), href: "/services/gravel-dirt-work" },
     { label: t("Office & Commercial Cleaning", "Limpieza de Oficinas y Comercial"), href: "/services/office-commercial-cleaning" },
-    { label: t("Residential & Wire House Cleaning", "Limpieza Residencial y Galpones"), href: "/services/residential-wire-house-cleaning" },
+    { label: t("Residential & Warehouse Cleaning", "Limpieza Residencial y Galpones"), href: "/services/residential-wire-house-cleaning" },
   ];
 
   return (

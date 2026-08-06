@@ -55,7 +55,7 @@ export function ContactPageContent() {
     t("Tree & Brush Removal", "Remoción de Árboles y Maleza"),
     t("Gravel & Dirt Work", "Trabajos de Grava y Tierra"),
     t("Office & Commercial Cleaning", "Limpieza de Oficinas y Comercial"),
-    t("Residential & Wire House Cleaning", "Limpieza Residencial y Galpones"),
+    t("Residential & Warehouse Cleaning", "Limpieza Residencial y Galpones"),
     t("Emergency Services", "Servicios de Emergencia"),
     t("Other", "Otro"),
   ];

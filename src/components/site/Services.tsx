@@ -215,9 +215,9 @@ export function Services() {
       id: "wire-house",
       category: "cleaning",
       icon: Building2,
-      title: t("Wire House & Barn Cleaning", "Limpieza de Almacén y Galpón"),
+      title: t("Warehouse & Barn Cleaning", "Limpieza de Almacén y Galpón"),
       categoryLabel: t("Specialized", "Especializado"),
-      desc: t("Heavy-duty high pressure washing and deep sanitation for wire houses, barns, and farm structures.", "Lavado a presión de alto rendimiento y sanitización profunda para almacenes, galpones y granjas."),
+      desc: t("Heavy-duty high pressure washing and deep sanitation for warehouses, barns, and farm structures.", "Lavado a presión de alto rendimiento y sanitización profunda para almacenes, galpones y granjas."),
       features: [
         t("High-Pressure Power Wash", "Lavado a Alta Presión"),
         t("Agricultural Sanitation", "Desinfección Agrícola"),

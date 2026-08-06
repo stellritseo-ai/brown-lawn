@@ -74,8 +74,8 @@ export function Header() {
     },
     {
       to: "/services/residential-wire-house-cleaning",
-      l: t("Residential & Wire House Cleaning", "Limpieza Residencial y Almacén"),
-      desc: t("Deep home cleaning, move-in/out & wire houses", "Limpieza profunda, mudanzas y almacenes"),
+      l: t("Residential & Warehouse Cleaning", "Limpieza Residencial y Almacén"),
+      desc: t("Deep home cleaning, move-in/out & warehouses", "Limpieza profunda, mudanzas y almacenes"),
       icon: Home,
       tag: "Residential",
     },
