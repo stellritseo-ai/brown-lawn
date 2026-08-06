@@ -15,13 +15,13 @@ function ReviewsPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Testimonials",
-        "item": "https://www.brownlawncarecleaning.com/reviews"
+        "item": "https://www.brownlawncarecleaningservicellc.com/reviews"
       }
     ]
   };
@@ -50,6 +50,10 @@ export const Route = createFileRoute("/reviews")({
       { name: "description", content: "Read customer reviews for Brown Lawn Care & Cleaning Service, LLC. Trusted lawn care, landscaping, tree removal, and office cleaning." },
       { property: "og:title", content: "Customer Reviews | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "5-star customer reviews from Horn Lake, Southaven, Olive Branch, and Memphis." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/reviews" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/reviews" },
     ],
   }),
   component: ReviewsPage,

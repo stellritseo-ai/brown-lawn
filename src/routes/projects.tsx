@@ -15,13 +15,13 @@ function ProjectsPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Gallery",
-        "item": "https://www.brownlawncarecleaning.com/projects"
+        "item": "https://www.brownlawncarecleaningservicellc.com/projects"
       }
     ]
   };
@@ -50,6 +50,10 @@ export const Route = createFileRoute("/projects")({
       { name: "description", content: "Before & after gallery of lawn care, landscaping, tree removal, gravel driveways, and cleaning projects by Brown Lawn Care & Cleaning Service." },
       { property: "og:title", content: "Work Gallery | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Browse our gallery of lawn care and cleaning work in Horn Lake, MS." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/projects" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/projects" },
     ],
   }),
   component: ProjectsPage,

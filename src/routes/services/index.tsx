@@ -12,6 +12,10 @@ export const Route = createFileRoute("/services/")({
       { name: "description", content: "Lawn care, landscaping, tree removal, brush cutting, gravel driveways, and office/residential cleaning in Horn Lake, MS & 50-mile radius." },
       { property: "og:title", content: "Our Services | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Full-service lawn care, landscaping, and cleaning in Horn Lake, MS." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/services" },
     ],
   }),
   component: ServicesIndex,
@@ -19,8 +23,31 @@ export const Route = createFileRoute("/services/")({
 
 function ServicesIndex() {
   const { t } = useLanguage();
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://www.brownlawncarecleaningservicellc.com/services"
+      }
+    ]
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <PageHeader
         eyebrow={t("Services", "Servicios")}
         title={t("What We Do — From Your Lawn to Your Office.", "Lo Que Hacemos — Desde Su Césped Hasta Su Oficina.")}

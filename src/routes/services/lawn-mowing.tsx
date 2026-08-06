@@ -13,19 +13,19 @@ function LawnMowingPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://www.brownlawncarecleaning.com/services"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Lawn Mowing & Maintenance",
-        "item": "https://www.brownlawncarecleaning.com/services/lawn-mowing"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services/lawn-mowing"
       }
     ]
   };
@@ -53,6 +53,10 @@ export const Route = createFileRoute("/services/lawn-mowing")({
       { name: "description", content: "Professional lawn mowing and maintenance services in Horn Lake, MS and a 50-mile radius. Weekly mowing, edging, striping, string trimming, commercial groundskeeping, and residential lawn care." },
       { property: "og:title", content: "Lawn Mowing & Maintenance | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Expert weekly lawn mowing, edging, striping, and property maintenance in MS, TN, & AR." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/lawn-mowing" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/services/lawn-mowing" },
     ],
   }),
   component: LawnMowingPage,

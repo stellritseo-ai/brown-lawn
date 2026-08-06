@@ -13,19 +13,19 @@ function ResidentialWireHouseCleaningPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://www.brownlawncarecleaning.com/services"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Residential & Warehouse Cleaning",
-        "item": "https://www.brownlawncarecleaning.com/services/residential-wire-house-cleaning"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services/residential-wire-house-cleaning"
       }
     ]
   };
@@ -53,6 +53,10 @@ export const Route = createFileRoute("/services/residential-wire-house-cleaning"
       { name: "description", content: "Expert residential house cleaning, move-in/move-out deep clean, carpet steam cleaning, and warehouse power wash sanitization in Horn Lake, MS and 50-mile radius across MS, TN, and AR." },
       { property: "og:title", content: "Residential & Warehouse Cleaning | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Professional home housekeeping, move-in deep cleaning, and warehouse sanitization in MS, TN, & AR." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/residential-wire-house-cleaning" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/services/residential-wire-house-cleaning" },
     ],
   }),
   component: ResidentialWireHouseCleaningPage,

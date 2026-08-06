@@ -13,19 +13,19 @@ function LandscapingPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://www.brownlawncarecleaning.com/services"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Landscaping & Design",
-        "item": "https://www.brownlawncarecleaning.com/services/landscaping"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services/landscaping"
       }
     ]
   };
@@ -53,6 +53,10 @@ export const Route = createFileRoute("/services/landscaping")({
       { name: "description", content: "Professional landscape design, mulching, shrub trimming, bed edging, dirt work, seeding, and hardscape services in Horn Lake, MS and a 50-mile radius across MS, TN, and AR." },
       { property: "og:title", content: "Landscaping & Design | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Expert landscape design, mulching, shrub care, and hardscape installations in MS, TN, & AR." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/landscaping" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/services/landscaping" },
     ],
   }),
   component: LandscapingPage,

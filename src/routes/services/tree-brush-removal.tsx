@@ -13,19 +13,19 @@ function TreeBrushRemovalPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://www.brownlawncarecleaning.com/services"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Tree & Brush Removal",
-        "item": "https://www.brownlawncarecleaning.com/services/tree-brush-removal"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services/tree-brush-removal"
       }
     ]
   };
@@ -53,6 +53,10 @@ export const Route = createFileRoute("/services/tree-brush-removal")({
       { name: "description", content: "Professional tree cutting, large tree removal, brush clearing, stump grinding, deadwood pruning, and storm emergency dispatch in Horn Lake, MS and 50-mile radius across MS, TN, and AR." },
       { property: "og:title", content: "Tree & Brush Removal | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Expert tree cutting, land brush clearing, and storm emergency dispatch in MS, TN, & AR." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/tree-brush-removal" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/services/tree-brush-removal" },
     ],
   }),
   component: TreeBrushRemovalPage,

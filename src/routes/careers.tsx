@@ -15,13 +15,13 @@ function CareersPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Careers",
-        "item": "https://www.randeelectrical.com/careers"
+        "item": "https://www.brownlawncarecleaningservicellc.com/careers"
       }
     ]
   };
@@ -34,8 +34,8 @@ function CareersPage() {
       />
       <PageHeader
         eyebrow={t("Careers", "Carreras")}
-        title={t("Join the R&E Electrical Crew", "Únase al Equipo de R&E Electrical")}
-        subtitle={t("We are always hiring talented electricians, journeymen, and helpers in Florida.", "Siempre estamos contratando electricistas talentosos, jornaleros y ayudantes en Florida.")}
+        title={t("Join the Brown Lawn Care & Cleaning Team", "Únase al Equipo de Brown Lawn Care & Cleaning")}
+        subtitle={t("We are always looking for hardworking crew members, equipment operators, and cleaning specialists in Horn Lake, MS.", "Siempre buscamos miembros de equipo dedicados, operadores de equipos y especialistas de limpieza.")}
       />
       <Careers />
       <EmergencyCTA />
@@ -46,13 +46,14 @@ function CareersPage() {
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers & Job Openings | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Apply for electrician jobs, journeyman positions, and apprenticeships at Florida's trusted contractor. Competitive pay & premium benefits." },
-      { property: "og:title", content: "Careers | R&E Electrical Contractor Corp" },
-      { property: "og:description", content: "Join our licensed electrical crew in South Florida." },
+      { title: "Careers & Job Openings | Brown Lawn Care & Cleaning Service, LLC" },
+      { name: "description", content: "Apply for lawn care jobs, landscaping positions, and commercial cleaning roles at Brown Lawn Care & Cleaning Service, LLC in Horn Lake, MS." },
+      { property: "og:title", content: "Careers | Brown Lawn Care & Cleaning Service, LLC" },
+      { property: "og:description", content: "Join our family-owned property care and cleaning crew in Horn Lake, MS." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/careers" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/careers" }
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/careers" },
     ],
   }),
   component: CareersPage,

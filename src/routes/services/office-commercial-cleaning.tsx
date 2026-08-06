@@ -13,19 +13,19 @@ function OfficeCommercialCleaningPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://www.brownlawncarecleaning.com/services"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Office & Commercial Cleaning",
-        "item": "https://www.brownlawncarecleaning.com/services/office-commercial-cleaning"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services/office-commercial-cleaning"
       }
     ]
   };
@@ -53,6 +53,10 @@ export const Route = createFileRoute("/services/office-commercial-cleaning")({
       { name: "description", content: "Professional office cleaning, daily janitorial services, commercial carpet cleaning, VCT floor waxing, restroom sanitation, and medical office cleaning in Horn Lake, MS and 50-mile radius across MS, TN, and AR." },
       { property: "og:title", content: "Office & Commercial Cleaning | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Expert commercial janitorial services, floor care, and office deep cleaning in MS, TN, & AR." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/office-commercial-cleaning" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/services/office-commercial-cleaning" },
     ],
   }),
   component: OfficeCommercialCleaningPage,

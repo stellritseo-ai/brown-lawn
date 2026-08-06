@@ -13,19 +13,19 @@ function GravelDirtWorkPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://www.brownlawncarecleaning.com/services"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Gravel & Dirt Work",
-        "item": "https://www.brownlawncarecleaning.com/services/gravel-dirt-work"
+        "item": "https://www.brownlawncarecleaningservicellc.com/services/gravel-dirt-work"
       }
     ]
   };
@@ -53,6 +53,10 @@ export const Route = createFileRoute("/services/gravel-dirt-work")({
       { name: "description", content: "Expert gravel driveway installation, driveway repair, site grading, building pad preparation, fill dirt, topsoil delivery, French drains, and excavation in Horn Lake, MS and 50-mile radius across MS, TN, and AR." },
       { property: "og:title", content: "Gravel & Dirt Work | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Professional gravel driveway installation, site grading, topsoil, and drainage solutions in MS, TN, & AR." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/gravel-dirt-work" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/services/gravel-dirt-work" },
     ],
   }),
   component: GravelDirtWorkPage,

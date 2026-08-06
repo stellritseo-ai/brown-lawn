@@ -17,13 +17,13 @@ function AboutPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "About Us",
-        "item": "https://www.brownlawncarecleaning.com/about"
+        "item": "https://www.brownlawncarecleaningservicellc.com/about"
       }
     ]
   };
@@ -54,6 +54,10 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Learn about Brown Lawn Care & Cleaning Service, LLC. Family-owned with 6 years in business as an LLC and 15+ years experience, serving Horn Lake, MS and a 50-mile radius across MS, TN, and AR with lawn care, landscaping, tree removal, and commercial cleaning." },
       { property: "og:title", content: "About Us | Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Family-owned lawn care, landscaping, tree care, and cleaning services in Horn Lake, MS serving MS, TN, & AR." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/about" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/about" },
     ],
   }),
   component: AboutPage,

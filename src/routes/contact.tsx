@@ -15,13 +15,13 @@ function ContactPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.brownlawncarecleaning.com/"
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Contact Us",
-        "item": "https://www.brownlawncarecleaning.com/contact"
+        "item": "https://www.brownlawncarecleaningservicellc.com/contact"
       }
     ]
   };
@@ -50,6 +50,10 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Contact Brown Lawn Care & Cleaning Service, LLC in Horn Lake, MS. Call (662) 571-1048 for free quotes on lawn care, landscaping, tree removal, and commercial cleaning." },
       { property: "og:title", content: "Contact Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:description", content: "Free lawn care, landscaping, tree removal, and commercial cleaning estimates within 24 hours." },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/contact" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/contact" },
     ],
   }),
   component: ContactPage,
