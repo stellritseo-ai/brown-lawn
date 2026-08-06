@@ -1,5 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
-import aboutTeamImg from "@/assets/about-team.jpg";
+import aboutTeamImg from "@/assets/about-hero-landscaping.png";
 import { Counter } from "./Counter";
 import { useLanguage } from "@/hooks/useLanguage";
 

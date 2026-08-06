@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
@@ -182,20 +183,20 @@ export function ContactIllustrationSection() {
 
             {/* Direct call bottom line */}
             <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
-              <button
-                type="button"
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/50 text-[11px] font-black uppercase tracking-widest rounded-full px-7 py-3.5 shadow-lg hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 w-full sm:w-auto cursor-pointer"
               >
                 {t("Ask a Question", "Hacer una Pregunta")}
                 <ArrowRight className="h-4 w-4" />
-              </button>
-              <button
-                type="button"
+              </Link>
+              <a
+                href="tel:6625711048"
                 className="inline-flex items-center gap-2 text-slate-800 text-[13px] font-extrabold hover:text-[#2E7D32] transition-colors cursor-pointer"
               >
                 <Phone className="h-4 w-4 text-[#2E7D32]" />
                 {t("Call (662) 571-1048", "Llamar (662) 571-1048")}
-              </button>
+              </a>
             </div>
 
           </div>

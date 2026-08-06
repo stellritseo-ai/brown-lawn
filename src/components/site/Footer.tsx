@@ -88,24 +88,21 @@ export function Footer() {
 
   const quickLinks = [
     { label: t("Home", "Inicio"), href: "/" },
-    { label: t("About Us", "Sobre Nosotros"), href: "#" },
-    { label: t("Services", "Servicios"), href: "#" },
-    { label: t("Gallery", "Galería"), href: "#" },
-    { label: t("Testimonials", "Testimonios"), href: "#" },
-    { label: t("FAQs", "Preguntas Frecuentes"), href: "/#" },
-    { label: t("Contact", "Contacto"), href: "#" },
+    { label: t("About Us", "Sobre Nosotros"), href: "/about" },
+    { label: t("Services", "Servicios"), href: "/services" },
+    { label: t("Free Quote", "Cotización Gratis"), href: "/free-quote" },
+    { label: t("Gallery", "Galería"), href: "/projects" },
+    { label: t("Testimonials", "Testimonios"), href: "/reviews" },
+    { label: t("Contact", "Contacto"), href: "/contact" },
   ];
 
   const servicesLinks = [
-    { label: t("Lawn Care", "Cuidado de Césped"), href: "#" },
-    { label: t("Landscaping", "Paisajismo"), href: "#" },
-    // { label: t("Tree Removal", "Remoción de Árboles"), href: "#" },
-    { label: t("Brush Cutting", "Corte de Maleza"), href: "#" },
-    // { label: t("Gravel Driveways", "Entradas de Grava"), href: "#" },
-    { label: t("Seeding & Dirt Work", "Siembra y Tierra"), href: "#" },
-    { label: t("Office Cleaning", "Limpieza de Oficinas"), href: "#" },
-    { label: t("Wire House Cleaning", "Limpieza de Almacén"), href: "#" },
-    { label: t("Commercial & Residential", "Comercial y Residencial"), href: "#" },
+    { label: t("Lawn Mowing & Maintenance", "Cortado y Cuidado de Césped"), href: "/services/lawn-mowing" },
+    { label: t("Landscaping & Design", "Paisajismo y Diseño"), href: "/services/landscaping" },
+    { label: t("Tree & Brush Removal", "Remoción de Árboles y Maleza"), href: "/services/tree-brush-removal" },
+    { label: t("Gravel & Dirt Work", "Trabajos de Grava y Tierra"), href: "/services/gravel-dirt-work" },
+    { label: t("Office & Commercial Cleaning", "Limpieza de Oficinas y Comercial"), href: "/services/office-commercial-cleaning" },
+    { label: t("Residential & Wire House Cleaning", "Limpieza Residencial y Galpones"), href: "/services/residential-wire-house-cleaning" },
   ];
 
   return (

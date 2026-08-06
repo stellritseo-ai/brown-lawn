@@ -373,12 +373,12 @@ export function Projects({ isLanding = false }: { isLanding?: boolean }) {
                 {t("Real Results, Real Properties.", "Resultados Reales, Propiedades Reales.")}
               </h2>
             </div>
-            <button
-              type="button"
+            <Link
+              to="/projects"
               className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-[#1E293B] text-white text-[11px] font-black uppercase tracking-widest rounded-full px-6 py-3 transition-all duration-200 shadow-md hover:scale-[1.02] shrink-0 self-start sm:self-auto cursor-pointer"
             >
               {t("View Full Gallery", "Ver Galería Completa")} <ArrowRight className="h-3.5 w-3.5" />
-            </button>
+            </Link>
           </motion.div>
         )}
 

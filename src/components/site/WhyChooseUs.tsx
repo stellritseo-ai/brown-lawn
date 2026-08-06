@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useRef, useState } from "react";
 import {
@@ -166,20 +167,20 @@ export function WhyChooseUs() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-3">
-              <button
-                type="button"
+              <Link
+                to="/services"
                 className="inline-flex items-center gap-2 bg-[#0F172A] hover:bg-[#1E293B] text-white text-[11px] font-black uppercase tracking-widest rounded-full px-6 py-3 transition-all duration-300 shadow-md hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
               >
                 {t("Explore Services", "Explorar Servicios")}
                 <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-              <button
-                type="button"
+              </Link>
+              <a
+                href="tel:6625711048"
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/50 text-[11px] font-black uppercase tracking-widest rounded-full px-6 py-3 transition-all duration-300 shadow-md hover:scale-[1.03] active:scale-[0.97] cursor-pointer"
               >
                 <Phone className="w-3.5 h-3.5" />
                 {t("Call (662) 571-1048", "Llamar (662) 571-1048")}
-              </button>
+              </a>
             </div>
           </motion.div>
 

@@ -57,7 +57,7 @@ export function PageHeader({
               {eyebrow}
             </div>
           )}
-          <h1 className="font-display text-[36px] sm:text-5xl lg:text-[58px] font-black leading-tight tracking-tight text-white mb-5 max-w-4xl mx-auto">
+          <h1 className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[58px] font-black leading-tight tracking-tight text-white mb-5 max-w-4xl mx-auto">
             {title}
           </h1>
           {subtitle && (

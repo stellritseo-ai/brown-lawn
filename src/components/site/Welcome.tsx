@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Star } from "lucide-react";
-import welcomeImg from "@/assets/welcome-img.png";
+import { Link } from "@tanstack/react-router";
+import welcomeImg from "@/assets/about-hero-landscaping.png";
 import welcomeVideo from "@/assets/welcome.mp4";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -77,8 +78,10 @@ export function Welcome() {
 
             {/* CTA Button */}
             <div className="pt-2">
-              <Button variant="hero" size="xl" className="font-extrabold rounded-full px-8 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/50 shadow-md">
-                {t("Read More About Us", "Leer Más Sobre Nosotros")} <ArrowRight className="ml-2 h-4 w-4 text-[#FFD54F]" />
+              <Button variant="hero" size="xl" asChild className="font-extrabold rounded-full px-8 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/50 shadow-md">
+                <Link to="/about">
+                  {t("Read More About Us", "Leer Más Sobre Nosotros")} <ArrowRight className="ml-2 h-4 w-4 text-[#FFD54F]" />
+                </Link>
               </Button>
             </div>
 

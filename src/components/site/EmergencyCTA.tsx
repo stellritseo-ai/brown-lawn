@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import { Phone, Clock, ShieldCheck, CheckCircle2, AlertTriangle, Zap, ArrowRight } from "lucide-react";
 import heroVideo from "@/assets/herovideo.mp4";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -148,7 +149,8 @@ export function EmergencyCTA() {
               {/* Glowing Aura Effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-[#2E7D32] via-[#FFD54F] to-[#1B5E20] rounded-[28px] blur-md opacity-60 group-hover:opacity-100 transition duration-500 animate-pulse" />
 
-              <div
+              <a
+                href="tel:6625711048"
                 className="relative flex flex-col items-center justify-between gap-4 rounded-[20px] sm:rounded-[24px] bg-gradient-to-br from-[#132215] via-[#0D180E] to-[#0A120B] border border-[#D4AF37]/60 p-5 sm:p-6 lg:p-7 shadow-2xl hover:scale-[1.02] transition-all duration-300 w-full text-center sm:text-left sm:flex-row cursor-pointer"
               >
                 <div className="flex items-center gap-4 justify-center sm:justify-start text-left w-full sm:w-auto">
@@ -171,14 +173,16 @@ export function EmergencyCTA() {
                     {t("Call Now", "Llamar")}
                   </span>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Secondary Request Online CTA */}
             <div className="w-full max-w-md">
-              <Button variant="outline" size="xl" className="w-full rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-slate-900 font-extrabold text-sm py-4 shadow-lg">
-                {t("Request Emergency Service Online", "Solicitar Servicio de Emergencia")}
-                <ArrowRight className="w-4 h-4 ml-2" />
+              <Button variant="outline" size="xl" asChild className="w-full rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-slate-900 font-extrabold text-sm py-4 shadow-lg">
+                <Link to="/free-quote">
+                  {t("Request Emergency Service Online", "Solicitar Servicio de Emergencia")}
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
               </Button>
             </div>
 

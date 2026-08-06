@@ -1,4 +1,5 @@
 import { ArrowRight, Award, BadgeCheck, Phone, ShieldCheck, Star } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import heroVideo from "@/assets/herovideo.mp4";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -54,8 +55,10 @@ export function Hero() {
 
           {/* CTA Buttons — stacked on mobile, row on sm+ */}
           <div className="mt-6 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 w-full sm:w-auto">
-            <Button variant="hero" size="xl" className="w-full sm:w-auto justify-center">
-              📋 {t("Get a Free Quote", "Solicitar Cotización Gratis")} <ArrowRight className="h-4 w-4" />
+            <Button variant="hero" size="xl" asChild className="w-full sm:w-auto justify-center">
+              <Link to="/free-quote">
+                📋 {t("Get a Free Quote", "Solicitar Cotización Gratis")} <ArrowRight className="h-4 w-4" />
+              </Link>
             </Button>
             <Button variant="heroOutline" size="xl" className="w-full sm:w-auto justify-center">
               <Phone className="h-4 w-4" /> (662) 571-1048

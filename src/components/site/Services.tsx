@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   Scissors,
@@ -57,8 +58,9 @@ function ServiceCard({
   const { t } = useLanguage();
 
   return (
-    <div
-      className={`group relative w-full ${aspectRatio} rounded-[32px] overflow-hidden bg-slate-950 border border-slate-200/80 hover:border-[#2E7D32] shadow-xl hover:shadow-[0_22px_60px_rgba(46,125,50,0.25)] transition-all duration-500 cursor-pointer flex flex-col justify-end select-none`}
+    <Link
+      to={s.to}
+      className={`group relative w-full ${aspectRatio} rounded-[32px] overflow-hidden bg-slate-950 border border-slate-200/80 hover:border-[#2E7D32] shadow-xl hover:shadow-[0_22px_60px_rgba(46,125,50,0.25)] transition-all duration-500 cursor-pointer flex flex-col justify-end select-none block`}
     >
       {/* Background Image */}
       <img
@@ -125,7 +127,7 @@ function ServiceCard({
         </div>
 
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -147,7 +149,7 @@ export function Services() {
         t("Blower Clean-Off", "Limpieza con Soplado")
       ],
       image: mowingImg,
-      to: "/services/lawn-care-landscaping"
+      to: "/services/lawn-mowing"
     },
     {
       id: "landscaping",
@@ -162,7 +164,7 @@ export function Services() {
         t("Bed Edging & Weed Barrier", "Orillado y Control de Maleza")
       ],
       image: landscapingImg,
-      to: "/services/lawn-care-landscaping"
+      to: "/services/landscaping"
     },
     {
       id: "small-tree-cutting",
@@ -207,7 +209,7 @@ export function Services() {
         t("Trash & Recycling Removal", "Remoción de Basura")
       ],
       image: officeImg,
-      to: "/services/cleaning-services"
+      to: "/services/office-commercial-cleaning"
     },
     {
       id: "wire-house",
@@ -222,7 +224,7 @@ export function Services() {
         t("Heavy Dirt & Stain Removal", "Remoción de Manchas y Suciedad")
       ],
       image: wireHouseImg,
-      to: "/services/cleaning-services"
+      to: "/services/residential-wire-house-cleaning"
     },
     {
       id: "brush-removal",
@@ -252,7 +254,7 @@ export function Services() {
         t("Tailored Maintenance", "Planes de Mantenimiento a Medida")
       ],
       image: commercialImg,
-      to: "/services/cleaning-services"
+      to: "/services/office-commercial-cleaning"
     }
   ];
 
@@ -300,9 +302,11 @@ export function Services() {
 
           {/* Quick Badges & Callout */}
           <div className="flex flex-wrap items-center gap-3 w-full md:w-auto">
-            <Button variant="hero" size="xl" className="font-extrabold rounded-full px-8 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/50 shadow-md w-full md:w-auto justify-center">
-              {t("Explore All Services", "Explorar Todos los Servicios")}
-              <ArrowRight className="w-4 h-4 ml-1 text-[#FFD54F]" />
+            <Button variant="hero" size="xl" asChild className="font-extrabold rounded-full px-8 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/50 shadow-md w-full md:w-auto justify-center">
+              <Link to="/services">
+                {t("Explore All Services", "Explorar Todos los Servicios")}
+                <ArrowRight className="w-4 h-4 ml-1 text-[#FFD54F]" />
+              </Link>
             </Button>
           </div>
         </div>

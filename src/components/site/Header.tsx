@@ -28,51 +28,52 @@ export function Header() {
 
   const navItems = [
     { to: "/", label: t("Home", "Inicio") },
-    { to: "#", label: t("About Us", "Sobre Nosotros") },
+    { to: "/about", label: t("About Us", "Sobre Nosotros") },
     { to: "/services", label: t("Services", "Servicios") },
-    { to: "#", label: t("Gallery", "Galería") },
-    { to: "#", label: t("Testimonials", "Testimonios") },
-    { to: "#", label: t("Contact Us", "Contáctenos") },
+    { to: "/projects", label: t("Gallery", "Galería") },
+    { to: "/reviews", label: t("Reviews", "Reseñas") },
+    { to: "/free-quote", label: t("Free Estimates", "Estimaciones Gratuitas") },
+    { to: "/contact", label: t("Contact Us", "Contáctenos") },
   ];
 
   const serviceLinks = [
     {
-      to: "#",
+      to: "/services/lawn-mowing",
       l: t("Lawn Mowing & Maintenance", "Cortado y Cuidado de Césped"),
       desc: t("Weekly mowing, edging, trimming & yard upkeep", "Cortado semanal, orillado, podado y cuidado"),
       icon: Scissors,
       tag: "Popular",
     },
     {
-      to: "#",
+      to: "/services/landscaping",
       l: t("Landscaping & Design", "Paisajismo y Diseño"),
       desc: t("Mulch, sod installation, flower beds & design", "Mantillo, césped en rollo y jardinería"),
       icon: Trees,
       tag: "Featured",
     },
     {
-      to: "#",
+      to: "/services/tree-brush-removal",
       l: t("Tree & Brush Removal", "Remoción de Árboles y Maleza"),
       desc: t("Professional tree cutting, brush clearing & haul-off", "Corte de árboles, maleza y retiro"),
       icon: Trash2,
       tag: "Safe & Fast",
     },
     {
-      to: "#",
+      to: "/services/gravel-dirt-work",
       l: t("Gravel & Dirt Work", "Trabajos de Grava y Tierra"),
       desc: t("Gravel driveway repair, grading, topsoil & leveling", "Reparación de entradas, nivelación y grava"),
       icon: Truck,
       tag: "Heavy-Duty",
     },
     {
-      to: "#",
+      to: "/services/office-commercial-cleaning",
       l: t("Office & Commercial Cleaning", "Limpieza de Oficinas y Comercial"),
       desc: t("Scheduled janitorial, office & commercial cleaning", "Limpieza programada de oficinas y comercios"),
       icon: Sparkles,
       tag: "Commercial",
     },
     {
-      to: "#",
+      to: "/services/residential-wire-house-cleaning",
       l: t("Residential & Wire House Cleaning", "Limpieza Residencial y Almacén"),
       desc: t("Deep home cleaning, move-in/out & wire houses", "Limpieza profunda, mudanzas y almacenes"),
       icon: Home,
@@ -268,7 +269,7 @@ export function Header() {
                                 </span>
                               </div>
                               <Link
-                                to="#"
+                                to="/services"
                                 className="text-[11px] font-extrabold uppercase text-[#2E7D32] hover:text-[#1B5E20] tracking-wider transition-colors flex items-center gap-1 group/all"
                               >
                                 <span>{t("Explore All Services", "Ver Todos Los Servicios")}</span>

@@ -41,6 +41,13 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      if (env && typeof env === "object") {
+        for (const [key, value] of Object.entries(env as Record<string, unknown>)) {
+          if (typeof value === "string" && value) {
+            process.env[key] = value;
+          }
+        }
+      }
       const apiResponse = await handleApiRequest(request);
       if (apiResponse) return apiResponse;
 

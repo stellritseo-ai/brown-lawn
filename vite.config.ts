@@ -20,6 +20,9 @@ export default defineConfig({
     },
   },
   vite: {
+    server: {
+      port: 8081,
+    },
     plugins: [
       {
         name: "api-server",

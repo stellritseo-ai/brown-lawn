@@ -13,22 +13,19 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as FreeQuoteRouteImport } from './routes/free-quote'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as ServicesWiringRewiringRouteImport } from './routes/services/wiring-rewiring'
-import { Route as ServicesSecuritySystemsRouteImport } from './routes/services/security-systems'
-import { Route as ServicesResidentialRouteImport } from './routes/services/residential'
-import { Route as ServicesPanelUpgradesRouteImport } from './routes/services/panel-upgrades'
-import { Route as ServicesIndustrialRouteImport } from './routes/services/industrial'
-import { Route as ServicesGeneratorRouteImport } from './routes/services/generator'
-import { Route as ServicesEvChargerRouteImport } from './routes/services/ev-charger'
-import { Route as ServicesEmergencyRouteImport } from './routes/services/emergency'
-import { Route as ServicesCommercialRouteImport } from './routes/services/commercial'
-import { Route as ServicesCctvCameraRouteImport } from './routes/services/cctv-camera'
+import { Route as ServicesTreeBrushRemovalRouteImport } from './routes/services/tree-brush-removal'
+import { Route as ServicesResidentialWireHouseCleaningRouteImport } from './routes/services/residential-wire-house-cleaning'
+import { Route as ServicesOfficeCommercialCleaningRouteImport } from './routes/services/office-commercial-cleaning'
+import { Route as ServicesLawnMowingRouteImport } from './routes/services/lawn-mowing'
+import { Route as ServicesLandscapingRouteImport } from './routes/services/landscaping'
+import { Route as ServicesGravelDirtWorkRouteImport } from './routes/services/gravel-dirt-work'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard/login'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -49,6 +46,11 @@ const ReviewsRoute = ReviewsRouteImport.update({
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeQuoteRoute = FreeQuoteRouteImport.update({
+  id: '/free-quote',
+  path: '/free-quote',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -81,54 +83,37 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesWiringRewiringRoute = ServicesWiringRewiringRouteImport.update({
-  id: '/wiring-rewiring',
-  path: '/wiring-rewiring',
+const ServicesTreeBrushRemovalRoute =
+  ServicesTreeBrushRemovalRouteImport.update({
+    id: '/tree-brush-removal',
+    path: '/tree-brush-removal',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesResidentialWireHouseCleaningRoute =
+  ServicesResidentialWireHouseCleaningRouteImport.update({
+    id: '/residential-wire-house-cleaning',
+    path: '/residential-wire-house-cleaning',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesOfficeCommercialCleaningRoute =
+  ServicesOfficeCommercialCleaningRouteImport.update({
+    id: '/office-commercial-cleaning',
+    path: '/office-commercial-cleaning',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesLawnMowingRoute = ServicesLawnMowingRouteImport.update({
+  id: '/lawn-mowing',
+  path: '/lawn-mowing',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesSecuritySystemsRoute = ServicesSecuritySystemsRouteImport.update({
-  id: '/security-systems',
-  path: '/security-systems',
+const ServicesLandscapingRoute = ServicesLandscapingRouteImport.update({
+  id: '/landscaping',
+  path: '/landscaping',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesResidentialRoute = ServicesResidentialRouteImport.update({
-  id: '/residential',
-  path: '/residential',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesPanelUpgradesRoute = ServicesPanelUpgradesRouteImport.update({
-  id: '/panel-upgrades',
-  path: '/panel-upgrades',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesIndustrialRoute = ServicesIndustrialRouteImport.update({
-  id: '/industrial',
-  path: '/industrial',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesGeneratorRoute = ServicesGeneratorRouteImport.update({
-  id: '/generator',
-  path: '/generator',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesEvChargerRoute = ServicesEvChargerRouteImport.update({
-  id: '/ev-charger',
-  path: '/ev-charger',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesEmergencyRoute = ServicesEmergencyRouteImport.update({
-  id: '/emergency',
-  path: '/emergency',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesCommercialRoute = ServicesCommercialRouteImport.update({
-  id: '/commercial',
-  path: '/commercial',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesCctvCameraRoute = ServicesCctvCameraRouteImport.update({
-  id: '/cctv-camera',
-  path: '/cctv-camera',
+const ServicesGravelDirtWorkRoute = ServicesGravelDirtWorkRouteImport.update({
+  id: '/gravel-dirt-work',
+  path: '/gravel-dirt-work',
   getParentRoute: () => ServicesRoute,
 } as any)
 const DashboardLoginRoute = DashboardLoginRouteImport.update({
@@ -142,21 +127,18 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/free-quote': typeof FreeQuoteRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
-  '/services/cctv-camera': typeof ServicesCctvCameraRoute
-  '/services/commercial': typeof ServicesCommercialRoute
-  '/services/emergency': typeof ServicesEmergencyRoute
-  '/services/ev-charger': typeof ServicesEvChargerRoute
-  '/services/generator': typeof ServicesGeneratorRoute
-  '/services/industrial': typeof ServicesIndustrialRoute
-  '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
-  '/services/residential': typeof ServicesResidentialRoute
-  '/services/security-systems': typeof ServicesSecuritySystemsRoute
-  '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
+  '/services/gravel-dirt-work': typeof ServicesGravelDirtWorkRoute
+  '/services/landscaping': typeof ServicesLandscapingRoute
+  '/services/lawn-mowing': typeof ServicesLawnMowingRoute
+  '/services/office-commercial-cleaning': typeof ServicesOfficeCommercialCleaningRoute
+  '/services/residential-wire-house-cleaning': typeof ServicesResidentialWireHouseCleaningRoute
+  '/services/tree-brush-removal': typeof ServicesTreeBrushRemovalRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -165,20 +147,17 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/free-quote': typeof FreeQuoteRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
-  '/services/cctv-camera': typeof ServicesCctvCameraRoute
-  '/services/commercial': typeof ServicesCommercialRoute
-  '/services/emergency': typeof ServicesEmergencyRoute
-  '/services/ev-charger': typeof ServicesEvChargerRoute
-  '/services/generator': typeof ServicesGeneratorRoute
-  '/services/industrial': typeof ServicesIndustrialRoute
-  '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
-  '/services/residential': typeof ServicesResidentialRoute
-  '/services/security-systems': typeof ServicesSecuritySystemsRoute
-  '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
+  '/services/gravel-dirt-work': typeof ServicesGravelDirtWorkRoute
+  '/services/landscaping': typeof ServicesLandscapingRoute
+  '/services/lawn-mowing': typeof ServicesLawnMowingRoute
+  '/services/office-commercial-cleaning': typeof ServicesOfficeCommercialCleaningRoute
+  '/services/residential-wire-house-cleaning': typeof ServicesResidentialWireHouseCleaningRoute
+  '/services/tree-brush-removal': typeof ServicesTreeBrushRemovalRoute
   '/dashboard': typeof DashboardIndexRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -188,21 +167,18 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
+  '/free-quote': typeof FreeQuoteRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
-  '/services/cctv-camera': typeof ServicesCctvCameraRoute
-  '/services/commercial': typeof ServicesCommercialRoute
-  '/services/emergency': typeof ServicesEmergencyRoute
-  '/services/ev-charger': typeof ServicesEvChargerRoute
-  '/services/generator': typeof ServicesGeneratorRoute
-  '/services/industrial': typeof ServicesIndustrialRoute
-  '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
-  '/services/residential': typeof ServicesResidentialRoute
-  '/services/security-systems': typeof ServicesSecuritySystemsRoute
-  '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
+  '/services/gravel-dirt-work': typeof ServicesGravelDirtWorkRoute
+  '/services/landscaping': typeof ServicesLandscapingRoute
+  '/services/lawn-mowing': typeof ServicesLawnMowingRoute
+  '/services/office-commercial-cleaning': typeof ServicesOfficeCommercialCleaningRoute
+  '/services/residential-wire-house-cleaning': typeof ServicesResidentialWireHouseCleaningRoute
+  '/services/tree-brush-removal': typeof ServicesTreeBrushRemovalRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -213,21 +189,18 @@ export interface FileRouteTypes {
     | '/about'
     | '/careers'
     | '/contact'
+    | '/free-quote'
     | '/projects'
     | '/reviews'
     | '/services'
     | '/sitemap.xml'
     | '/dashboard/login'
-    | '/services/cctv-camera'
-    | '/services/commercial'
-    | '/services/emergency'
-    | '/services/ev-charger'
-    | '/services/generator'
-    | '/services/industrial'
-    | '/services/panel-upgrades'
-    | '/services/residential'
-    | '/services/security-systems'
-    | '/services/wiring-rewiring'
+    | '/services/gravel-dirt-work'
+    | '/services/landscaping'
+    | '/services/lawn-mowing'
+    | '/services/office-commercial-cleaning'
+    | '/services/residential-wire-house-cleaning'
+    | '/services/tree-brush-removal'
     | '/dashboard/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
@@ -236,20 +209,17 @@ export interface FileRouteTypes {
     | '/about'
     | '/careers'
     | '/contact'
+    | '/free-quote'
     | '/projects'
     | '/reviews'
     | '/sitemap.xml'
     | '/dashboard/login'
-    | '/services/cctv-camera'
-    | '/services/commercial'
-    | '/services/emergency'
-    | '/services/ev-charger'
-    | '/services/generator'
-    | '/services/industrial'
-    | '/services/panel-upgrades'
-    | '/services/residential'
-    | '/services/security-systems'
-    | '/services/wiring-rewiring'
+    | '/services/gravel-dirt-work'
+    | '/services/landscaping'
+    | '/services/lawn-mowing'
+    | '/services/office-commercial-cleaning'
+    | '/services/residential-wire-house-cleaning'
+    | '/services/tree-brush-removal'
     | '/dashboard'
     | '/services'
   id:
@@ -258,21 +228,18 @@ export interface FileRouteTypes {
     | '/about'
     | '/careers'
     | '/contact'
+    | '/free-quote'
     | '/projects'
     | '/reviews'
     | '/services'
     | '/sitemap.xml'
     | '/dashboard/login'
-    | '/services/cctv-camera'
-    | '/services/commercial'
-    | '/services/emergency'
-    | '/services/ev-charger'
-    | '/services/generator'
-    | '/services/industrial'
-    | '/services/panel-upgrades'
-    | '/services/residential'
-    | '/services/security-systems'
-    | '/services/wiring-rewiring'
+    | '/services/gravel-dirt-work'
+    | '/services/landscaping'
+    | '/services/lawn-mowing'
+    | '/services/office-commercial-cleaning'
+    | '/services/residential-wire-house-cleaning'
+    | '/services/tree-brush-removal'
     | '/dashboard/'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -282,6 +249,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
+  FreeQuoteRoute: typeof FreeQuoteRoute
   ProjectsRoute: typeof ProjectsRoute
   ReviewsRoute: typeof ReviewsRoute
   ServicesRoute: typeof ServicesRouteWithChildren
@@ -318,6 +286,13 @@ declare module '@tanstack/react-router' {
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free-quote': {
+      id: '/free-quote'
+      path: '/free-quote'
+      fullPath: '/free-quote'
+      preLoaderRoute: typeof FreeQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -362,74 +337,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/wiring-rewiring': {
-      id: '/services/wiring-rewiring'
-      path: '/wiring-rewiring'
-      fullPath: '/services/wiring-rewiring'
-      preLoaderRoute: typeof ServicesWiringRewiringRouteImport
+    '/services/tree-brush-removal': {
+      id: '/services/tree-brush-removal'
+      path: '/tree-brush-removal'
+      fullPath: '/services/tree-brush-removal'
+      preLoaderRoute: typeof ServicesTreeBrushRemovalRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/security-systems': {
-      id: '/services/security-systems'
-      path: '/security-systems'
-      fullPath: '/services/security-systems'
-      preLoaderRoute: typeof ServicesSecuritySystemsRouteImport
+    '/services/residential-wire-house-cleaning': {
+      id: '/services/residential-wire-house-cleaning'
+      path: '/residential-wire-house-cleaning'
+      fullPath: '/services/residential-wire-house-cleaning'
+      preLoaderRoute: typeof ServicesResidentialWireHouseCleaningRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/residential': {
-      id: '/services/residential'
-      path: '/residential'
-      fullPath: '/services/residential'
-      preLoaderRoute: typeof ServicesResidentialRouteImport
+    '/services/office-commercial-cleaning': {
+      id: '/services/office-commercial-cleaning'
+      path: '/office-commercial-cleaning'
+      fullPath: '/services/office-commercial-cleaning'
+      preLoaderRoute: typeof ServicesOfficeCommercialCleaningRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/panel-upgrades': {
-      id: '/services/panel-upgrades'
-      path: '/panel-upgrades'
-      fullPath: '/services/panel-upgrades'
-      preLoaderRoute: typeof ServicesPanelUpgradesRouteImport
+    '/services/lawn-mowing': {
+      id: '/services/lawn-mowing'
+      path: '/lawn-mowing'
+      fullPath: '/services/lawn-mowing'
+      preLoaderRoute: typeof ServicesLawnMowingRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/industrial': {
-      id: '/services/industrial'
-      path: '/industrial'
-      fullPath: '/services/industrial'
-      preLoaderRoute: typeof ServicesIndustrialRouteImport
+    '/services/landscaping': {
+      id: '/services/landscaping'
+      path: '/landscaping'
+      fullPath: '/services/landscaping'
+      preLoaderRoute: typeof ServicesLandscapingRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/generator': {
-      id: '/services/generator'
-      path: '/generator'
-      fullPath: '/services/generator'
-      preLoaderRoute: typeof ServicesGeneratorRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/ev-charger': {
-      id: '/services/ev-charger'
-      path: '/ev-charger'
-      fullPath: '/services/ev-charger'
-      preLoaderRoute: typeof ServicesEvChargerRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/emergency': {
-      id: '/services/emergency'
-      path: '/emergency'
-      fullPath: '/services/emergency'
-      preLoaderRoute: typeof ServicesEmergencyRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/commercial': {
-      id: '/services/commercial'
-      path: '/commercial'
-      fullPath: '/services/commercial'
-      preLoaderRoute: typeof ServicesCommercialRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/cctv-camera': {
-      id: '/services/cctv-camera'
-      path: '/cctv-camera'
-      fullPath: '/services/cctv-camera'
-      preLoaderRoute: typeof ServicesCctvCameraRouteImport
+    '/services/gravel-dirt-work': {
+      id: '/services/gravel-dirt-work'
+      path: '/gravel-dirt-work'
+      fullPath: '/services/gravel-dirt-work'
+      preLoaderRoute: typeof ServicesGravelDirtWorkRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/dashboard/login': {
@@ -443,30 +390,23 @@ declare module '@tanstack/react-router' {
 }
 
 interface ServicesRouteChildren {
-  ServicesCctvCameraRoute: typeof ServicesCctvCameraRoute
-  ServicesCommercialRoute: typeof ServicesCommercialRoute
-  ServicesEmergencyRoute: typeof ServicesEmergencyRoute
-  ServicesEvChargerRoute: typeof ServicesEvChargerRoute
-  ServicesGeneratorRoute: typeof ServicesGeneratorRoute
-  ServicesIndustrialRoute: typeof ServicesIndustrialRoute
-  ServicesPanelUpgradesRoute: typeof ServicesPanelUpgradesRoute
-  ServicesResidentialRoute: typeof ServicesResidentialRoute
-  ServicesSecuritySystemsRoute: typeof ServicesSecuritySystemsRoute
-  ServicesWiringRewiringRoute: typeof ServicesWiringRewiringRoute
+  ServicesGravelDirtWorkRoute: typeof ServicesGravelDirtWorkRoute
+  ServicesLandscapingRoute: typeof ServicesLandscapingRoute
+  ServicesLawnMowingRoute: typeof ServicesLawnMowingRoute
+  ServicesOfficeCommercialCleaningRoute: typeof ServicesOfficeCommercialCleaningRoute
+  ServicesResidentialWireHouseCleaningRoute: typeof ServicesResidentialWireHouseCleaningRoute
+  ServicesTreeBrushRemovalRoute: typeof ServicesTreeBrushRemovalRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
-  ServicesCctvCameraRoute: ServicesCctvCameraRoute,
-  ServicesCommercialRoute: ServicesCommercialRoute,
-  ServicesEmergencyRoute: ServicesEmergencyRoute,
-  ServicesEvChargerRoute: ServicesEvChargerRoute,
-  ServicesGeneratorRoute: ServicesGeneratorRoute,
-  ServicesIndustrialRoute: ServicesIndustrialRoute,
-  ServicesPanelUpgradesRoute: ServicesPanelUpgradesRoute,
-  ServicesResidentialRoute: ServicesResidentialRoute,
-  ServicesSecuritySystemsRoute: ServicesSecuritySystemsRoute,
-  ServicesWiringRewiringRoute: ServicesWiringRewiringRoute,
+  ServicesGravelDirtWorkRoute: ServicesGravelDirtWorkRoute,
+  ServicesLandscapingRoute: ServicesLandscapingRoute,
+  ServicesLawnMowingRoute: ServicesLawnMowingRoute,
+  ServicesOfficeCommercialCleaningRoute: ServicesOfficeCommercialCleaningRoute,
+  ServicesResidentialWireHouseCleaningRoute:
+    ServicesResidentialWireHouseCleaningRoute,
+  ServicesTreeBrushRemovalRoute: ServicesTreeBrushRemovalRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 
@@ -479,6 +419,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
+  FreeQuoteRoute: FreeQuoteRoute,
   ProjectsRoute: ProjectsRoute,
   ReviewsRoute: ReviewsRoute,
   ServicesRoute: ServicesRouteWithChildren,

@@ -127,14 +127,14 @@ export function ServiceArea() {
                     {t("Don't see your city? Call us — we may still be able to serve you within our 50-mile radius.", "¿No ve su ciudad? Llámenos — es posible que aún podamos servirle en nuestro radio de 50 millas.")}
                   </p>
                 </div>
-                <button
-                  type="button"
+                <a
+                  href="tel:6625711048"
                   className="shrink-0 inline-flex items-center gap-1.5 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] text-[#FFD54F] border border-[#D4AF37]/40 text-[10px] font-black uppercase tracking-wider px-3.5 py-2 rounded-xl transition-all duration-200 hover:scale-[1.04] shadow-md cursor-pointer"
                 >
                   <Phone className="h-3.5 w-3.5" />
                   {t("Call", "Llamar")}
                   <ArrowRight className="h-3 w-3" />
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>
