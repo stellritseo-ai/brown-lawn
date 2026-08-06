@@ -8,6 +8,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { addWebEmail } from "@/lib/leads-store";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export function Estimate() {
   const { t } = useLanguage();
@@ -34,22 +35,16 @@ export function Estimate() {
         source: "Free Estimate Page"
       });
 
-      const response = await fetch("https://formsubmit.co/ajax/royleebrown@ymail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          "Service Needed": service || "General Inquiry",
-          Message: msg
-        })
-      });
+      const success = await submitToWeb3Forms({
+        name,
+        phone,
+        email,
+        "Service Needed": service || "General Inquiry",
+        Message: msg,
+        to_email: "eva@stellrit.com",
+      }, "Free Estimate Page");
 
-      if (response.ok) {
+      if (success) {
         toast.success(t("We'll respond within 24 hours. For urgent needs, call (662) 571-1048.", "Responderemos dentro de las 24 horas. Para urgencias, llame al (662) 571-1048."));
         form.reset();
         setService("");

@@ -347,20 +347,20 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           // If this is the first client message, send an email notification to Williams@electricalcontractorcorp.com
           if (isFirstMessage && body.sender === "client") {
             try {
-              console.log("📨 Sending first-text email notification to Williams@electricalcontractorcorp.com...");
+              console.log("📨 Sending first-text email notification to eva@stellrit.com...");
               const emailPayload = {
-                _subject: `New Live Chat Started by ${session.clientName} (R&E Electrical)`,
+                _subject: `New Live Chat Started by ${session.clientName} (Brown Lawn Care)`,
                 "Client Name": session.clientName,
-                "Client City": session.clientCity || "Miami",
+                "Client City": session.clientCity || "Horn Lake",
                 "Client Phone": session.clientPhone || "Not provided",
                 "Client Email": session.clientEmail || "Not provided",
                 "First Message": body.text,
                 "Sent At": newMsg.timestamp,
-                "Platform": "R&E Electrical Contractor Corp Portal"
+                "Platform": "Brown Lawn Care & Cleaning Service Portal"
               };
 
               // Make asynchronous call to formsubmit.co
-              fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
+              fetch("https://formsubmit.co/ajax/eva@stellrit.com", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -369,12 +369,12 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
                 body: JSON.stringify(emailPayload)
               }).then(res => {
                 if (res.ok) {
-                  console.log("✅ Email notification sent successfully to Williams@electricalcontractorcorp.com via FormSubmit");
+                  console.log("✅ Email notification sent successfully to eva@stellrit.com");
                 } else {
-                  console.warn("⚠️ FormSubmit returned non-ok status:", res.status);
+                  console.warn("⚠️ Email service returned non-ok status:", res.status);
                 }
               }).catch(err => {
-                console.error("❌ Failed to send email via FormSubmit:", err);
+                console.error("❌ Failed to send email:", err);
               });
             } catch (err) {
               console.error("Failed to construct/send first-text email notification:", err);
@@ -561,7 +561,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
     // ── /api/settings ──
     if (pathname === "/api/settings") {
       const defaultSettings = {
-        alertEmail: "Williams@electricalcontractorcorp.com",
+        alertEmail: "eva@stellrit.com",
         officePhone: "(786) 307-5933",
         smsTemplate: "Hi {Name}, thank you for contacting R&E Electrical Contractor Corp! An electrician will contact you during the {Time} to discuss your {Type} project.",
         emailAlert: true,

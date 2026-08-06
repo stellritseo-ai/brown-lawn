@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { addWebEmail } from "@/lib/leads-store";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export function Careers() {
   const { t } = useLanguage();
@@ -42,25 +43,18 @@ export function Careers() {
         source: "Careers Form"
       });
 
-      // 2. Email backup
-      const response = await fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          "Position of Interest": job || "General Application",
-          "Years of Experience": exp || "Not Specified",
-          "License Status": license || "Not Specified",
-          Message: msg
-        })
-      });
+      const success = await submitToWeb3Forms({
+        name,
+        phone,
+        email,
+        "Position of Interest": job || "General Application",
+        "Years of Experience": exp || "Not Specified",
+        "License Status": license || "Not Specified",
+        Message: msg,
+        to_email: "eva@stellrit.com",
+      }, "Careers Form");
 
-      if (response.ok) {
+      if (success) {
         toast.success(t("Application received! We'll review your details and contact you soon.", "¡Solicitud recibida! Revisaremos sus datos y nos pondremos en contacto pronto."));
         form.reset();
         setJob("");

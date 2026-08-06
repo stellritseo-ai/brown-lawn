@@ -37,6 +37,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { addWebEmail } from "@/lib/leads-store";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 import bbbLogo from "@/assets/bbb.svg";
 
 export function ContactPageContent() {
@@ -89,25 +90,19 @@ export function ContactPageContent() {
         source: "Contact Page Quote Form"
       });
 
-      const response = await fetch("https://formsubmit.co/ajax/royleebrown@ymail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          "Address / City": address,
-          "Property Type": propertyType,
-          "Timeline Needed": timeline,
-          "Services Interested In": selectedServices.join(", "),
-          Message: description
-        })
-      });
+      const success = await submitToWeb3Forms({
+        name,
+        phone,
+        email,
+        "Address / City": address,
+        "Property Type": propertyType,
+        "Timeline Needed": timeline,
+        "Services Interested In": selectedServices.join(", "),
+        Message: description,
+        to_email: "eva@stellrit.com",
+      }, "Contact Page Quote Form");
 
-      if (response.ok) {
+      if (success) {
         toast.success(t("We'll respond within 24 hours. For urgent needs, call (662) 571-1048.", "Responderemos dentro de 24 horas. Para urgencias, llame al (662) 571-1048."));
         form.reset();
         setSelectedServices(["Lawn Mowing & Maintenance"]);

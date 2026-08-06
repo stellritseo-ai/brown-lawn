@@ -43,6 +43,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { addWebEmail } from "@/lib/leads-store";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 import bbbLogo from "@/assets/bbb.svg";
 
 export function FreeQuoteContent() {
@@ -161,29 +162,23 @@ export function FreeQuoteContent() {
         source: "Dedicated Free Quote Page"
       });
 
-      const response = await fetch("https://formsubmit.co/ajax/royleebrown@ymail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          "Address / City": address,
-          "Property Type": propertyType,
-          "Property Size": propertySize,
-          "Timeline Needed": timeline,
-          "Budget Expectation": budget,
-          "Referral Source": referralSource,
-          "Preferred Contact": preferredContact,
-          "Selected Services": selectedServices.join(", "),
-          Message: description
-        })
-      });
+      const success = await submitToWeb3Forms({
+        name,
+        phone,
+        email,
+        "Address / City": address,
+        "Property Type": propertyType,
+        "Property Size": propertySize,
+        "Timeline Needed": timeline,
+        "Budget Expectation": budget,
+        "Referral Source": referralSource,
+        "Preferred Contact": preferredContact,
+        "Selected Services": selectedServices.join(", "),
+        Message: description,
+        to_email: "eva@stellrit.com",
+      }, "Dedicated Free Quote Page");
 
-      if (response.ok) {
+      if (success) {
         toast.success(t("We'll respond within 24 hours with your free, itemized quote!", "¡Responderemos dentro de 24 horas con su cotización detallada gratis!"));
         form.reset();
         setSelectedServices(["Weekly Lawn Mowing & Edging"]);

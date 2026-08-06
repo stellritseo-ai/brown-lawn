@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { addWebEmail } from "@/lib/leads-store";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 import {
   Phone,
   Mail,
@@ -47,26 +48,18 @@ export function GetInTouch() {
         source: "Landing Get-In-Touch Form"
       });
 
-      const response = await fetch("https://formsubmit.co/ajax/royleebrown@ymail.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          "Address / City": address,
-          "Property Type": propertyType,
-          Timeframe: timeframe,
-          Message: msg
-        })
-      });
+      await submitToWeb3Forms({
+        name,
+        phone,
+        email,
+        "Address / City": address,
+        "Property Type": propertyType,
+        Timeframe: timeframe,
+        Message: msg,
+        to_email: "eva@stellrit.com",
+      }, "Landing Get-In-Touch Form");
 
-      if (response.ok) {
-        setSubmitted(true);
-      }
+      setSubmitted(true);
     } catch (err) {
       setSubmitted(true);
     } finally {
