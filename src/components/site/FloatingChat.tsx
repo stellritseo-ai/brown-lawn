@@ -3,6 +3,7 @@ import { MessageCircle, X, Send, Phone, Calendar, CheckCircle2 } from "lucide-re
 import { motion, AnimatePresence } from "framer-motion";
 import { io } from "socket.io-client";
 import { createChatSession, sendChatMessage, getChatSessionById, ChatMessage } from "@/lib/leads-store";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 import { toast } from "sonner";
 import logoImg from "@/assets/logo.png";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -107,6 +108,16 @@ export function FloatingChat() {
         }
 
         setMessages(updatedSession.messages || []);
+        
+        // Notify eva@stellrit.com via Web3Forms
+        submitToWeb3Forms({
+          name: clientName || "Chat Visitor",
+          message: message.trim(),
+          session_id: activeId,
+          source: "Website Floating Live Chat Widget",
+          to_email: "eva@stellrit.com",
+        }, "Website Floating Live Chat Widget");
+
         setMessage("");
       }
     } catch (err) {
