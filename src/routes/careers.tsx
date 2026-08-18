@@ -46,11 +46,14 @@ function CareersPage() {
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers & Job Openings | Brown Lawn Care & Cleaning Service, LLC" },
-      { name: "description", content: "Apply for lawn care jobs, landscaping positions, and commercial cleaning roles at Brown Lawn Care & Cleaning Service, LLC in Horn Lake, MS." },
-      { property: "og:title", content: "Careers | Brown Lawn Care & Cleaning Service, LLC" },
+      { title: "Careers & Job Openings | Brown Lawn Care & Cleaning Service LLC" },
+      { name: "description", content: "Apply for lawn care jobs, landscaping positions, and commercial cleaning roles at Brown Lawn Care & Cleaning Service LLC in Horn Lake, MS." },
+      { name: "keywords", content: "lawn care jobs horn lake ms, landscaping hiring desoto county, cleaning jobs horn lake, equipment operator jobs memphis" },
+      { property: "og:title", content: "Careers & Job Openings | Brown Lawn Care & Cleaning Service LLC" },
       { property: "og:description", content: "Join our family-owned property care and cleaning crew in Horn Lake, MS." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/careers" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/careers" },

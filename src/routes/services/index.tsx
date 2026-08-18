@@ -8,11 +8,14 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "Our Services | Brown Lawn Care & Cleaning Service, LLC" },
-      { name: "description", content: "Lawn care, landscaping, tree removal, brush cutting, gravel driveways, and office/residential cleaning in Horn Lake, MS & 50-mile radius." },
-      { property: "og:title", content: "Our Services | Brown Lawn Care & Cleaning Service, LLC" },
-      { property: "og:description", content: "Full-service lawn care, landscaping, and cleaning in Horn Lake, MS." },
+      { title: "Lawn Care & Cleaning Services | Brown Lawn Care & Cleaning Service LLC" },
+      { name: "description", content: "Full-service lawn mowing, landscape design, tree removal, gravel driveways, and commercial/residential cleaning in Horn Lake, MS & 50-mile radius across MS, TN, and AR." },
+      { name: "keywords", content: "lawn care services horn lake ms, property maintenance desoto county, commercial cleaning horn lake, landscaping services memphis" },
+      { property: "og:title", content: "Lawn Care & Cleaning Services | Brown Lawn Care & Cleaning Service LLC" },
+      { property: "og:description", content: "Full-service property care, lawn maintenance, landscaping, and cleaning solutions in Horn Lake, MS." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/services" },
@@ -23,7 +26,7 @@ export const Route = createFileRoute("/services/")({
 
 function ServicesIndex() {
   const { t } = useLanguage();
-  const schema = {
+  const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -42,11 +45,95 @@ function ServicesIndex() {
     ]
   };
 
+  const serviceHubSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Property Maintenance and Cleaning Services",
+    "provider": {
+      "@type": "HomeAndConstructionBusiness",
+      "name": "Brown Lawn Care & Cleaning Service, LLC",
+      "telephone": "+16625711048",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Alden Lake Dr W",
+        "addressLocality": "Horn Lake",
+        "addressRegion": "MS",
+        "postalCode": "38637",
+        "addressCountry": "US"
+      }
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Horn Lake, MS" },
+      { "@type": "City", "name": "Southaven, MS" },
+      { "@type": "City", "name": "Olive Branch, MS" },
+      { "@type": "City", "name": "Hernando, MS" },
+      { "@type": "City", "name": "Memphis, TN" }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Full Property Services Catalog",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Lawn Mowing & Maintenance",
+            "url": "https://www.brownlawncarecleaningservicellc.com/services/lawn-mowing"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Landscaping & Design",
+            "url": "https://www.brownlawncarecleaningservicellc.com/services/landscaping"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Tree & Brush Removal",
+            "url": "https://www.brownlawncarecleaningservicellc.com/services/tree-brush-removal"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Gravel & Dirt Work",
+            "url": "https://www.brownlawncarecleaningservicellc.com/services/gravel-dirt-work"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Office & Commercial Cleaning",
+            "url": "https://www.brownlawncarecleaningservicellc.com/services/office-commercial-cleaning"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Residential & Warehouse Cleaning",
+            "url": "https://www.brownlawncarecleaningservicellc.com/services/residential-wire-house-cleaning"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceHubSchema) }}
       />
       <PageHeader
         eyebrow={t("Services", "Servicios")}

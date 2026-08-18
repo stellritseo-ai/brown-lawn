@@ -30,6 +30,7 @@ export function Header() {
     { to: "/", label: t("Home", "Inicio") },
     { to: "/about", label: t("About Us", "Sobre Nosotros") },
     { to: "/services", label: t("Services", "Servicios") },
+    // { to: "/service-areas", label: t("Service Areas", "Áreas de Servicio") },
     { to: "/projects", label: t("Gallery", "Galería") },
     { to: "/reviews", label: t("Reviews", "Reseñas") },
     { to: "/free-quote", label: t("Free Estimates", "Estimaciones Gratuitas") },

@@ -90,6 +90,7 @@ export function Footer() {
     { label: t("Home", "Inicio"), href: "/" },
     { label: t("About Us", "Sobre Nosotros"), href: "/about" },
     { label: t("Services", "Servicios"), href: "/services" },
+    { label: t("Service Areas", "Áreas de Servicio"), href: "/service-areas" },
     { label: t("Free Quote", "Cotización Gratis"), href: "/free-quote" },
     { label: t("Gallery", "Galería"), href: "/projects" },
     { label: t("Testimonials", "Testimonios"), href: "/reviews" },
@@ -103,6 +104,18 @@ export function Footer() {
     { label: t("Gravel & Dirt Work", "Trabajos de Grava y Tierra"), href: "/services/gravel-dirt-work" },
     { label: t("Office & Commercial Cleaning", "Limpieza de Oficinas y Comercial"), href: "/services/office-commercial-cleaning" },
     { label: t("Residential & Warehouse Cleaning", "Limpieza Residencial y Galpones"), href: "/services/residential-wire-house-cleaning" },
+  ];
+
+  const serviceAreaLinks = [
+    { label: "Horn Lake, MS (HQ)", href: "/service-areas/horn-lake-ms" },
+    { label: "Southaven, MS", href: "/service-areas/southaven-ms" },
+    { label: "Olive Branch, MS", href: "/service-areas/olive-branch-ms" },
+    { label: "Hernando, MS", href: "/service-areas/hernando-ms" },
+    { label: "Memphis, TN", href: "/service-areas/memphis-tn" },
+    { label: "Collierville, TN", href: "/service-areas/collierville-tn" },
+    { label: "Germantown, TN", href: "/service-areas/germantown-tn" },
+    { label: "Cordova, TN", href: "/service-areas/cordova-tn" },
+    { label: "All Service Areas (50-Mi)", href: "/service-areas" },
   ];
 
   return (
@@ -198,6 +211,18 @@ export function Footer() {
             </ul>
           </MobileCollapsibleSection>
 
+          <MobileCollapsibleSection title={t("Service Areas", "Áreas de Servicio")}>
+            <ul className="space-y-2.5">
+              {serviceAreaLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <Link to={href} className="text-xs text-slate-300 hover:text-[#FFD54F] font-semibold block">
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </MobileCollapsibleSection>
+
           <MobileCollapsibleSection title={t("Contact Us", "Contáctenos")}>
             <ul className="space-y-3 text-xs">
               <li>
@@ -234,10 +259,10 @@ export function Footer() {
         </div>
 
         {/* ── DESKTOP VERSION (REFINED & BEAUTIFUL) ──────────────── */}
-        <div className="hidden lg:grid lg:grid-cols-12 gap-12 items-start">
+        <div className="hidden lg:grid lg:grid-cols-12 gap-8 items-start">
 
-          {/* Col 1: Brand Info (col-span-4) */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* Col 1: Brand Info (col-span-3) */}
+          <div className="lg:col-span-3 space-y-6">
             <Link to="/" className="inline-block">
               <img src={logoImg} alt="Brown Lawn Care Logo" className="h-16 w-auto object-contain" />
             </Link>
@@ -270,7 +295,7 @@ export function Footer() {
 
             {/* Trust Badges */}
             <div className="flex flex-wrap gap-2 pt-1">
-              {["Licensed", "Insured", "Bonded", "15 Years Experience"].map((badge) => (
+              {["Licensed", "Insured", "Bonded", "15 Years Exp."].map((badge) => (
                 <div key={badge} className="flex items-center gap-1.5 bg-[#1B5E20]/60 border border-[#D4AF37]/40 rounded-xl px-3 py-1.5 text-[10px] font-bold text-[#FFD54F] uppercase tracking-wider">
                   <span className="h-1.5 w-1.5 rounded-full bg-[#FFD54F] animate-pulse" />
                   ✓ {badge}
@@ -284,7 +309,7 @@ export function Footer() {
             <h3 className="text-xs uppercase tracking-widest text-[#FFD54F] font-extrabold mb-6">
               {t("Quick Links", "Enlaces Rápidos")}
             </h3>
-            <ul className="space-y-3 text-sm font-semibold">
+            <ul className="space-y-2.5 text-sm font-semibold">
               {quickLinks.map(({ label, href }) => (
                 <li key={label}>
                   <Link
@@ -304,7 +329,7 @@ export function Footer() {
             <h3 className="text-xs uppercase tracking-widest text-[#FFD54F] font-extrabold mb-6">
               {t("Our Services", "Nuestros Servicios")}
             </h3>
-            <ul className="space-y-3 text-sm font-semibold">
+            <ul className="space-y-2.5 text-sm font-semibold">
               {servicesLinks.map(({ label, href }) => (
                 <li key={label}>
                   <Link
@@ -319,8 +344,28 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Contact & Hours (col-span-3) */}
-          <div className="lg:col-span-3 space-y-6">
+          {/* Col 4: Service Areas (col-span-2) */}
+          <div className="lg:col-span-2">
+            <h3 className="text-xs uppercase tracking-widest text-[#FFD54F] font-extrabold mb-6">
+              {t("Service Areas", "Áreas de Servicio")}
+            </h3>
+            <ul className="space-y-2 text-xs font-semibold">
+              {serviceAreaLinks.map(({ label, href }) => (
+                <li key={label}>
+                  <Link
+                    to={href}
+                    className="text-slate-300 hover:text-[#FFD54F] transition-colors inline-flex items-center gap-1.5 group"
+                  >
+                    <ArrowRight className="h-2.5 w-2.5 text-[#2E7D32] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                    <span className="truncate">{label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Col 5: Contact & Hours (col-span-2) */}
+          <div className="lg:col-span-2 space-y-5">
             <div>
               <h3 className="text-xs uppercase tracking-widest text-[#FFD54F] font-extrabold mb-5">
                 {t("Contact Us", "Contáctenos")}

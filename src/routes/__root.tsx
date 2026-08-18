@@ -18,20 +18,64 @@ import { getSiteSettings } from "../lib/leads-store";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
-        <div className="mt-6">
+    <div className="flex min-h-screen items-center justify-center bg-[#0d160f] px-4 py-16 text-white select-none relative overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[#2E7D32]/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-[#D4AF37]/15 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="relative z-10 max-w-lg w-full bg-white/5 backdrop-blur-xl border border-white/10 p-8 sm:p-10 rounded-3xl text-center shadow-2xl space-y-6">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-[#2E7D32]/20 border border-[#D4AF37]/40 rounded-2xl text-[#FFD54F] font-black text-2xl">
+          404
+        </div>
+        <div>
+          <h1 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            Page Not Found
+          </h1>
+          <p className="mt-2 text-sm text-slate-300 font-medium leading-relaxed">
+            The page you're looking for might have been moved, renamed, or is temporarily unavailable. Let's get you back on track:
+          </p>
+        </div>
+
+        {/* Quick Navigation Links */}
+        <div className="grid grid-cols-2 gap-2 text-xs font-bold">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-[#2E7D32]/30 hover:border-[#D4AF37]/50 text-white transition-all duration-200"
           >
-            Go home
+            🏡 Home
           </Link>
+          <Link
+            to="/services"
+            className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-[#2E7D32]/30 hover:border-[#D4AF37]/50 text-white transition-all duration-200"
+          >
+            🌿 All Services
+          </Link>
+          <Link
+            to="/service-areas"
+            className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-[#2E7D32]/30 hover:border-[#D4AF37]/50 text-white transition-all duration-200"
+          >
+            📍 Service Areas
+          </Link>
+          <Link
+            to="/free-quote"
+            className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-[#2E7D32]/30 hover:border-[#D4AF37]/50 text-[#FFD54F] transition-all duration-200"
+          >
+            📋 Free Quote
+          </Link>
+        </div>
+
+        {/* Emergency Call Button */}
+        <div className="pt-2 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-left">
+          <div>
+            <div className="text-[10px] uppercase font-black tracking-wider text-[#FFD54F]">Need Immediate Help?</div>
+            <div className="text-xs text-slate-300 font-medium">Emergency tree & storm response</div>
+          </div>
+          <a
+            href="tel:6625711048"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#2E7D32] to-[#1B5E20] border border-[#D4AF37]/50 text-[#FFD54F] px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider hover:scale-[1.03] transition-all shadow-md"
+          >
+            📞 (662) 571-1048
+          </a>
         </div>
       </div>
     </div>
@@ -82,12 +126,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Brown Lawn Care & Cleaning Service, LLC | Horn Lake, MS" },
-      { name: "description", content: "Family-owned lawn care, landscaping, tree removal, gravel driveway repair, and commercial/residential cleaning in Horn Lake, MS & 50-mile radius. Licensed, insured, bonded." },
-      { name: "keywords", content: "lawn care horn lake ms, landscaping horn lake, tree removal olive branch ms, office cleaning southhaven ms, gravel driveway repair memphis, residential cleaning horn lake" },
+      { name: "description", content: "Family-owned lawn care, landscaping, tree removal, gravel driveway repair, and commercial/residential cleaning in Horn Lake, MS & 50-mile radius across MS, TN, and AR. Licensed, insured, bonded." },
+      { name: "keywords", content: "lawn care horn lake ms, lawn mowing horn lake, landscaping horn lake ms, tree removal olive branch ms, office cleaning southhaven ms, gravel driveway repair memphis, residential cleaning horn lake" },
       { name: "robots", content: "index, follow" },
       { name: "author", content: "Brown Lawn Care & Cleaning Service, LLC" },
-      { property: "og:title", content: "Brown Lawn Care & Cleaning Service, LLC" },
-      { property: "og:description", content: "6 Years in Business with 15+ Years Experience — Keeping Horn Lake Beautiful One Lawn & Home at a Time." },
+      { name: "geo.region", content: "US-MS" },
+      { name: "geo.placename", content: "Horn Lake, MS" },
+      { name: "geo.position", content: "34.9537;-90.0348" },
+      { name: "ICBM", content: "34.9537, -90.0348" },
+      { property: "og:title", content: "Brown Lawn Care & Cleaning Service, LLC | Horn Lake, MS" },
+      { property: "og:description", content: "15+ Years Experience & 6 Years in Business — Licensed, Insured & Bonded Lawn Care, Landscaping & Cleaning in Horn Lake, MS & 50-Mile Radius." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com" },
       { property: "og:image", content: "https://www.brownlawncarecleaningservicellc.com/assets/logo.png" },

@@ -7,7 +7,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 
 function FreeQuotePage() {
   const { t } = useLanguage();
-  const schema = {
+  const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -30,7 +30,7 @@ function FreeQuotePage() {
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <PageHeader
         eyebrow={t("Get a Free Quote", "Solicitar Cotización Gratis")}
@@ -46,11 +46,14 @@ function FreeQuotePage() {
 export const Route = createFileRoute("/free-quote")({
   head: () => ({
     meta: [
-      { title: "Get a Free Quote | Brown Lawn Care & Cleaning Service, LLC" },
-      { name: "description", content: "Request a 100% free, no-obligation itemized quote from Brown Lawn Care & Cleaning Service, LLC. Serving Horn Lake, MS and a 50-mile radius across MS, TN, and AR." },
-      { property: "og:title", content: "Get a Free Quote | Brown Lawn Care & Cleaning Service, LLC" },
+      { title: "Get a Free Quote | Brown Lawn Care & Cleaning Service LLC" },
+      { name: "description", content: "Request a 100% free, no-obligation itemized quote from Brown Lawn Care & Cleaning Service LLC. Serving Horn Lake, MS & 50-mile radius across MS, TN, and AR." },
+      { name: "keywords", content: "free lawn care quote horn lake ms, free mowing estimate southaven ms, landscaping estimate olive branch, commercial cleaning quote memphis" },
+      { property: "og:title", content: "Get a Free Quote | Brown Lawn Care & Cleaning Service LLC" },
       { property: "og:description", content: "Fast 24-hour response on free estimates for lawn mowing, landscaping, tree removal, gravel work, and commercial cleaning." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/free-quote" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/free-quote" },

@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as FreeQuoteRouteImport } from './routes/free-quote'
@@ -19,6 +20,7 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as ServicesTreeBrushRemovalRouteImport } from './routes/services/tree-brush-removal'
 import { Route as ServicesResidentialWireHouseCleaningRouteImport } from './routes/services/residential-wire-house-cleaning'
@@ -26,6 +28,17 @@ import { Route as ServicesOfficeCommercialCleaningRouteImport } from './routes/s
 import { Route as ServicesLawnMowingRouteImport } from './routes/services/lawn-mowing'
 import { Route as ServicesLandscapingRouteImport } from './routes/services/landscaping'
 import { Route as ServicesGravelDirtWorkRouteImport } from './routes/services/gravel-dirt-work'
+import { Route as ServiceAreasWestMemphisArRouteImport } from './routes/service-areas/west-memphis-ar'
+import { Route as ServiceAreasWallsMsRouteImport } from './routes/service-areas/walls-ms'
+import { Route as ServiceAreasSouthavenMsRouteImport } from './routes/service-areas/southaven-ms'
+import { Route as ServiceAreasOliveBranchMsRouteImport } from './routes/service-areas/olive-branch-ms'
+import { Route as ServiceAreasNesbitMsRouteImport } from './routes/service-areas/nesbit-ms'
+import { Route as ServiceAreasMemphisTnRouteImport } from './routes/service-areas/memphis-tn'
+import { Route as ServiceAreasHornLakeMsRouteImport } from './routes/service-areas/horn-lake-ms'
+import { Route as ServiceAreasHernandoMsRouteImport } from './routes/service-areas/hernando-ms'
+import { Route as ServiceAreasGermantownTnRouteImport } from './routes/service-areas/germantown-tn'
+import { Route as ServiceAreasCordovaTnRouteImport } from './routes/service-areas/cordova-tn'
+import { Route as ServiceAreasColliervilleTnRouteImport } from './routes/service-areas/collierville-tn'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard/login'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -36,6 +49,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReviewsRoute = ReviewsRouteImport.update({
@@ -78,6 +96,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
@@ -116,6 +139,65 @@ const ServicesGravelDirtWorkRoute = ServicesGravelDirtWorkRouteImport.update({
   path: '/gravel-dirt-work',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServiceAreasWestMemphisArRoute =
+  ServiceAreasWestMemphisArRouteImport.update({
+    id: '/west-memphis-ar',
+    path: '/west-memphis-ar',
+    getParentRoute: () => ServiceAreasRoute,
+  } as any)
+const ServiceAreasWallsMsRoute = ServiceAreasWallsMsRouteImport.update({
+  id: '/walls-ms',
+  path: '/walls-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasSouthavenMsRoute = ServiceAreasSouthavenMsRouteImport.update({
+  id: '/southaven-ms',
+  path: '/southaven-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasOliveBranchMsRoute =
+  ServiceAreasOliveBranchMsRouteImport.update({
+    id: '/olive-branch-ms',
+    path: '/olive-branch-ms',
+    getParentRoute: () => ServiceAreasRoute,
+  } as any)
+const ServiceAreasNesbitMsRoute = ServiceAreasNesbitMsRouteImport.update({
+  id: '/nesbit-ms',
+  path: '/nesbit-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasMemphisTnRoute = ServiceAreasMemphisTnRouteImport.update({
+  id: '/memphis-tn',
+  path: '/memphis-tn',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasHornLakeMsRoute = ServiceAreasHornLakeMsRouteImport.update({
+  id: '/horn-lake-ms',
+  path: '/horn-lake-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasHernandoMsRoute = ServiceAreasHernandoMsRouteImport.update({
+  id: '/hernando-ms',
+  path: '/hernando-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasGermantownTnRoute =
+  ServiceAreasGermantownTnRouteImport.update({
+    id: '/germantown-tn',
+    path: '/germantown-tn',
+    getParentRoute: () => ServiceAreasRoute,
+  } as any)
+const ServiceAreasCordovaTnRoute = ServiceAreasCordovaTnRouteImport.update({
+  id: '/cordova-tn',
+  path: '/cordova-tn',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasColliervilleTnRoute =
+  ServiceAreasColliervilleTnRouteImport.update({
+    id: '/collierville-tn',
+    path: '/collierville-tn',
+    getParentRoute: () => ServiceAreasRoute,
+  } as any)
 const DashboardLoginRoute = DashboardLoginRouteImport.update({
   id: '/dashboard/login',
   path: '/dashboard/login',
@@ -130,9 +212,21 @@ export interface FileRoutesByFullPath {
   '/free-quote': typeof FreeQuoteRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
+  '/service-areas': typeof ServiceAreasRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/service-areas/collierville-tn': typeof ServiceAreasColliervilleTnRoute
+  '/service-areas/cordova-tn': typeof ServiceAreasCordovaTnRoute
+  '/service-areas/germantown-tn': typeof ServiceAreasGermantownTnRoute
+  '/service-areas/hernando-ms': typeof ServiceAreasHernandoMsRoute
+  '/service-areas/horn-lake-ms': typeof ServiceAreasHornLakeMsRoute
+  '/service-areas/memphis-tn': typeof ServiceAreasMemphisTnRoute
+  '/service-areas/nesbit-ms': typeof ServiceAreasNesbitMsRoute
+  '/service-areas/olive-branch-ms': typeof ServiceAreasOliveBranchMsRoute
+  '/service-areas/southaven-ms': typeof ServiceAreasSouthavenMsRoute
+  '/service-areas/walls-ms': typeof ServiceAreasWallsMsRoute
+  '/service-areas/west-memphis-ar': typeof ServiceAreasWestMemphisArRoute
   '/services/gravel-dirt-work': typeof ServicesGravelDirtWorkRoute
   '/services/landscaping': typeof ServicesLandscapingRoute
   '/services/lawn-mowing': typeof ServicesLawnMowingRoute
@@ -140,6 +234,7 @@ export interface FileRoutesByFullPath {
   '/services/residential-wire-house-cleaning': typeof ServicesResidentialWireHouseCleaningRoute
   '/services/tree-brush-removal': typeof ServicesTreeBrushRemovalRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -152,6 +247,17 @@ export interface FileRoutesByTo {
   '/reviews': typeof ReviewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/service-areas/collierville-tn': typeof ServiceAreasColliervilleTnRoute
+  '/service-areas/cordova-tn': typeof ServiceAreasCordovaTnRoute
+  '/service-areas/germantown-tn': typeof ServiceAreasGermantownTnRoute
+  '/service-areas/hernando-ms': typeof ServiceAreasHernandoMsRoute
+  '/service-areas/horn-lake-ms': typeof ServiceAreasHornLakeMsRoute
+  '/service-areas/memphis-tn': typeof ServiceAreasMemphisTnRoute
+  '/service-areas/nesbit-ms': typeof ServiceAreasNesbitMsRoute
+  '/service-areas/olive-branch-ms': typeof ServiceAreasOliveBranchMsRoute
+  '/service-areas/southaven-ms': typeof ServiceAreasSouthavenMsRoute
+  '/service-areas/walls-ms': typeof ServiceAreasWallsMsRoute
+  '/service-areas/west-memphis-ar': typeof ServiceAreasWestMemphisArRoute
   '/services/gravel-dirt-work': typeof ServicesGravelDirtWorkRoute
   '/services/landscaping': typeof ServicesLandscapingRoute
   '/services/lawn-mowing': typeof ServicesLawnMowingRoute
@@ -159,6 +265,7 @@ export interface FileRoutesByTo {
   '/services/residential-wire-house-cleaning': typeof ServicesResidentialWireHouseCleaningRoute
   '/services/tree-brush-removal': typeof ServicesTreeBrushRemovalRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/service-areas': typeof ServiceAreasIndexRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -170,9 +277,21 @@ export interface FileRoutesById {
   '/free-quote': typeof FreeQuoteRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
+  '/service-areas': typeof ServiceAreasRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/service-areas/collierville-tn': typeof ServiceAreasColliervilleTnRoute
+  '/service-areas/cordova-tn': typeof ServiceAreasCordovaTnRoute
+  '/service-areas/germantown-tn': typeof ServiceAreasGermantownTnRoute
+  '/service-areas/hernando-ms': typeof ServiceAreasHernandoMsRoute
+  '/service-areas/horn-lake-ms': typeof ServiceAreasHornLakeMsRoute
+  '/service-areas/memphis-tn': typeof ServiceAreasMemphisTnRoute
+  '/service-areas/nesbit-ms': typeof ServiceAreasNesbitMsRoute
+  '/service-areas/olive-branch-ms': typeof ServiceAreasOliveBranchMsRoute
+  '/service-areas/southaven-ms': typeof ServiceAreasSouthavenMsRoute
+  '/service-areas/walls-ms': typeof ServiceAreasWallsMsRoute
+  '/service-areas/west-memphis-ar': typeof ServiceAreasWestMemphisArRoute
   '/services/gravel-dirt-work': typeof ServicesGravelDirtWorkRoute
   '/services/landscaping': typeof ServicesLandscapingRoute
   '/services/lawn-mowing': typeof ServicesLawnMowingRoute
@@ -180,6 +299,7 @@ export interface FileRoutesById {
   '/services/residential-wire-house-cleaning': typeof ServicesResidentialWireHouseCleaningRoute
   '/services/tree-brush-removal': typeof ServicesTreeBrushRemovalRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -192,9 +312,21 @@ export interface FileRouteTypes {
     | '/free-quote'
     | '/projects'
     | '/reviews'
+    | '/service-areas'
     | '/services'
     | '/sitemap.xml'
     | '/dashboard/login'
+    | '/service-areas/collierville-tn'
+    | '/service-areas/cordova-tn'
+    | '/service-areas/germantown-tn'
+    | '/service-areas/hernando-ms'
+    | '/service-areas/horn-lake-ms'
+    | '/service-areas/memphis-tn'
+    | '/service-areas/nesbit-ms'
+    | '/service-areas/olive-branch-ms'
+    | '/service-areas/southaven-ms'
+    | '/service-areas/walls-ms'
+    | '/service-areas/west-memphis-ar'
     | '/services/gravel-dirt-work'
     | '/services/landscaping'
     | '/services/lawn-mowing'
@@ -202,6 +334,7 @@ export interface FileRouteTypes {
     | '/services/residential-wire-house-cleaning'
     | '/services/tree-brush-removal'
     | '/dashboard/'
+    | '/service-areas/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -214,6 +347,17 @@ export interface FileRouteTypes {
     | '/reviews'
     | '/sitemap.xml'
     | '/dashboard/login'
+    | '/service-areas/collierville-tn'
+    | '/service-areas/cordova-tn'
+    | '/service-areas/germantown-tn'
+    | '/service-areas/hernando-ms'
+    | '/service-areas/horn-lake-ms'
+    | '/service-areas/memphis-tn'
+    | '/service-areas/nesbit-ms'
+    | '/service-areas/olive-branch-ms'
+    | '/service-areas/southaven-ms'
+    | '/service-areas/walls-ms'
+    | '/service-areas/west-memphis-ar'
     | '/services/gravel-dirt-work'
     | '/services/landscaping'
     | '/services/lawn-mowing'
@@ -221,6 +365,7 @@ export interface FileRouteTypes {
     | '/services/residential-wire-house-cleaning'
     | '/services/tree-brush-removal'
     | '/dashboard'
+    | '/service-areas'
     | '/services'
   id:
     | '__root__'
@@ -231,9 +376,21 @@ export interface FileRouteTypes {
     | '/free-quote'
     | '/projects'
     | '/reviews'
+    | '/service-areas'
     | '/services'
     | '/sitemap.xml'
     | '/dashboard/login'
+    | '/service-areas/collierville-tn'
+    | '/service-areas/cordova-tn'
+    | '/service-areas/germantown-tn'
+    | '/service-areas/hernando-ms'
+    | '/service-areas/horn-lake-ms'
+    | '/service-areas/memphis-tn'
+    | '/service-areas/nesbit-ms'
+    | '/service-areas/olive-branch-ms'
+    | '/service-areas/southaven-ms'
+    | '/service-areas/walls-ms'
+    | '/service-areas/west-memphis-ar'
     | '/services/gravel-dirt-work'
     | '/services/landscaping'
     | '/services/lawn-mowing'
@@ -241,6 +398,7 @@ export interface FileRouteTypes {
     | '/services/residential-wire-house-cleaning'
     | '/services/tree-brush-removal'
     | '/dashboard/'
+    | '/service-areas/'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -252,6 +410,7 @@ export interface RootRouteChildren {
   FreeQuoteRoute: typeof FreeQuoteRoute
   ProjectsRoute: typeof ProjectsRoute
   ReviewsRoute: typeof ReviewsRoute
+  ServiceAreasRoute: typeof ServiceAreasRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   DashboardLoginRoute: typeof DashboardLoginRoute
@@ -272,6 +431,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reviews': {
@@ -330,6 +496,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/service-areas/': {
+      id: '/service-areas/'
+      path: '/'
+      fullPath: '/service-areas/'
+      preLoaderRoute: typeof ServiceAreasIndexRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
     '/dashboard/': {
       id: '/dashboard/'
       path: '/dashboard'
@@ -379,6 +552,83 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesGravelDirtWorkRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/service-areas/west-memphis-ar': {
+      id: '/service-areas/west-memphis-ar'
+      path: '/west-memphis-ar'
+      fullPath: '/service-areas/west-memphis-ar'
+      preLoaderRoute: typeof ServiceAreasWestMemphisArRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/walls-ms': {
+      id: '/service-areas/walls-ms'
+      path: '/walls-ms'
+      fullPath: '/service-areas/walls-ms'
+      preLoaderRoute: typeof ServiceAreasWallsMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/southaven-ms': {
+      id: '/service-areas/southaven-ms'
+      path: '/southaven-ms'
+      fullPath: '/service-areas/southaven-ms'
+      preLoaderRoute: typeof ServiceAreasSouthavenMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/olive-branch-ms': {
+      id: '/service-areas/olive-branch-ms'
+      path: '/olive-branch-ms'
+      fullPath: '/service-areas/olive-branch-ms'
+      preLoaderRoute: typeof ServiceAreasOliveBranchMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/nesbit-ms': {
+      id: '/service-areas/nesbit-ms'
+      path: '/nesbit-ms'
+      fullPath: '/service-areas/nesbit-ms'
+      preLoaderRoute: typeof ServiceAreasNesbitMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/memphis-tn': {
+      id: '/service-areas/memphis-tn'
+      path: '/memphis-tn'
+      fullPath: '/service-areas/memphis-tn'
+      preLoaderRoute: typeof ServiceAreasMemphisTnRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/horn-lake-ms': {
+      id: '/service-areas/horn-lake-ms'
+      path: '/horn-lake-ms'
+      fullPath: '/service-areas/horn-lake-ms'
+      preLoaderRoute: typeof ServiceAreasHornLakeMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/hernando-ms': {
+      id: '/service-areas/hernando-ms'
+      path: '/hernando-ms'
+      fullPath: '/service-areas/hernando-ms'
+      preLoaderRoute: typeof ServiceAreasHernandoMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/germantown-tn': {
+      id: '/service-areas/germantown-tn'
+      path: '/germantown-tn'
+      fullPath: '/service-areas/germantown-tn'
+      preLoaderRoute: typeof ServiceAreasGermantownTnRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/cordova-tn': {
+      id: '/service-areas/cordova-tn'
+      path: '/cordova-tn'
+      fullPath: '/service-areas/cordova-tn'
+      preLoaderRoute: typeof ServiceAreasCordovaTnRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/collierville-tn': {
+      id: '/service-areas/collierville-tn'
+      path: '/collierville-tn'
+      fullPath: '/service-areas/collierville-tn'
+      preLoaderRoute: typeof ServiceAreasColliervilleTnRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
     '/dashboard/login': {
       id: '/dashboard/login'
       path: '/dashboard/login'
@@ -388,6 +638,40 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface ServiceAreasRouteChildren {
+  ServiceAreasColliervilleTnRoute: typeof ServiceAreasColliervilleTnRoute
+  ServiceAreasCordovaTnRoute: typeof ServiceAreasCordovaTnRoute
+  ServiceAreasGermantownTnRoute: typeof ServiceAreasGermantownTnRoute
+  ServiceAreasHernandoMsRoute: typeof ServiceAreasHernandoMsRoute
+  ServiceAreasHornLakeMsRoute: typeof ServiceAreasHornLakeMsRoute
+  ServiceAreasMemphisTnRoute: typeof ServiceAreasMemphisTnRoute
+  ServiceAreasNesbitMsRoute: typeof ServiceAreasNesbitMsRoute
+  ServiceAreasOliveBranchMsRoute: typeof ServiceAreasOliveBranchMsRoute
+  ServiceAreasSouthavenMsRoute: typeof ServiceAreasSouthavenMsRoute
+  ServiceAreasWallsMsRoute: typeof ServiceAreasWallsMsRoute
+  ServiceAreasWestMemphisArRoute: typeof ServiceAreasWestMemphisArRoute
+  ServiceAreasIndexRoute: typeof ServiceAreasIndexRoute
+}
+
+const ServiceAreasRouteChildren: ServiceAreasRouteChildren = {
+  ServiceAreasColliervilleTnRoute: ServiceAreasColliervilleTnRoute,
+  ServiceAreasCordovaTnRoute: ServiceAreasCordovaTnRoute,
+  ServiceAreasGermantownTnRoute: ServiceAreasGermantownTnRoute,
+  ServiceAreasHernandoMsRoute: ServiceAreasHernandoMsRoute,
+  ServiceAreasHornLakeMsRoute: ServiceAreasHornLakeMsRoute,
+  ServiceAreasMemphisTnRoute: ServiceAreasMemphisTnRoute,
+  ServiceAreasNesbitMsRoute: ServiceAreasNesbitMsRoute,
+  ServiceAreasOliveBranchMsRoute: ServiceAreasOliveBranchMsRoute,
+  ServiceAreasSouthavenMsRoute: ServiceAreasSouthavenMsRoute,
+  ServiceAreasWallsMsRoute: ServiceAreasWallsMsRoute,
+  ServiceAreasWestMemphisArRoute: ServiceAreasWestMemphisArRoute,
+  ServiceAreasIndexRoute: ServiceAreasIndexRoute,
+}
+
+const ServiceAreasRouteWithChildren = ServiceAreasRoute._addFileChildren(
+  ServiceAreasRouteChildren,
+)
 
 interface ServicesRouteChildren {
   ServicesGravelDirtWorkRoute: typeof ServicesGravelDirtWorkRoute
@@ -422,6 +706,7 @@ const rootRouteChildren: RootRouteChildren = {
   FreeQuoteRoute: FreeQuoteRoute,
   ProjectsRoute: ProjectsRoute,
   ReviewsRoute: ReviewsRoute,
+  ServiceAreasRoute: ServiceAreasRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   DashboardLoginRoute: DashboardLoginRoute,
