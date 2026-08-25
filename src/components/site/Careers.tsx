@@ -12,7 +12,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { addWebEmail } from "@/lib/leads-store";
-import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export function Careers() {
   const { t } = useLanguage();
@@ -33,7 +32,7 @@ export function Careers() {
     const msg = (form.querySelector("#app-msg") as HTMLTextAreaElement)?.value || "";
 
     try {
-      // 1. Save to MongoDB database
+      // Save to MongoDB database & dispatch server Zoho SMTP email
       await addWebEmail({
         name,
         phone,
@@ -43,26 +42,11 @@ export function Careers() {
         source: "Careers Form"
       });
 
-      const success = await submitToWeb3Forms({
-        name,
-        phone,
-        email,
-        "Position of Interest": job || "General Application",
-        "Years of Experience": exp || "Not Specified",
-        "License Status": license || "Not Specified",
-        Message: msg,
-        to_email: "eva@stellrit.com",
-      }, "Careers Form");
-
-      if (success) {
-        toast.success(t("Application received! We'll review your details and contact you soon.", "¡Solicitud recibida! Revisaremos sus datos y nos pondremos en contacto pronto."));
-        form.reset();
-        setJob("");
-        setExp("");
-        setLicense("");
-      } else {
-        toast.error(t("Submission failed. Please try again.", "Error en el envío. Por favor, inténtelo de nuevo."));
-      }
+      toast.success(t("Application received! We'll review your details and contact you soon.", "¡Solicitud recibida! Revisaremos sus datos y nos pondremos en contacto pronto."));
+      form.reset();
+      setJob("");
+      setExp("");
+      setLicense("");
     } catch (err) {
       toast.error(t("Connection error. Please try again.", "Error de conexión. Por favor, inténtelo de nuevo."));
     } finally {

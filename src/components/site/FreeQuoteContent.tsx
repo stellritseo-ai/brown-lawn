@@ -43,7 +43,6 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { addWebEmail } from "@/lib/leads-store";
-import { submitToWeb3Forms } from "@/lib/web3forms";
 import bbbLogo from "@/assets/bbb.svg";
 
 export function FreeQuoteContent() {
@@ -162,31 +161,12 @@ export function FreeQuoteContent() {
         source: "Dedicated Free Quote Page"
       });
 
-      const success = await submitToWeb3Forms({
-        name,
-        phone,
-        email,
-        "Address / City": address,
-        "Property Type": propertyType,
-        "Property Size": propertySize,
-        "Timeline Needed": timeline,
-        "Budget Expectation": budget,
-        "Referral Source": referralSource,
-        "Preferred Contact": preferredContact,
-        "Selected Services": selectedServices.join(", "),
-        Message: description,
-        to_email: "eva@stellrit.com",
-      }, "Dedicated Free Quote Page");
-
-      if (success) {
-        toast.success(t("We'll respond within 24 hours with your free, itemized quote!", "¡Responderemos dentro de 24 horas con su cotización detallada gratis!"));
-        form.reset();
-        setSelectedServices(["Weekly Lawn Mowing & Edging"]);
-      } else {
-        toast.error(t("Submission error. Please call us directly at (662) 571-1048.", "Error de envío. Por favor llame al (662) 571-1048."));
-      }
+      toast.success(t("We'll respond within 24 hours with your free, itemized quote!", "¡Responderemos dentro de 24 horas con su cotización detallada gratis!"));
+      form.reset();
+      setSelectedServices(["Weekly Lawn Mowing & Edging"]);
     } catch (err) {
-      toast.error(t("Connection error. Please try again or call us.", "Error de conexión. Por favor intente de nuevo."));
+      console.error("Free quote submission error:", err);
+      toast.error(t("Submission error. Please call us directly at (662) 571-1048.", "Error de envío. Por favor llame al (662) 571-1048."));
     } finally {
       setSubmitting(false);
     }

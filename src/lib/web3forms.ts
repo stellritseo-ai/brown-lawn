@@ -51,23 +51,9 @@ export async function submitToWeb3Forms(payload: Web3FormsPayload, formSource?: 
       body: JSON.stringify(bodyData),
     }).catch((err) => null);
 
-    // 3. Fallback direct dispatch
-    const directPromise = fetch("https://formsubmit.co/ajax/eva@stellrit.com", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        ...payload,
-        _subject: payload.subject || `New Lead (${formSource || "Website Form"}) - eva@stellrit.com`,
-        _replyto: payload.email,
-      }),
-    }).catch((err) => null);
+    const [serverRes, web3Res] = await Promise.all([serverPromise, web3Promise]);
 
-    const [serverRes, web3Res, directRes] = await Promise.all([serverPromise, web3Promise, directPromise]);
-
-    return (serverRes && serverRes.ok) || (web3Res && web3Res.ok) || (directRes && directRes.ok) || true;
+    return (serverRes && serverRes.ok) || (web3Res && web3Res.ok) || true;
   } catch (error) {
     console.error("Form submission dispatch error:", error);
     return true;

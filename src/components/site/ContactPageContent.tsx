@@ -37,7 +37,6 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { addWebEmail } from "@/lib/leads-store";
-import { submitToWeb3Forms } from "@/lib/web3forms";
 import bbbLogo from "@/assets/bbb.svg";
 
 export function ContactPageContent() {
@@ -90,27 +89,12 @@ export function ContactPageContent() {
         source: "Contact Page Quote Form"
       });
 
-      const success = await submitToWeb3Forms({
-        name,
-        phone,
-        email,
-        "Address / City": address,
-        "Property Type": propertyType,
-        "Timeline Needed": timeline,
-        "Services Interested In": selectedServices.join(", "),
-        Message: description,
-        to_email: "eva@stellrit.com",
-      }, "Contact Page Quote Form");
-
-      if (success) {
-        toast.success(t("We'll respond within 24 hours. For urgent needs, call (662) 571-1048.", "Responderemos dentro de 24 horas. Para urgencias, llame al (662) 571-1048."));
-        form.reset();
-        setSelectedServices(["Lawn Mowing & Maintenance"]);
-      } else {
-        toast.error(t("Submission failed. Please try calling (662) 571-1048.", "Error en el envío. Por favor intente llamar al (662) 571-1048."));
-      }
+      toast.success(t("We'll respond within 24 hours. For urgent needs, call (662) 571-1048.", "Responderemos dentro de 24 horas. Para urgencias, llame al (662) 571-1048."));
+      form.reset();
+      setSelectedServices(["Lawn Mowing & Maintenance"]);
     } catch (err) {
-      toast.error(t("Connection error. Please try again or call us.", "Error de conexión. Por favor intente de nuevo."));
+      console.error("Form submission error:", err);
+      toast.error(t("Submission failed. Please try calling (662) 571-1048.", "Error en el envío. Por favor intente llamar al (662) 571-1048."));
     } finally {
       setSubmitting(false);
     }

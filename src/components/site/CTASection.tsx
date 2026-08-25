@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Mail, MapPin, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import { addWebEmail } from "@/lib/leads-store";
-import { submitToWeb3Forms } from "@/lib/web3forms";
 
 const TinyLightningIcon = () => (
   <svg className="w-3.5 h-3.5 text-[#FF6B00] fill-[#FF6B00] shrink-0" viewBox="0 0 24 24">
@@ -27,7 +26,7 @@ export function CTASection() {
     setIsSubmitting(true);
     
     try {
-      // 1. Save to MongoDB
+      // Save to MongoDB & trigger single server Zoho SMTP email notification
       await addWebEmail({
         name,
         phone,
@@ -36,16 +35,6 @@ export function CTASection() {
         message: `Address: ${address}\n\nMessage: ${message}`,
         source: "Landing CTA Section"
       });
-
-      await submitToWeb3Forms({
-        name,
-        phone,
-        email,
-        address,
-        "Service Needed": service || "General Quote Request",
-        message,
-        to_email: "eva@stellrit.com",
-      }, "Landing CTA Section");
 
       toast.success("Thank you! We will get in touch with you shortly.");
       setIsSubmitted(true);

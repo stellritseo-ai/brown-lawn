@@ -8,7 +8,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { useLanguage } from "@/hooks/useLanguage";
 import { addWebEmail } from "@/lib/leads-store";
-import { submitToWeb3Forms } from "@/lib/web3forms";
 
 export function Estimate() {
   const { t } = useLanguage();
@@ -35,22 +34,9 @@ export function Estimate() {
         source: "Free Estimate Page"
       });
 
-      const success = await submitToWeb3Forms({
-        name,
-        phone,
-        email,
-        "Service Needed": service || "General Inquiry",
-        Message: msg,
-        to_email: "eva@stellrit.com",
-      }, "Free Estimate Page");
-
-      if (success) {
-        toast.success(t("We'll respond within 24 hours. For urgent needs, call (662) 571-1048.", "Responderemos dentro de las 24 horas. Para urgencias, llame al (662) 571-1048."));
-        form.reset();
-        setService("");
-      } else {
-        toast.error(t("Submission failed. Please try again.", "Error en el envío. Por favor, inténtelo de nuevo."));
-      }
+      toast.success(t("We'll respond within 24 hours. For urgent needs, call (662) 571-1048.", "Responderemos dentro de las 24 horas. Para urgencias, llame al (662) 571-1048."));
+      form.reset();
+      setService("");
     } catch (err) {
       toast.error(t("Connection error. Please try again.", "Error de conexión. Por favor, inténtelo de nuevo."));
     } finally {

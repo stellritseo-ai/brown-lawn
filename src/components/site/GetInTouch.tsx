@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { addWebEmail } from "@/lib/leads-store";
-import { submitToWeb3Forms } from "@/lib/web3forms";
 import {
   Phone,
   Mail,
@@ -47,17 +46,6 @@ export function GetInTouch() {
         message: msg,
         source: "Landing Get-In-Touch Form"
       });
-
-      await submitToWeb3Forms({
-        name,
-        phone,
-        email,
-        "Address / City": address,
-        "Property Type": propertyType,
-        Timeframe: timeframe,
-        Message: msg,
-        to_email: "eva@stellrit.com",
-      }, "Landing Get-In-Touch Form");
 
       setSubmitted(true);
     } catch (err) {
