@@ -8,8 +8,9 @@ import logo from "@/assets/logo.png";
 export const Route = createFileRoute("/dashboard/login")({
   head: () => ({
     meta: [
-      { title: "R&E Electrical Office — Portal Access" },
-      { name: "description", content: "Authenticate to access R&E Electrical Contractor Corp business console." }
+      { title: "Admin Portal Access | Brown Lawn Care & Cleaning Service LLC" },
+      { name: "description", content: "Authenticate to access Brown Lawn Care & Cleaning Service business console." },
+      { name: "robots", content: "noindex, nofollow" }
     ],
   }),
   component: LoginPage,
@@ -28,14 +29,10 @@ function LoginPage() {
     const checkToken = async () => {
       const token = localStorage.getItem("electrical-session-token");
       if (token) {
-        try {
-          const res = await verifyAdminToken(token);
-          if (res.valid) {
-            navigate({ to: "/dashboard" });
-            return;
-          }
-        } catch (e) {
-          console.error("Auto-auth check failed:", e);
+        const isValid = await verifyAdminToken(token);
+        if (isValid) {
+          navigate({ to: "/dashboard" });
+          return;
         }
       }
       setCheckingSession(false);
@@ -45,22 +42,26 @@ function LoginPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!username.trim() || !password.trim()) return;
+    if (!username || !password) {
+      setErrorMsg("Please enter both username and password.");
+      return;
+    }
 
     setIsSubmitting(true);
     setErrorMsg("");
 
     try {
-      const res = await loginAdmin(username, password);
-      if (res.success && res.token) {
-        toast.success("Welcome back, Administrator!");
+      const success = await loginAdmin(username, password);
+      if (success) {
+        toast.success("Authentication successful. Welcome back!");
         navigate({ to: "/dashboard" });
       } else {
-        setErrorMsg("Failed to authenticate.");
+        setErrorMsg("Invalid username or password. Please try again.");
+        toast.error("Invalid credentials.");
       }
     } catch (err: any) {
-      console.error("Login failed:", err);
-      setErrorMsg(err.message || "Invalid username or password. Please try again.");
+      setErrorMsg(err.message || "Failed to communicate with authentication server.");
+      toast.error("Login failed.");
     } finally {
       setIsSubmitting(false);
     }
@@ -68,24 +69,20 @@ function LoginPage() {
 
   if (checkingSession) {
     return (
-      <div className="min-h-screen bg-[#0d0704] flex flex-col items-center justify-center text-white font-sans">
-        <div className="relative flex flex-col items-center gap-3">
-          <div className="h-10 w-10 rounded-full border-2 border-copper border-t-transparent animate-spin"></div>
-          <p className="text-xs text-white/40 font-bold tracking-widest uppercase mt-4">Verifying session...</p>
-        </div>
+      <div className="min-h-screen bg-[#0d0705] flex items-center justify-center">
+        <div className="h-6 w-6 rounded-full border-2 border-copper border-t-transparent animate-spin"></div>
       </div>
     );
   }
 
   return (
-    <div 
-      className="min-h-screen bg-[#0d0704] flex flex-col items-center justify-center p-4 relative font-sans text-white/95 selection:bg-copper selection:text-white"
-    >
-      {/* Background ambient glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] rounded-full bg-copper/5 blur-[140px] pointer-events-none -z-10" />
+    <div className="min-h-screen bg-[#0d0705] flex items-center justify-center px-4 relative overflow-hidden font-sans">
+      {/* Subtle Background Glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-copper/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-copper/5 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Back to main website link */}
-      <div className="absolute top-6 left-6">
+      {/* Top Bar with Return Link */}
+      <div className="absolute top-6 left-6 z-20">
         <a 
           href="/" 
           className="text-[10px] text-white/40 hover:text-white uppercase font-bold tracking-widest transition-colors duration-300"
@@ -99,8 +96,8 @@ function LoginPage() {
       >
         {/* Logo and Branding */}
         <div className="flex flex-col items-center gap-2 mb-8">
-          <img src={logo} alt="R&E Electrical Logo" className="h-12 w-auto opacity-90 object-contain mb-2 select-none bg-white rounded p-0.5" />
-          <h2 className="text-xs font-extrabold uppercase tracking-[0.2em] text-copper select-none">R&E Electrical Office</h2>
+          <img src={logo} alt="Brown Lawn Care & Cleaning Service Logo" className="h-12 w-auto opacity-90 object-contain mb-2 select-none bg-white rounded p-0.5" />
+          <h2 className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#2E7D32] select-none">Brown Lawn Care & Cleaning</h2>
           <h1 className="text-2xl font-bold font-serif text-white tracking-tight mt-1">Admin Portal</h1>
           <p className="text-[11px] text-white/50 font-medium max-w-xs mt-1 leading-relaxed">
             Access secure management controls, analytics, lead logs, and site reviews.
@@ -129,7 +126,7 @@ function LoginPage() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Enter username"
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-3 pl-10 pr-4 text-xs text-white placeholder-white/20 focus:border-copper focus:ring-0 focus:outline-none transition-all duration-300"
+                className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-3 pl-10 pr-4 text-xs text-white placeholder-white/20 focus:border-[#2E7D32] focus:ring-0 focus:outline-none transition-all duration-300"
               />
               <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/30" />
             </div>
@@ -145,7 +142,7 @@ function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-3 pl-10 pr-4 text-xs text-white placeholder-white/20 focus:border-copper focus:ring-0 focus:outline-none transition-all duration-300"
+                className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-3 pl-10 pr-4 text-xs text-white placeholder-white/20 focus:border-[#2E7D32] focus:ring-0 focus:outline-none transition-all duration-300"
               />
               <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/30" />
             </div>
@@ -155,7 +152,7 @@ function LoginPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-copper hover:bg-copper-deep text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-copper/15 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] select-none cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-80 disabled:pointer-events-none mt-2"
+            className="w-full bg-[#2E7D32] hover:bg-[#1B5E20] text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-[#2E7D32]/15 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] select-none cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-80 disabled:pointer-events-none mt-2"
           >
             {isSubmitting ? (
               <span className="flex items-center gap-2">
@@ -164,7 +161,7 @@ function LoginPage() {
               </span>
             ) : (
               <>
-                <span>Enter R&E Electrical Office</span>
+                <span>Enter Admin Portal</span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform duration-300" />
               </>
             )}
@@ -174,7 +171,7 @@ function LoginPage() {
 
       {/* Footer bar */}
       <div className="absolute bottom-6 text-center text-[9px] text-white/30 font-semibold tracking-wider uppercase">
-        © 2026 R&E Electrical Contractor Corp · Admin Authentication Portal
+        © {new Date().getFullYear()} Brown Lawn Care &amp; Cleaning Service, LLC · Admin Portal
       </div>
     </div>
   );

@@ -123,8 +123,9 @@ const formatChatTime = (timestamp: string) => {
 export const Route = createFileRoute("/dashboard/")({
   head: () => ({
     meta: [
-      { title: "R&E Electrical Office — Dashboard" },
-      { name: "description", content: "Business operations management portal." }
+      { title: "Admin Portal Dashboard | Brown Lawn Care & Cleaning Service LLC" },
+      { name: "description", content: "Business operations management portal." },
+      { name: "robots", content: "noindex, nofollow" }
     ],
   }),
   component: DashboardPage,

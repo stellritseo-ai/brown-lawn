@@ -1,0 +1,21 @@
+{
+  "name": "Brown Lawn Care & Cleaning Service, LLC",
+  "short_name": "Brown Lawn Care",
+  "description": "Professional Lawn Care, Landscaping, Tree Removal & Commercial Cleaning in Horn Lake, MS & 50-mile radius.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2E7D32",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
