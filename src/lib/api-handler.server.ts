@@ -81,15 +81,19 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           const saved = await dbAddLead(newLead);
           
           // Send notification email via Zoho SMTP
-          sendZohoNotification({
-            name: newLead.name,
-            email: newLead.email,
-            phone: newLead.phone,
-            service: newLead.projectType || "Custom Lead",
-            message: `Address: ${newLead.address || "Not provided"}\n\nDescription: ${newLead.description || "No description"}`,
-            source: "Admin Custom Lead",
-            details: newLead
-          }).catch(err => console.error("Lead email dispatch error:", err));
+          try {
+            await sendZohoNotification({
+              name: newLead.name,
+              email: newLead.email,
+              phone: newLead.phone,
+              service: newLead.projectType || "Custom Lead",
+              message: `Address: ${newLead.address || "Not provided"}\n\nDescription: ${newLead.description || "No description"}`,
+              source: "Admin Custom Lead",
+              details: newLead
+            });
+          } catch (err) {
+            console.error("Lead email dispatch error:", err);
+          }
 
           return jsonResponse(saved);
         } else {
@@ -116,15 +120,19 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           const saved = await dbAddLead(newLead);
 
           // Send notification email via Zoho SMTP
-          sendZohoNotification({
-            name: newLead.name,
-            email: newLead.email,
-            phone: newLead.phone,
-            service: newLead.projectType,
-            message: `Address: ${newLead.address || "Not provided"}\nPreferred Contact Time: ${newLead.contactTime || "Anytime"}\n\nDescription: ${newLead.description || "No description"}`,
-            source: "Website Lead Form",
-            details: newLead
-          }).catch(err => console.error("Lead email dispatch error:", err));
+          try {
+            await sendZohoNotification({
+              name: newLead.name,
+              email: newLead.email,
+              phone: newLead.phone,
+              service: newLead.projectType,
+              message: `Address: ${newLead.address || "Not provided"}\nPreferred Contact Time: ${newLead.contactTime || "Anytime"}\n\nDescription: ${newLead.description || "No description"}`,
+              source: "Website Lead Form",
+              details: newLead
+            });
+          } catch (err) {
+            console.error("Lead email dispatch error:", err);
+          }
 
           return jsonResponse(saved);
         }
@@ -228,16 +236,21 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
         };
         const saved = await dbAddWebEmail(newEmail);
 
-        // Send email notification to eva@stellrit.com via Zoho SMTP
-        sendZohoNotification({
-          name: newEmail.name,
-          email: newEmail.email,
-          phone: newEmail.phone,
-          service: newEmail.service,
-          message: newEmail.message,
-          source: newEmail.source || "Website Contact Form",
-          details: newEmail
-        }).catch(err => console.error("Failed to send Zoho email notification:", err));
+        // Send email notification to eva@stellrit.com via Zoho SMTP (awaited to prevent early termination)
+        try {
+          const emailResult = await sendZohoNotification({
+            name: newEmail.name,
+            email: newEmail.email,
+            phone: newEmail.phone,
+            service: newEmail.service,
+            message: newEmail.message,
+            source: newEmail.source || "Website Contact Form",
+            details: newEmail
+          });
+          console.log("📨 Zoho SMTP email dispatch status:", emailResult);
+        } catch (err) {
+          console.error("Failed to send Zoho email notification:", err);
+        }
 
         // Add a dashboard notification for the new form submission
         try {
@@ -384,7 +397,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           if (isFirstMessage && body.sender === "client") {
             try {
               console.log("📨 Sending chat notification via Zoho SMTP to eva@stellrit.com...");
-              sendZohoNotification({
+              const chatRes = await sendZohoNotification({
                 name: session.clientName || "Chat Visitor",
                 email: session.clientEmail,
                 phone: session.clientPhone,
@@ -396,11 +409,10 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
                   "Client City": session.clientCity || "Horn Lake",
                   "Sent At": newMsg.timestamp
                 }
-              }).catch(err => {
-                console.error("❌ Failed to send chat notification via Zoho SMTP:", err);
               });
+              console.log("📨 Chat notification status:", chatRes);
             } catch (err) {
-              console.error("Failed to construct chat email notification:", err);
+              console.error("❌ Failed to send chat notification via Zoho SMTP:", err);
             }
           }
 
