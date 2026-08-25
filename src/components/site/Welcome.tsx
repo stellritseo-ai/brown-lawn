@@ -1,7 +1,6 @@
 import { ArrowRight, CheckCircle2, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import welcomeImg from "@/assets/about-hero-landscaping.png";
-import welcomeVideo from "@/assets/welcome.mp4";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
 
@@ -107,7 +106,7 @@ export function Welcome() {
                 poster={welcomeImg}
                 className="w-full h-full object-cover rounded-[24px] select-none transition-transform duration-700 group-hover:scale-105"
               >
-                <source src={welcomeVideo} type="video/mp4" />
+                <source src="https://res.cloudinary.com/ki6vfkhw/video/upload/v1787693256/welcome.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 

@@ -19,7 +19,6 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
-import whyChooseVideo from "@/assets/whychoose.mp4";
 
 const features = (t: (en: string, es: string) => string) => [
   {
@@ -200,7 +199,7 @@ export function WhyChooseUs() {
             <div className="relative rounded-3xl overflow-hidden shadow-[0_30px_80px_-12px_rgba(0,0,0,0.2)] border-2 border-white/90 group">
               <video
                 ref={videoRef}
-                src={whyChooseVideo}
+                src="https://res.cloudinary.com/ki6vfkhw/video/upload/v1787693497/whychoose.mp4"
                 autoPlay
                 loop
                 muted

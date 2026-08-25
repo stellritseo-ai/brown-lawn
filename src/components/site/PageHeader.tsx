@@ -1,4 +1,3 @@
-import heroVideo from "@/assets/herovideo.mp4";
 import { motion } from "framer-motion";
 
 export function PageHeader({
@@ -21,7 +20,7 @@ export function PageHeader({
           playsInline
           className="h-full w-full object-cover opacity-20"
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src="https://res.cloudinary.com/ki6vfkhw/video/upload/v1787692982/herovideo.mov" />
         </video>
         {/* Deep layered gradients */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A140B]/70 via-[#0A140B]/80 to-[#0A140B]" />

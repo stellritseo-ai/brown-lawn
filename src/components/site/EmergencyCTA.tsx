@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { Phone, Clock, ShieldCheck, CheckCircle2, AlertTriangle, Zap, ArrowRight } from "lucide-react";
-import heroVideo from "@/assets/herovideo.mp4";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 
@@ -20,7 +19,7 @@ export function EmergencyCTA() {
           preload="metadata"
           className="h-full w-full object-cover scale-105 filter brightness-75"
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src="https://res.cloudinary.com/ki6vfkhw/video/upload/v1787692982/herovideo.mov" />
         </video>
 
         {/* Layered Gradient Overlays for High Contrast & Visual Luxury */}

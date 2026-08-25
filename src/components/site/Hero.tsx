@@ -1,7 +1,6 @@
 import { ArrowRight, Award, BadgeCheck, Phone, ShieldCheck, Star } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import heroVideo from "@/assets/herovideo.mp4";
 import { useLanguage } from "@/hooks/useLanguage";
 
 export function Hero() {
@@ -18,7 +17,7 @@ export function Hero() {
           playsInline
           className="h-full w-full object-cover"
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src="https://res.cloudinary.com/ki6vfkhw/video/upload/v1787692982/herovideo.mov" />
         </video>
         {/* Stronger overlay on mobile for text readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#0F172A]/95 via-[#0F172A]/70 to-[#0F172A]/40 sm:from-[#0F172A]/90 sm:via-[#0F172A]/40 sm:to-transparent" />

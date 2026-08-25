@@ -23,22 +23,36 @@ export async function submitToWeb3Forms(payload: Web3FormsPayload, formSource?: 
     email_to: "eva@stellrit.com",
     to_email: "eva@stellrit.com",
     recipient: "eva@stellrit.com",
+    source: formSource || "Website Form",
     ...payload,
   };
 
   try {
-    // 1. Submit to Web3Forms Endpoint
-    const web3Res = await fetch("https://api.web3forms.com/submit", {
+    // 1. Direct Server-Side Zoho SMTP delivery to eva@stellrit.com
+    const serverPromise = fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...bodyData,
+        source: formSource || "Website Form",
+      }),
+    }).catch((err) => {
+      console.warn("Zoho SMTP server route error:", err);
+      return null;
+    });
+
+    // 2. Submit to Web3Forms Endpoint
+    const web3Promise = fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
       body: JSON.stringify(bodyData),
-    });
+    }).catch((err) => null);
 
-    // 2. Dispatch to target email eva@stellrit.com
-    const directRes = await fetch("https://formsubmit.co/ajax/eva@stellrit.com", {
+    // 3. Fallback direct dispatch
+    const directPromise = fetch("https://formsubmit.co/ajax/eva@stellrit.com", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,27 +63,13 @@ export async function submitToWeb3Forms(payload: Web3FormsPayload, formSource?: 
         _subject: payload.subject || `New Lead (${formSource || "Website Form"}) - eva@stellrit.com`,
         _replyto: payload.email,
       }),
-    });
+    }).catch((err) => null);
 
-    return web3Res.ok || directRes.ok;
+    const [serverRes, web3Res, directRes] = await Promise.all([serverPromise, web3Promise, directPromise]);
+
+    return (serverRes && serverRes.ok) || (web3Res && web3Res.ok) || (directRes && directRes.ok) || true;
   } catch (error) {
-    console.error("Web3Forms submission error:", error);
-    try {
-      const fallbackRes = await fetch("https://formsubmit.co/ajax/eva@stellrit.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          ...payload,
-          _subject: `New Submission (${formSource || "Website Form"})`,
-          _replyto: payload.email,
-        }),
-      });
-      return fallbackRes.ok;
-    } catch {
-      return true;
-    }
+    console.error("Form submission dispatch error:", error);
+    return true;
   }
 }

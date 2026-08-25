@@ -38,6 +38,7 @@ import {
 
 import { uploadToCloudinary, deleteFromCloudinary } from "./cloudinary.server.js";
 import { hashPassword, verifyPassword } from "./crypto.server.js";
+import { sendZohoNotification } from "./email.server.js";
 
 const DEFAULT_ADMIN = {
   id: "admin-1",
@@ -78,6 +79,18 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
             createdAt: new Date().toISOString()
           };
           const saved = await dbAddLead(newLead);
+          
+          // Send notification email via Zoho SMTP
+          sendZohoNotification({
+            name: newLead.name,
+            email: newLead.email,
+            phone: newLead.phone,
+            service: newLead.projectType || "Custom Lead",
+            message: `Address: ${newLead.address || "Not provided"}\n\nDescription: ${newLead.description || "No description"}`,
+            source: "Admin Custom Lead",
+            details: newLead
+          }).catch(err => console.error("Lead email dispatch error:", err));
+
           return jsonResponse(saved);
         } else {
           let estimatedValue = 2500;
@@ -101,6 +114,18 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
             photos: []
           };
           const saved = await dbAddLead(newLead);
+
+          // Send notification email via Zoho SMTP
+          sendZohoNotification({
+            name: newLead.name,
+            email: newLead.email,
+            phone: newLead.phone,
+            service: newLead.projectType,
+            message: `Address: ${newLead.address || "Not provided"}\nPreferred Contact Time: ${newLead.contactTime || "Anytime"}\n\nDescription: ${newLead.description || "No description"}`,
+            source: "Website Lead Form",
+            details: newLead
+          }).catch(err => console.error("Lead email dispatch error:", err));
+
           return jsonResponse(saved);
         }
       }
@@ -202,6 +227,17 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           createdAt: new Date().toISOString()
         };
         const saved = await dbAddWebEmail(newEmail);
+
+        // Send email notification to eva@stellrit.com via Zoho SMTP
+        sendZohoNotification({
+          name: newEmail.name,
+          email: newEmail.email,
+          phone: newEmail.phone,
+          service: newEmail.service,
+          message: newEmail.message,
+          source: newEmail.source || "Website Contact Form",
+          details: newEmail
+        }).catch(err => console.error("Failed to send Zoho email notification:", err));
 
         // Add a dashboard notification for the new form submission
         try {
@@ -344,40 +380,27 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           };
           await dbSaveChatSession(updatedSession);
 
-          // If this is the first client message, send an email notification to Williams@electricalcontractorcorp.com
+          // If this is the first client message, send an email notification to eva@stellrit.com via Zoho SMTP
           if (isFirstMessage && body.sender === "client") {
             try {
-              console.log("📨 Sending first-text email notification to eva@stellrit.com...");
-              const emailPayload = {
-                _subject: `New Live Chat Started by ${session.clientName} (Brown Lawn Care)`,
-                "Client Name": session.clientName,
-                "Client City": session.clientCity || "Horn Lake",
-                "Client Phone": session.clientPhone || "Not provided",
-                "Client Email": session.clientEmail || "Not provided",
-                "First Message": body.text,
-                "Sent At": newMsg.timestamp,
-                "Platform": "Brown Lawn Care & Cleaning Service Portal"
-              };
-
-              // Make asynchronous call to formsubmit.co
-              fetch("https://formsubmit.co/ajax/eva@stellrit.com", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  "Accept": "application/json"
-                },
-                body: JSON.stringify(emailPayload)
-              }).then(res => {
-                if (res.ok) {
-                  console.log("✅ Email notification sent successfully to eva@stellrit.com");
-                } else {
-                  console.warn("⚠️ Email service returned non-ok status:", res.status);
+              console.log("📨 Sending chat notification via Zoho SMTP to eva@stellrit.com...");
+              sendZohoNotification({
+                name: session.clientName || "Chat Visitor",
+                email: session.clientEmail,
+                phone: session.clientPhone,
+                service: `Live Chat (${session.clientCity || "Horn Lake"})`,
+                message: body.text,
+                source: "Website Live Chat Widget",
+                details: {
+                  "Session ID": session.id,
+                  "Client City": session.clientCity || "Horn Lake",
+                  "Sent At": newMsg.timestamp
                 }
               }).catch(err => {
-                console.error("❌ Failed to send email:", err);
+                console.error("❌ Failed to send chat notification via Zoho SMTP:", err);
               });
             } catch (err) {
-              console.error("Failed to construct/send first-text email notification:", err);
+              console.error("Failed to construct chat email notification:", err);
             }
           }
 
@@ -603,6 +626,22 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
       const signature = createHash("sha1").update(paramsToSign + apiSecret).digest("hex");
 
       return jsonResponse({ signature, timestamp, apiKey, cloudName, folder });
+    }
+
+    // ── /api/send-email ──
+    if (pathname === "/api/send-email" && method === "POST") {
+      const body = await request.json();
+      const result = await sendZohoNotification({
+        name: body.name || body.fullName || body.from_name,
+        email: body.email || body.emailAddress || body._replyto,
+        phone: body.phone || body.phoneNumber,
+        service: body.service || body["Selected Services"] || body["Service Needed"] || body["Services Interested In"] || body["Position of Interest"],
+        subject: body.subject || body._subject,
+        message: body.message || body.Message || body.description,
+        source: body.source || body.formSource || "Website Form",
+        details: body.details || body
+      });
+      return jsonResponse(result);
     }
 
   } catch (error: any) {
