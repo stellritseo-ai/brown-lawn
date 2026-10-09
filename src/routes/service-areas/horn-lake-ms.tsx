@@ -93,7 +93,6 @@ export const Route = createFileRoute("/service-areas/horn-lake-ms")({
     meta: [
       { title: "Lawn Care & Cleaning Services in Horn Lake MS | Brown Lawn Care" },
       { name: "description", content: "Professional lawn mowing, landscaping, tree cutting, gravel driveways & commercial cleaning in Horn Lake, MS (38637). HQ local team. Call (662) 571-1048." },
-      { name: "keywords", content: "lawn care horn lake ms, lawn mowing horn lake ms, landscaping horn lake ms, commercial cleaning horn lake, tree removal horn lake" },
       { property: "og:title", content: "Lawn Care & Cleaning Services in Horn Lake MS | Brown Lawn Care" },
       { property: "og:description", content: "Family-owned lawn care, landscaping & cleaning headquartered in Horn Lake, MS. Licensed, insured, bonded." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/horn-lake-ms" },

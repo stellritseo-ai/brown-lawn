@@ -118,8 +118,58 @@ export function CityPageTemplate({
     },
   ];
 
+  const citySlug = `${cityName.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${stateCode.toLowerCase()}`;
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.brownlawncarecleaningservicellc.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Service Areas",
+        "item": "https://www.brownlawncarecleaningservicellc.com/service-areas"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": `${cityName}, ${stateCode}`,
+        "item": `https://www.brownlawncarecleaningservicellc.com/service-areas/${citySlug}`
+      }
+    ]
+  };
+
+  const faqSchema = faqs && faqs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  } : null;
+
   return (
     <div className="bg-white text-slate-900 overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       {/* ── HERO BANNER ─────────────────────────────────────────── */}
       <section className="relative bg-[#0d160f] text-white pt-24 pb-16 sm:pt-32 sm:pb-24 border-b border-[#D4AF37]/30 overflow-hidden">
         {/* Glow Blobs */}

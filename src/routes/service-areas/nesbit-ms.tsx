@@ -78,7 +78,6 @@ export const Route = createFileRoute("/service-areas/nesbit-ms")({
     meta: [
       { title: "Lawn Care & Landscaping in Nesbit MS | Brown Lawn Care" },
       { name: "description", content: "Reliable lawn mowing, landscaping, gravel driveway repair & tree trimming in Nesbit, MS (38651). Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "lawn care nesbit ms, lawn mowing nesbit ms, landscaping nesbit ms, gravel driveway repair nesbit, property care desoto county" },
       { property: "og:title", content: "Lawn Care & Landscaping in Nesbit MS | Brown Lawn Care" },
       { property: "og:description", content: "Licensed, insured & bonded lawn care and cleaning services in Nesbit, MS. Fast 24-hr estimates." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/nesbit-ms" },

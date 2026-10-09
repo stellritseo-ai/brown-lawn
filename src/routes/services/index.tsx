@@ -10,7 +10,6 @@ export const Route = createFileRoute("/services/")({
     meta: [
       { title: "Lawn Care & Cleaning Services | Brown Lawn Care & Cleaning Service LLC" },
       { name: "description", content: "Full-service lawn mowing, landscape design, tree removal, gravel driveways, and commercial/residential cleaning in Horn Lake, MS & 50-mile radius across MS, TN, and AR." },
-      { name: "keywords", content: "lawn care services horn lake ms, property maintenance desoto county, commercial cleaning horn lake, landscaping services memphis" },
       { property: "og:title", content: "Lawn Care & Cleaning Services | Brown Lawn Care & Cleaning Service LLC" },
       { property: "og:description", content: "Full-service property care, lawn maintenance, landscaping, and cleaning solutions in Horn Lake, MS." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services" },

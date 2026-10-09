@@ -15,17 +15,16 @@ import { EmergencyCTA } from "@/components/site/EmergencyCTA";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lawn Care Horn Lake MS | Brown Lawn Care & Cleaning Service LLC" },
+      { title: "Brown Lawn Care & Cleaning Service LLC | Lawn Care & Landscaping in Horn Lake MS" },
       { name: "description", content: "Professional lawn care, lawn mowing, landscaping & commercial cleaning in Horn Lake, MS & 50-mile radius across MS, TN, and AR. Licensed, insured, bonded. Call (662) 571-1048." },
-      { name: "keywords", content: "lawn care horn lake ms, lawn service horn lake ms, lawn mowing horn lake ms, lawn maintenance horn lake ms, landscaping horn lake ms, tree removal horn lake ms, commercial cleaning horn lake ms, cleaning services horn lake ms" },
-      { property: "og:title", content: "Lawn Care Horn Lake MS | Brown Lawn Care & Cleaning Service LLC" },
+      { property: "og:title", content: "Brown Lawn Care & Cleaning Service LLC | Lawn Care & Landscaping in Horn Lake MS" },
       { property: "og:description", content: "15+ Years Experience & 6 Years in Business — Licensed, Insured & Bonded Lawn Care, Landscaping & Cleaning in Horn Lake, MS & 50-Mile Radius." },
-      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com" },
+      { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com" },
+      { rel: "canonical", href: "https://www.brownlawncarecleaningservicellc.com/" },
     ],
   }),
   component: Index,
@@ -36,9 +35,9 @@ function Index() {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "name": "Brown Lawn Care & Cleaning Service, LLC",
-    "image": "https://www.brownlawncarecleaningservicellc.com/assets/logo.png",
+    "image": "https://www.brownlawncarecleaningservicellc.com/android-chrome-512x512.png",
     "@id": "https://www.brownlawncarecleaningservicellc.com/#organization",
-    "url": "https://www.brownlawncarecleaningservicellc.com",
+    "url": "https://www.brownlawncarecleaningservicellc.com/",
     "telephone": "+16625711048",
     "email": "royleebrown@ymail.com",
     "priceRange": "$$",
@@ -185,12 +184,7 @@ function Index() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Brown Lawn Care & Cleaning Service LLC",
-    "url": "https://www.brownlawncarecleaningservicellc.com",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://www.brownlawncarecleaningservicellc.com/services?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "url": "https://www.brownlawncarecleaningservicellc.com/"
   };
 
   return (

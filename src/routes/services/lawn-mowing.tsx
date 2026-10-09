@@ -118,7 +118,6 @@ export const Route = createFileRoute("/services/lawn-mowing")({
     meta: [
       { title: "Lawn Mowing & Maintenance Horn Lake MS | Brown Lawn Care" },
       { name: "description", content: "Professional weekly lawn mowing, precision edging, string trimming & commercial groundskeeping in Horn Lake, MS & 50-mile radius. Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "lawn mowing horn lake ms, lawn mowing service horn lake ms, residential lawn mowing horn lake, commercial lawn mowing horn lake, grass cutting desoto county ms" },
       { property: "og:title", content: "Lawn Mowing & Maintenance Horn Lake MS | Brown Lawn Care" },
       { property: "og:description", content: "Expert weekly lawn mowing, edging, striping, and property maintenance in MS, TN, & AR." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/lawn-mowing" },

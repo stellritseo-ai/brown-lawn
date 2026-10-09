@@ -85,7 +85,6 @@ export const Route = createFileRoute("/service-areas/germantown-tn")({
     meta: [
       { title: "Lawn Care & Landscaping in Germantown TN | Brown Lawn Care" },
       { name: "description", content: "Premier lawn mowing, landscaping, mulch install & commercial office cleaning in Germantown, TN (38138, 38139). Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "lawn care germantown tn, lawn mowing germantown tn, landscaping germantown tn, mulch install germantown, office cleaning germantown tn" },
       { property: "og:title", content: "Lawn Care & Landscaping in Germantown TN | Brown Lawn Care" },
       { property: "og:description", content: "Licensed, insured & bonded lawn care and cleaning solutions in Germantown, TN. Fast 24-hr estimates." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/germantown-tn" },

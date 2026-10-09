@@ -110,7 +110,6 @@ export const Route = createFileRoute("/services/office-commercial-cleaning")({
     meta: [
       { title: "Commercial Cleaning & Janitorial Horn Lake MS | Brown Lawn Care" },
       { name: "description", content: "Professional commercial office cleaning, daily janitorial care, floor waxing & medical facility cleaning in Horn Lake, MS & 50-mile radius. Call (662) 571-1048." },
-      { name: "keywords", content: "commercial cleaning horn lake ms, office cleaning horn lake ms, janitorial service desoto county ms, commercial carpet cleaning memphis, business cleaning southaven" },
       { property: "og:title", content: "Commercial Cleaning & Janitorial Horn Lake MS | Brown Lawn Care" },
       { property: "og:description", content: "Expert commercial janitorial services, floor care, and office deep cleaning in MS, TN, & AR." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/office-commercial-cleaning" },

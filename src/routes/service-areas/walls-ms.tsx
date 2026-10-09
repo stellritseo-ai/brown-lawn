@@ -79,7 +79,6 @@ export const Route = createFileRoute("/service-areas/walls-ms")({
     meta: [
       { title: "Lawn Care & Landscaping in Walls MS | Brown Lawn Care" },
       { name: "description", content: "Professional lawn mowing, landscaping, gravel driveway repair, brush clearing & cleaning in Walls, MS (38680). Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "lawn care walls ms, lawn mowing walls ms, gravel driveway repair walls ms, brush clearing desoto county, property maintenance walls ms" },
       { property: "og:title", content: "Lawn Care & Landscaping in Walls MS | Brown Lawn Care" },
       { property: "og:description", content: "Licensed, insured & bonded lawn care and property cleaning in Walls, MS. Fast 24-hr estimates." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/walls-ms" },

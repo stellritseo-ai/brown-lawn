@@ -110,7 +110,6 @@ export const Route = createFileRoute("/services/gravel-dirt-work")({
     meta: [
       { title: "Gravel Driveway Repair & Dirt Work Horn Lake MS | Brown Lawn Care" },
       { name: "description", content: "Expert gravel driveway repair, new gravel installation, site grading & topsoil delivery in Horn Lake, MS & 50-mile radius. Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "gravel driveway repair horn lake ms, gravel driveway installation desoto county, site grading horn lake, topsoil delivery memphis, driveway leveling ms" },
       { property: "og:title", content: "Gravel Driveway Repair & Dirt Work Horn Lake MS | Brown Lawn Care" },
       { property: "og:description", content: "Professional gravel driveway installation, site grading, topsoil, and drainage solutions in MS, TN, & AR." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/gravel-dirt-work" },

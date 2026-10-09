@@ -81,7 +81,6 @@ export const Route = createFileRoute("/service-areas/cordova-tn")({
     meta: [
       { title: "Lawn Care & Cleaning Services in Cordova TN | Brown Lawn Care" },
       { name: "description", content: "Reliable lawn mowing, landscaping, mulch, shrub trimming & house cleaning in Cordova, TN (38016, 38018). Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "lawn care cordova tn, lawn mowing cordova tn, landscaping cordova tn, house cleaning cordova tn, property maintenance memphis" },
       { property: "og:title", content: "Lawn Care & Cleaning Services in Cordova TN | Brown Lawn Care" },
       { property: "og:description", content: "Licensed, insured & bonded lawn care and cleaning services in Cordova, TN. Fast 24-hr estimates." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/cordova-tn" },

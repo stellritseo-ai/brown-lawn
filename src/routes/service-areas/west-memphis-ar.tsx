@@ -79,7 +79,6 @@ export const Route = createFileRoute("/service-areas/west-memphis-ar")({
     meta: [
       { title: "Commercial Cleaning & Property Care in West Memphis AR | Brown Lawn Care" },
       { name: "description", content: "Professional commercial janitorial, warehouse power washing & property maintenance in West Memphis, AR (72301, 72303). Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "commercial cleaning west memphis ar, warehouse pressure washing west memphis, lawn care west memphis, janitorial service crittenden county" },
       { property: "og:title", content: "Commercial Cleaning & Property Care in West Memphis AR | Brown Lawn Care" },
       { property: "og:description", content: "Licensed, insured & bonded commercial cleaning and property services in West Memphis, AR. Fast 24-hr estimates." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/west-memphis-ar" },

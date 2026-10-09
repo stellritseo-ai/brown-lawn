@@ -109,7 +109,6 @@ export const Route = createFileRoute("/services/residential-wire-house-cleaning"
     meta: [
       { title: "House Cleaning & Warehouse Power Washing Horn Lake MS | Brown Lawn Care" },
       { name: "description", content: "Professional house cleaning, move-in/out deep cleaning, carpet steam extraction & warehouse pressure washing in Horn Lake, MS & 50-mile radius. Call (662) 571-1048." },
-      { name: "keywords", content: "house cleaning horn lake ms, residential cleaning horn lake ms, deep cleaning desoto county, warehouse pressure washing memphis, barn cleaning north ms" },
       { property: "og:title", content: "House Cleaning & Warehouse Power Washing Horn Lake MS | Brown Lawn Care" },
       { property: "og:description", content: "Professional home housekeeping, move-in deep cleaning, and warehouse sanitization in MS, TN, & AR." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/residential-wire-house-cleaning" },

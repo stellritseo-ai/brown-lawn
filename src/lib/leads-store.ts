@@ -966,26 +966,18 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
     return await apiCall<SiteSettings>("/api/settings?t=" + Date.now(), "GET");
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage settings:", err);
-    let email = getStorageItem("electrical_settings_alertEmail", "Williams@electricalcontractorcorp.com");
-    if (email === "revitalizerealestate@gmail.com") {
-      email = "Williams@electricalcontractorcorp.com";
-      setStorageItem("electrical_settings_alertEmail", email);
-    }
-    let phone = getStorageItem("electrical_settings_officePhone", "(786) 307-5933");
-    if (phone === "(813) 323-0291") {
-      phone = "(786) 307-5933";
-      setStorageItem("electrical_settings_officePhone", phone);
-    }
+    const email = getStorageItem<string>("site_settings_alertEmail", "royleebrown@ymail.com");
+    const phone = getStorageItem<string>("site_settings_officePhone", "(662) 571-1048");
     return {
       alertEmail: email,
       officePhone: phone,
-      smsTemplate: getStorageItem("electrical_settings_smsTemplate", "Hi {Name}, thank you for contacting R&E Electrical Contractor Corp! An electrician will contact you during the {Time} to discuss your {Type} project."),
-      emailAlert: getStorageItem("electrical_settings_emailAlert", "true") === "true",
-      smsAlert: getStorageItem("electrical_settings_smsAlert", "true") === "true",
-      maintenanceMode: getStorageItem("electrical_settings_maintenanceMode", "false") === "true",
-      weekdays: getStorageItem("electrical_settings_weekdays", "8:00 AM - 5:00 PM"),
-      saturdays: getStorageItem("electrical_settings_saturdays", "8:00 AM - 5:00 PM"),
-      sundays: getStorageItem("electrical_settings_sundays", "Closed (Emergency 24/7)")
+      smsTemplate: getStorageItem<string>("site_settings_smsTemplate", "Hi {Name}, thank you for contacting Brown Lawn Care & Cleaning Service LLC! We will contact you shortly regarding your {Type} request."),
+      emailAlert: getStorageItem<string>("site_settings_emailAlert", "true") === "true",
+      smsAlert: getStorageItem<string>("site_settings_smsAlert", "true") === "true",
+      maintenanceMode: getStorageItem<string>("site_settings_maintenanceMode", "false") === "true",
+      weekdays: getStorageItem<string>("site_settings_weekdays", "10:00 AM - 7:00 PM"),
+      saturdays: getStorageItem<string>("site_settings_saturdays", "3:00 PM - 8:00 PM"),
+      sundays: getStorageItem<string>("site_settings_sundays", "Closed")
     };
   }
 };

@@ -128,7 +128,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#2E7D32" },
       { title: "Brown Lawn Care & Cleaning Service, LLC | Horn Lake, MS" },
       { name: "description", content: "Family-owned lawn care, landscaping, tree removal, gravel driveway repair, and commercial/residential cleaning in Horn Lake, MS & 50-mile radius across MS, TN, and AR. Licensed, insured, bonded." },
-      { name: "keywords", content: "lawn care horn lake ms, lawn mowing horn lake, landscaping horn lake ms, tree removal olive branch ms, office cleaning southhaven ms, gravel driveway repair memphis, residential cleaning horn lake" },
       { name: "robots", content: "index, follow" },
       { name: "author", content: "Brown Lawn Care & Cleaning Service, LLC" },
       { name: "geo.region", content: "US-MS" },
@@ -139,20 +138,22 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "15+ Years Experience & 6 Years in Business — Licensed, Insured & Bonded Lawn Care, Landscaping & Cleaning in Horn Lake, MS & 50-Mile Radius." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com" },
-      { property: "og:image", content: "https://www.brownlawncarecleaningservicellc.com/assets/logo.png" },
+      { property: "og:image", content: "https://www.brownlawncarecleaningservicellc.com/android-chrome-512x512.png" },
       { property: "og:site_name", content: "Brown Lawn Care & Cleaning Service, LLC" },
       { property: "og:locale", content: "en_US" },
       { property: "og:locale:alternate", content: "es_US" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Brown Lawn Care & Cleaning Service, LLC | Horn Lake, MS" },
       { name: "twitter:description", content: "Family-owned lawn care, landscaping, tree removal, gravel driveway repair, and commercial/residential cleaning in Horn Lake, MS & 50-mile radius across MS, TN, and AR." },
-      { name: "twitter:image", content: "https://www.brownlawncarecleaningservicellc.com/assets/logo.png" },
+      { name: "twitter:image", content: "https://www.brownlawncarecleaningservicellc.com/android-chrome-512x512.png" },
     ],
     links: [
-      { rel: "icon", href: favIcon, type: "image/png" },
-      { rel: "shortcut icon", href: favIcon, type: "image/png" },
-      { rel: "apple-touch-icon", href: favIcon },
+      { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "48x48" },
+      { rel: "shortcut icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
       { rel: "manifest", href: "/manifest.json" },
+      { rel: "dns-prefetch", href: "https://res.cloudinary.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" },
@@ -169,10 +170,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const gaId = typeof import.meta !== "undefined" && import.meta.env?.VITE_GA_MEASUREMENT_ID;
+  const gscVerification = typeof import.meta !== "undefined" && import.meta.env?.VITE_GSC_VERIFICATION;
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        {gscVerification && (
+          <meta name="google-site-verification" content={gscVerification} />
+        )}
+        {gaId && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '${gaId}', { send_page_view: true });`,
+              }}
+            />
+          </>
+        )}
       </head>
       <body>
         {children}

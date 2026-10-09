@@ -15,6 +15,7 @@ export function Hero() {
           loop
           muted
           playsInline
+          preload="metadata"
           className="h-full w-full object-cover"
         >
           <source src="https://res.cloudinary.com/ki6vfkhw/video/upload/v1787692982/herovideo.mov" />
@@ -42,9 +43,9 @@ export function Hero() {
 
           {/* Main Headline */}
           <h1 className="mt-4 sm:mt-6 font-display text-[28px] sm:text-[36px] md:text-[41px] leading-[1.2] sm:leading-[1.25] md:leading-[54px] font-extrabold tracking-tight">
-            {t("15+ Years Experience Keeping ", "15+ Años de Experiencia Manteniendo ")}
-            <span className="gradient-text-orange">{t("Horn Lake Beautiful", "Hermoso a Horn Lake")}</span>{" "}
-            {t("— One Lawn & Home at a Time.", "— Un Césped y Hogar a la Vez.")}
+            {t("Professional Lawn Care, Landscaping & Cleaning in ", "Cuidado de Césped, Paisajismo y Limpieza Profesional en ")}
+            <span className="gradient-text-orange">{t("Horn Lake, MS", "Horn Lake, MS")}</span>{" "}
+            {t("— 15+ Years Craftsmanship", "— 15+ Años de Dedicación")}
           </h1>
 
           {/* Description */}
@@ -59,8 +60,10 @@ export function Hero() {
                 📋 {t("Get a Free Quote", "Solicitar Cotización Gratis")} <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button variant="heroOutline" size="xl" className="w-full sm:w-auto justify-center">
-              <Phone className="h-4 w-4" /> (662) 571-1048
+            <Button variant="heroOutline" size="xl" asChild className="w-full sm:w-auto justify-center">
+              <a href="tel:6625711048">
+                <Phone className="h-4 w-4" /> (662) 571-1048
+              </a>
             </Button>
           </div>
 

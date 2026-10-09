@@ -82,7 +82,6 @@ export const Route = createFileRoute("/about")({
     meta: [
       { title: "About Us | Brown Lawn Care & Cleaning Service LLC | Horn Lake MS" },
       { name: "description", content: "Learn about Brown Lawn Care & Cleaning Service LLC. Family-owned by Roy Lee Brown with 15+ years experience serving Horn Lake, MS & 50-mile radius across MS, TN, and AR." },
-      { name: "keywords", content: "about brown lawn care, lawn care company horn lake ms, roy lee brown lawn care, licensed lawn care desoto county ms, landscaping contractor horn lake" },
       { property: "og:title", content: "About Us | Brown Lawn Care & Cleaning Service LLC | Horn Lake MS" },
       { property: "og:description", content: "Family-owned lawn care, landscaping, tree care, and cleaning services in Horn Lake, MS serving MS, TN, & AR." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/about" },

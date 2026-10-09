@@ -86,7 +86,6 @@ export const Route = createFileRoute("/service-areas/hernando-ms")({
     meta: [
       { title: "Lawn Care & Landscaping in Hernando MS | Brown Lawn Care" },
       { name: "description", content: "Reliable lawn mowing, landscaping, gravel driveway repair, brush clearing & commercial cleaning in Hernando, MS (38632). Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "lawn care hernando ms, lawn mowing hernando ms, landscaping hernando ms, gravel driveway repair hernando, brush clearing desoto county" },
       { property: "og:title", content: "Lawn Care & Landscaping in Hernando MS | Brown Lawn Care" },
       { property: "og:description", content: "Licensed, insured & bonded lawn care, landscaping & cleaning in Hernando, MS. Fast 24-hr estimates." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/hernando-ms" },

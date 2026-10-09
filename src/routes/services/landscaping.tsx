@@ -110,7 +110,6 @@ export const Route = createFileRoute("/services/landscaping")({
     meta: [
       { title: "Landscaping & Mulch Installation Horn Lake MS | Brown Lawn Care" },
       { name: "description", content: "Professional landscape design, dark hardwood mulch installation, shrub trimming & flowerbed edging in Horn Lake, MS & 50-mile radius. Call (662) 571-1048." },
-      { name: "keywords", content: "landscaping horn lake ms, landscaping company horn lake ms, mulch installation desoto county, shrub trimming horn lake, flower bed edging memphis" },
       { property: "og:title", content: "Landscaping & Mulch Installation Horn Lake MS | Brown Lawn Care" },
       { property: "og:description", content: "Expert landscape design, mulching, shrub care, and hardscape installations in MS, TN, & AR." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/landscaping" },

@@ -684,8 +684,8 @@ export async function handleNodeApiRequest(req: any, res: any) {
     if (val !== undefined) {
       if (Array.isArray(val)) {
         val.forEach(v => webHeaders.append(key, v));
-      } else {
-        webHeaders.set(key, val);
+      } else if (val !== null) {
+        webHeaders.set(key, String(val));
       }
     }
   });

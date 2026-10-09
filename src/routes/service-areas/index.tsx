@@ -306,7 +306,6 @@ export const Route = createFileRoute("/service-areas/")({
     meta: [
       { title: "Service Areas | Brown Lawn Care & Cleaning Service LLC" },
       { name: "description", content: "Explore our 50-mile service radius across Mississippi, Tennessee, and Arkansas. Serving Horn Lake, Southaven, Olive Branch, Hernando, Memphis, and beyond." },
-      { name: "keywords", content: "lawn care service areas desoto county ms, lawn care memphis tn, lawn care horn lake ms, property maintenance southaven ms, cleaning service olive branch ms" },
       { property: "og:title", content: "Service Areas | Brown Lawn Care & Cleaning Service LLC" },
       { property: "og:description", content: "Explore our 50-mile service radius across Mississippi, Tennessee, and Arkansas." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas" },

@@ -48,7 +48,6 @@ export const Route = createFileRoute("/projects")({
     meta: [
       { title: "Work Gallery & Before/After | Brown Lawn Care & Cleaning Service LLC" },
       { name: "description", content: "Before & after project gallery of lawn mowing, landscaping, tree cutting, gravel driveway repair, and cleaning work across Horn Lake, MS & 50-mile radius." },
-      { name: "keywords", content: "lawn care before and after horn lake ms, landscaping projects desoto county, gravel driveway repair photos memphis, tree removal gallery" },
       { property: "og:title", content: "Work Gallery & Before/After | Brown Lawn Care & Cleaning Service LLC" },
       { property: "og:description", content: "Browse our before and after gallery of lawn care, landscaping, and cleaning craftsmanship in Horn Lake, MS." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/projects" },

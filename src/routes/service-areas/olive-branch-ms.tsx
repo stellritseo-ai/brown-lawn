@@ -87,7 +87,6 @@ export const Route = createFileRoute("/service-areas/olive-branch-ms")({
     meta: [
       { title: "Lawn Care & Landscaping in Olive Branch MS | Brown Lawn Care" },
       { name: "description", content: "Professional lawn mowing, landscaping, tree cutting, gravel driveways & commercial cleaning in Olive Branch, MS (38654). Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "lawn care olive branch ms, lawn mowing olive branch ms, landscaping olive branch ms, tree removal olive branch, commercial cleaning olive branch" },
       { property: "og:title", content: "Lawn Care & Landscaping in Olive Branch MS | Brown Lawn Care" },
       { property: "og:description", content: "Expert property maintenance and cleaning solutions in Olive Branch, MS. Licensed, insured, bonded." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/olive-branch-ms" },

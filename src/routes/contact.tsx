@@ -87,7 +87,6 @@ export const Route = createFileRoute("/contact")({
     meta: [
       { title: "Contact Us & Free Estimates | Brown Lawn Care & Cleaning Service LLC" },
       { name: "description", content: "Contact Brown Lawn Care & Cleaning Service LLC in Horn Lake, MS. Call (662) 571-1048 for free quotes on lawn care, landscaping, tree removal, and commercial cleaning." },
-      { name: "keywords", content: "contact lawn care horn lake ms, brown lawn care phone number, free lawn care estimate horn lake ms, desoto county lawn service contact" },
       { property: "og:title", content: "Contact Us & Free Estimates | Brown Lawn Care & Cleaning Service LLC" },
       { property: "og:description", content: "Free lawn care, landscaping, tree removal, and commercial cleaning estimates within 24 hours. Call (662) 571-1048." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/contact" },

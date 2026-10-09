@@ -87,7 +87,6 @@ export const Route = createFileRoute("/service-areas/southaven-ms")({
     meta: [
       { title: "Lawn Care & Landscaping in Southaven MS | Brown Lawn Care" },
       { name: "description", content: "Top-rated lawn mowing, landscaping, mulch, tree trimming & commercial office cleaning in Southaven, MS (38671, 38672). Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "lawn care southaven ms, lawn mowing southaven ms, landscaping southaven ms, office cleaning southaven ms, tree removal southaven" },
       { property: "og:title", content: "Lawn Care & Landscaping in Southaven MS | Brown Lawn Care" },
       { property: "og:description", content: "Licensed, insured & bonded lawn care and cleaning services in Southaven, MS. Fast 24-hr estimates." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/southaven-ms" },

@@ -87,7 +87,6 @@ export const Route = createFileRoute("/service-areas/memphis-tn")({
     meta: [
       { title: "Lawn Care & Commercial Cleaning in Memphis TN | Brown Lawn Care" },
       { name: "description", content: "Professional lawn mowing, landscaping, commercial office cleaning & tree removal in Memphis, TN and Shelby County. Call (662) 571-1048 for free quotes." },
-      { name: "keywords", content: "lawn care memphis tn, commercial lawn care memphis tn, office cleaning memphis tn, commercial janitorial memphis, tree removal memphis tn" },
       { property: "og:title", content: "Lawn Care & Commercial Cleaning in Memphis TN | Brown Lawn Care" },
       { property: "og:description", content: "Licensed, insured & bonded lawn care and commercial cleaning serving Memphis, TN & 50-mile radius." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/service-areas/memphis-tn" },

@@ -110,7 +110,6 @@ export const Route = createFileRoute("/services/tree-brush-removal")({
     meta: [
       { title: "Tree Removal & Brush Clearing Horn Lake MS | Brown Lawn Care" },
       { name: "description", content: "Safe tree cutting, small tree trimming, overgrown brush clearing & storm damage dispatch in Horn Lake, MS & 50-mile radius. Call (662) 571-1048 for free estimates." },
-      { name: "keywords", content: "tree removal horn lake ms, tree cutting horn lake ms, brush clearing desoto county, small tree trimming olive branch, emergency tree service southaven" },
       { property: "og:title", content: "Tree Removal & Brush Clearing Horn Lake MS | Brown Lawn Care" },
       { property: "og:description", content: "Expert tree cutting, land brush clearing, and storm emergency dispatch in MS, TN, & AR." },
       { property: "og:url", content: "https://www.brownlawncarecleaningservicellc.com/services/tree-brush-removal" },

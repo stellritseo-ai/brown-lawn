@@ -322,9 +322,9 @@ export function Process() {
 
                 {/* Content */}
                 <div className="pl-4 py-0.5">
-                  <h3 className="font-extrabold text-base text-slate-900 leading-tight mt-0 mb-1.5 group-hover:text-[#2E7D32] transition-colors duration-300">
+                  <div className="font-extrabold text-base text-slate-900 leading-tight mt-0 mb-1.5 group-hover:text-[#2E7D32] transition-colors duration-300">
                     {s.title}
-                  </h3>
+                  </div>
                   <p className="text-xs text-slate-500 leading-relaxed font-medium max-w-sm">
                     {s.desc}
                   </p>
