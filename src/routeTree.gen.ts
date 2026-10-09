@@ -9,76 +9,41 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ServiceAreasRouteImport } from './routes/service-areas'
-import { Route as ReviewsRouteImport } from './routes/reviews'
-import { Route as ProjectsRouteImport } from './routes/projects'
-import { Route as FreeQuoteRouteImport } from './routes/free-quote'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CareersRouteImport } from './routes/careers'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesIndexRouteImport } from './routes/services/index'
-import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FreeQuoteRouteImport } from './routes/free-quote'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as ServicesTreeBrushRemovalRouteImport } from './routes/services/tree-brush-removal'
-import { Route as ServicesResidentialWireHouseCleaningRouteImport } from './routes/services/residential-wire-house-cleaning'
-import { Route as ServicesOfficeCommercialCleaningRouteImport } from './routes/services/office-commercial-cleaning'
-import { Route as ServicesLawnMowingRouteImport } from './routes/services/lawn-mowing'
-import { Route as ServicesLandscapingRouteImport } from './routes/services/landscaping'
-import { Route as ServicesGravelDirtWorkRouteImport } from './routes/services/gravel-dirt-work'
-import { Route as ServiceAreasWestMemphisArRouteImport } from './routes/service-areas/west-memphis-ar'
-import { Route as ServiceAreasWallsMsRouteImport } from './routes/service-areas/walls-ms'
-import { Route as ServiceAreasSouthavenMsRouteImport } from './routes/service-areas/southaven-ms'
-import { Route as ServiceAreasOliveBranchMsRouteImport } from './routes/service-areas/olive-branch-ms'
-import { Route as ServiceAreasNesbitMsRouteImport } from './routes/service-areas/nesbit-ms'
-import { Route as ServiceAreasMemphisTnRouteImport } from './routes/service-areas/memphis-tn'
-import { Route as ServiceAreasHornLakeMsRouteImport } from './routes/service-areas/horn-lake-ms'
-import { Route as ServiceAreasHernandoMsRouteImport } from './routes/service-areas/hernando-ms'
-import { Route as ServiceAreasGermantownTnRouteImport } from './routes/service-areas/germantown-tn'
-import { Route as ServiceAreasCordovaTnRouteImport } from './routes/service-areas/cordova-tn'
-import { Route as ServiceAreasColliervilleTnRouteImport } from './routes/service-areas/collierville-tn'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard/login'
+import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas/index'
+import { Route as ServiceAreasColliervilleTnRouteImport } from './routes/service-areas/collierville-tn'
+import { Route as ServiceAreasCordovaTnRouteImport } from './routes/service-areas/cordova-tn'
+import { Route as ServiceAreasGermantownTnRouteImport } from './routes/service-areas/germantown-tn'
+import { Route as ServiceAreasHernandoMsRouteImport } from './routes/service-areas/hernando-ms'
+import { Route as ServiceAreasHornLakeMsRouteImport } from './routes/service-areas/horn-lake-ms'
+import { Route as ServiceAreasMemphisTnRouteImport } from './routes/service-areas/memphis-tn'
+import { Route as ServiceAreasNesbitMsRouteImport } from './routes/service-areas/nesbit-ms'
+import { Route as ServiceAreasOliveBranchMsRouteImport } from './routes/service-areas/olive-branch-ms'
+import { Route as ServiceAreasSouthavenMsRouteImport } from './routes/service-areas/southaven-ms'
+import { Route as ServiceAreasWallsMsRouteImport } from './routes/service-areas/walls-ms'
+import { Route as ServiceAreasWestMemphisArRouteImport } from './routes/service-areas/west-memphis-ar'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesGravelDirtWorkRouteImport } from './routes/services/gravel-dirt-work'
+import { Route as ServicesLandscapingRouteImport } from './routes/services/landscaping'
+import { Route as ServicesLawnMowingRouteImport } from './routes/services/lawn-mowing'
+import { Route as ServicesOfficeCommercialCleaningRouteImport } from './routes/services/office-commercial-cleaning'
+import { Route as ServicesResidentialWireHouseCleaningRouteImport } from './routes/services/residential-wire-house-cleaning'
+import { Route as ServicesTreeBrushRemovalRouteImport } from './routes/services/tree-brush-removal'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServiceAreasRoute = ServiceAreasRouteImport.update({
-  id: '/service-areas',
-  path: '/service-areas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReviewsRoute = ReviewsRouteImport.update({
-  id: '/reviews',
-  path: '/reviews',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FreeQuoteRoute = FreeQuoteRouteImport.update({
-  id: '/free-quote',
-  path: '/free-quote',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CareersRoute = CareersRouteImport.update({
-  id: '/careers',
-  path: '/careers',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -86,110 +51,59 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesIndexRoute = ServicesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ServicesRoute,
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ServiceAreasRoute,
+const FreeQuoteRoute = FreeQuoteRouteImport.update({
+  id: '/free-quote',
+  path: '/free-quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesTreeBrushRemovalRoute =
-  ServicesTreeBrushRemovalRouteImport.update({
-    id: '/tree-brush-removal',
-    path: '/tree-brush-removal',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ServicesResidentialWireHouseCleaningRoute =
-  ServicesResidentialWireHouseCleaningRouteImport.update({
-    id: '/residential-wire-house-cleaning',
-    path: '/residential-wire-house-cleaning',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ServicesOfficeCommercialCleaningRoute =
-  ServicesOfficeCommercialCleaningRouteImport.update({
-    id: '/office-commercial-cleaning',
-    path: '/office-commercial-cleaning',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ServicesLawnMowingRoute = ServicesLawnMowingRouteImport.update({
-  id: '/lawn-mowing',
-  path: '/lawn-mowing',
-  getParentRoute: () => ServicesRoute,
+const DashboardLoginRoute = DashboardLoginRouteImport.update({
+  id: '/dashboard/login',
+  path: '/dashboard/login',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesLandscapingRoute = ServicesLandscapingRouteImport.update({
-  id: '/landscaping',
-  path: '/landscaping',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesGravelDirtWorkRoute = ServicesGravelDirtWorkRouteImport.update({
-  id: '/gravel-dirt-work',
-  path: '/gravel-dirt-work',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServiceAreasWestMemphisArRoute =
-  ServiceAreasWestMemphisArRouteImport.update({
-    id: '/west-memphis-ar',
-    path: '/west-memphis-ar',
-    getParentRoute: () => ServiceAreasRoute,
-  } as any)
-const ServiceAreasWallsMsRoute = ServiceAreasWallsMsRouteImport.update({
-  id: '/walls-ms',
-  path: '/walls-ms',
-  getParentRoute: () => ServiceAreasRoute,
-} as any)
-const ServiceAreasSouthavenMsRoute = ServiceAreasSouthavenMsRouteImport.update({
-  id: '/southaven-ms',
-  path: '/southaven-ms',
-  getParentRoute: () => ServiceAreasRoute,
-} as any)
-const ServiceAreasOliveBranchMsRoute =
-  ServiceAreasOliveBranchMsRouteImport.update({
-    id: '/olive-branch-ms',
-    path: '/olive-branch-ms',
-    getParentRoute: () => ServiceAreasRoute,
-  } as any)
-const ServiceAreasNesbitMsRoute = ServiceAreasNesbitMsRouteImport.update({
-  id: '/nesbit-ms',
-  path: '/nesbit-ms',
-  getParentRoute: () => ServiceAreasRoute,
-} as any)
-const ServiceAreasMemphisTnRoute = ServiceAreasMemphisTnRouteImport.update({
-  id: '/memphis-tn',
-  path: '/memphis-tn',
-  getParentRoute: () => ServiceAreasRoute,
-} as any)
-const ServiceAreasHornLakeMsRoute = ServiceAreasHornLakeMsRouteImport.update({
-  id: '/horn-lake-ms',
-  path: '/horn-lake-ms',
-  getParentRoute: () => ServiceAreasRoute,
-} as any)
-const ServiceAreasHernandoMsRoute = ServiceAreasHernandoMsRouteImport.update({
-  id: '/hernando-ms',
-  path: '/hernando-ms',
-  getParentRoute: () => ServiceAreasRoute,
-} as any)
-const ServiceAreasGermantownTnRoute =
-  ServiceAreasGermantownTnRouteImport.update({
-    id: '/germantown-tn',
-    path: '/germantown-tn',
-    getParentRoute: () => ServiceAreasRoute,
-  } as any)
-const ServiceAreasCordovaTnRoute = ServiceAreasCordovaTnRouteImport.update({
-  id: '/cordova-tn',
-  path: '/cordova-tn',
+const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => ServiceAreasRoute,
 } as any)
 const ServiceAreasColliervilleTnRoute =
@@ -198,11 +112,97 @@ const ServiceAreasColliervilleTnRoute =
     path: '/collierville-tn',
     getParentRoute: () => ServiceAreasRoute,
   } as any)
-const DashboardLoginRoute = DashboardLoginRouteImport.update({
-  id: '/dashboard/login',
-  path: '/dashboard/login',
-  getParentRoute: () => rootRouteImport,
+const ServiceAreasCordovaTnRoute = ServiceAreasCordovaTnRouteImport.update({
+  id: '/cordova-tn',
+  path: '/cordova-tn',
+  getParentRoute: () => ServiceAreasRoute,
 } as any)
+const ServiceAreasGermantownTnRoute =
+  ServiceAreasGermantownTnRouteImport.update({
+    id: '/germantown-tn',
+    path: '/germantown-tn',
+    getParentRoute: () => ServiceAreasRoute,
+  } as any)
+const ServiceAreasHernandoMsRoute = ServiceAreasHernandoMsRouteImport.update({
+  id: '/hernando-ms',
+  path: '/hernando-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasHornLakeMsRoute = ServiceAreasHornLakeMsRouteImport.update({
+  id: '/horn-lake-ms',
+  path: '/horn-lake-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasMemphisTnRoute = ServiceAreasMemphisTnRouteImport.update({
+  id: '/memphis-tn',
+  path: '/memphis-tn',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasNesbitMsRoute = ServiceAreasNesbitMsRouteImport.update({
+  id: '/nesbit-ms',
+  path: '/nesbit-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasOliveBranchMsRoute =
+  ServiceAreasOliveBranchMsRouteImport.update({
+    id: '/olive-branch-ms',
+    path: '/olive-branch-ms',
+    getParentRoute: () => ServiceAreasRoute,
+  } as any)
+const ServiceAreasSouthavenMsRoute = ServiceAreasSouthavenMsRouteImport.update({
+  id: '/southaven-ms',
+  path: '/southaven-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasWallsMsRoute = ServiceAreasWallsMsRouteImport.update({
+  id: '/walls-ms',
+  path: '/walls-ms',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasWestMemphisArRoute =
+  ServiceAreasWestMemphisArRouteImport.update({
+    id: '/west-memphis-ar',
+    path: '/west-memphis-ar',
+    getParentRoute: () => ServiceAreasRoute,
+  } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesGravelDirtWorkRoute = ServicesGravelDirtWorkRouteImport.update({
+  id: '/gravel-dirt-work',
+  path: '/gravel-dirt-work',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesLandscapingRoute = ServicesLandscapingRouteImport.update({
+  id: '/landscaping',
+  path: '/landscaping',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesLawnMowingRoute = ServicesLawnMowingRouteImport.update({
+  id: '/lawn-mowing',
+  path: '/lawn-mowing',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesOfficeCommercialCleaningRoute =
+  ServicesOfficeCommercialCleaningRouteImport.update({
+    id: '/office-commercial-cleaning',
+    path: '/office-commercial-cleaning',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesResidentialWireHouseCleaningRoute =
+  ServicesResidentialWireHouseCleaningRouteImport.update({
+    id: '/residential-wire-house-cleaning',
+    path: '/residential-wire-house-cleaning',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesTreeBrushRemovalRoute =
+  ServicesTreeBrushRemovalRouteImport.update({
+    id: '/tree-brush-removal',
+    path: '/tree-brush-removal',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -419,60 +419,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/service-areas': {
-      id: '/service-areas'
-      path: '/service-areas'
-      fullPath: '/service-areas'
-      preLoaderRoute: typeof ServiceAreasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reviews': {
-      id: '/reviews'
-      path: '/reviews'
-      fullPath: '/reviews'
-      preLoaderRoute: typeof ReviewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/free-quote': {
-      id: '/free-quote'
-      path: '/free-quote'
-      fullPath: '/free-quote'
-      preLoaderRoute: typeof FreeQuoteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/careers': {
-      id: '/careers'
-      path: '/careers'
-      fullPath: '/careers'
-      preLoaderRoute: typeof CareersRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -482,26 +433,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/': {
-      id: '/services/'
-      path: '/'
-      fullPath: '/services/'
-      preLoaderRoute: typeof ServicesIndexRouteImport
-      parentRoute: typeof ServicesRoute
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/service-areas/': {
-      id: '/service-areas/'
-      path: '/'
-      fullPath: '/service-areas/'
-      preLoaderRoute: typeof ServiceAreasIndexRouteImport
-      parentRoute: typeof ServiceAreasRoute
+    '/free-quote': {
+      id: '/free-quote'
+      path: '/free-quote'
+      fullPath: '/free-quote'
+      preLoaderRoute: typeof FreeQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/dashboard/': {
       id: '/dashboard/'
@@ -510,116 +496,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/tree-brush-removal': {
-      id: '/services/tree-brush-removal'
-      path: '/tree-brush-removal'
-      fullPath: '/services/tree-brush-removal'
-      preLoaderRoute: typeof ServicesTreeBrushRemovalRouteImport
-      parentRoute: typeof ServicesRoute
+    '/dashboard/login': {
+      id: '/dashboard/login'
+      path: '/dashboard/login'
+      fullPath: '/dashboard/login'
+      preLoaderRoute: typeof DashboardLoginRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/services/residential-wire-house-cleaning': {
-      id: '/services/residential-wire-house-cleaning'
-      path: '/residential-wire-house-cleaning'
-      fullPath: '/services/residential-wire-house-cleaning'
-      preLoaderRoute: typeof ServicesResidentialWireHouseCleaningRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/office-commercial-cleaning': {
-      id: '/services/office-commercial-cleaning'
-      path: '/office-commercial-cleaning'
-      fullPath: '/services/office-commercial-cleaning'
-      preLoaderRoute: typeof ServicesOfficeCommercialCleaningRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/lawn-mowing': {
-      id: '/services/lawn-mowing'
-      path: '/lawn-mowing'
-      fullPath: '/services/lawn-mowing'
-      preLoaderRoute: typeof ServicesLawnMowingRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/landscaping': {
-      id: '/services/landscaping'
-      path: '/landscaping'
-      fullPath: '/services/landscaping'
-      preLoaderRoute: typeof ServicesLandscapingRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/gravel-dirt-work': {
-      id: '/services/gravel-dirt-work'
-      path: '/gravel-dirt-work'
-      fullPath: '/services/gravel-dirt-work'
-      preLoaderRoute: typeof ServicesGravelDirtWorkRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/service-areas/west-memphis-ar': {
-      id: '/service-areas/west-memphis-ar'
-      path: '/west-memphis-ar'
-      fullPath: '/service-areas/west-memphis-ar'
-      preLoaderRoute: typeof ServiceAreasWestMemphisArRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/walls-ms': {
-      id: '/service-areas/walls-ms'
-      path: '/walls-ms'
-      fullPath: '/service-areas/walls-ms'
-      preLoaderRoute: typeof ServiceAreasWallsMsRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/southaven-ms': {
-      id: '/service-areas/southaven-ms'
-      path: '/southaven-ms'
-      fullPath: '/service-areas/southaven-ms'
-      preLoaderRoute: typeof ServiceAreasSouthavenMsRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/olive-branch-ms': {
-      id: '/service-areas/olive-branch-ms'
-      path: '/olive-branch-ms'
-      fullPath: '/service-areas/olive-branch-ms'
-      preLoaderRoute: typeof ServiceAreasOliveBranchMsRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/nesbit-ms': {
-      id: '/service-areas/nesbit-ms'
-      path: '/nesbit-ms'
-      fullPath: '/service-areas/nesbit-ms'
-      preLoaderRoute: typeof ServiceAreasNesbitMsRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/memphis-tn': {
-      id: '/service-areas/memphis-tn'
-      path: '/memphis-tn'
-      fullPath: '/service-areas/memphis-tn'
-      preLoaderRoute: typeof ServiceAreasMemphisTnRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/horn-lake-ms': {
-      id: '/service-areas/horn-lake-ms'
-      path: '/horn-lake-ms'
-      fullPath: '/service-areas/horn-lake-ms'
-      preLoaderRoute: typeof ServiceAreasHornLakeMsRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/hernando-ms': {
-      id: '/service-areas/hernando-ms'
-      path: '/hernando-ms'
-      fullPath: '/service-areas/hernando-ms'
-      preLoaderRoute: typeof ServiceAreasHernandoMsRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/germantown-tn': {
-      id: '/service-areas/germantown-tn'
-      path: '/germantown-tn'
-      fullPath: '/service-areas/germantown-tn'
-      preLoaderRoute: typeof ServiceAreasGermantownTnRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/cordova-tn': {
-      id: '/service-areas/cordova-tn'
-      path: '/cordova-tn'
-      fullPath: '/service-areas/cordova-tn'
-      preLoaderRoute: typeof ServiceAreasCordovaTnRouteImport
+    '/service-areas/': {
+      id: '/service-areas/'
+      path: '/'
+      fullPath: '/service-areas/'
+      preLoaderRoute: typeof ServiceAreasIndexRouteImport
       parentRoute: typeof ServiceAreasRoute
     }
     '/service-areas/collierville-tn': {
@@ -629,12 +517,124 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiceAreasColliervilleTnRouteImport
       parentRoute: typeof ServiceAreasRoute
     }
-    '/dashboard/login': {
-      id: '/dashboard/login'
-      path: '/dashboard/login'
-      fullPath: '/dashboard/login'
-      preLoaderRoute: typeof DashboardLoginRouteImport
-      parentRoute: typeof rootRouteImport
+    '/service-areas/cordova-tn': {
+      id: '/service-areas/cordova-tn'
+      path: '/cordova-tn'
+      fullPath: '/service-areas/cordova-tn'
+      preLoaderRoute: typeof ServiceAreasCordovaTnRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/germantown-tn': {
+      id: '/service-areas/germantown-tn'
+      path: '/germantown-tn'
+      fullPath: '/service-areas/germantown-tn'
+      preLoaderRoute: typeof ServiceAreasGermantownTnRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/hernando-ms': {
+      id: '/service-areas/hernando-ms'
+      path: '/hernando-ms'
+      fullPath: '/service-areas/hernando-ms'
+      preLoaderRoute: typeof ServiceAreasHernandoMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/horn-lake-ms': {
+      id: '/service-areas/horn-lake-ms'
+      path: '/horn-lake-ms'
+      fullPath: '/service-areas/horn-lake-ms'
+      preLoaderRoute: typeof ServiceAreasHornLakeMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/memphis-tn': {
+      id: '/service-areas/memphis-tn'
+      path: '/memphis-tn'
+      fullPath: '/service-areas/memphis-tn'
+      preLoaderRoute: typeof ServiceAreasMemphisTnRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/nesbit-ms': {
+      id: '/service-areas/nesbit-ms'
+      path: '/nesbit-ms'
+      fullPath: '/service-areas/nesbit-ms'
+      preLoaderRoute: typeof ServiceAreasNesbitMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/olive-branch-ms': {
+      id: '/service-areas/olive-branch-ms'
+      path: '/olive-branch-ms'
+      fullPath: '/service-areas/olive-branch-ms'
+      preLoaderRoute: typeof ServiceAreasOliveBranchMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/southaven-ms': {
+      id: '/service-areas/southaven-ms'
+      path: '/southaven-ms'
+      fullPath: '/service-areas/southaven-ms'
+      preLoaderRoute: typeof ServiceAreasSouthavenMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/walls-ms': {
+      id: '/service-areas/walls-ms'
+      path: '/walls-ms'
+      fullPath: '/service-areas/walls-ms'
+      preLoaderRoute: typeof ServiceAreasWallsMsRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/west-memphis-ar': {
+      id: '/service-areas/west-memphis-ar'
+      path: '/west-memphis-ar'
+      fullPath: '/service-areas/west-memphis-ar'
+      preLoaderRoute: typeof ServiceAreasWestMemphisArRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/gravel-dirt-work': {
+      id: '/services/gravel-dirt-work'
+      path: '/gravel-dirt-work'
+      fullPath: '/services/gravel-dirt-work'
+      preLoaderRoute: typeof ServicesGravelDirtWorkRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/landscaping': {
+      id: '/services/landscaping'
+      path: '/landscaping'
+      fullPath: '/services/landscaping'
+      preLoaderRoute: typeof ServicesLandscapingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/lawn-mowing': {
+      id: '/services/lawn-mowing'
+      path: '/lawn-mowing'
+      fullPath: '/services/lawn-mowing'
+      preLoaderRoute: typeof ServicesLawnMowingRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/office-commercial-cleaning': {
+      id: '/services/office-commercial-cleaning'
+      path: '/office-commercial-cleaning'
+      fullPath: '/services/office-commercial-cleaning'
+      preLoaderRoute: typeof ServicesOfficeCommercialCleaningRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/residential-wire-house-cleaning': {
+      id: '/services/residential-wire-house-cleaning'
+      path: '/residential-wire-house-cleaning'
+      fullPath: '/services/residential-wire-house-cleaning'
+      preLoaderRoute: typeof ServicesResidentialWireHouseCleaningRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/tree-brush-removal': {
+      id: '/services/tree-brush-removal'
+      path: '/tree-brush-removal'
+      fullPath: '/services/tree-brush-removal'
+      preLoaderRoute: typeof ServicesTreeBrushRemovalRouteImport
+      parentRoute: typeof ServicesRoute
     }
   }
 }
