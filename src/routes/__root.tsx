@@ -15,6 +15,7 @@ import favIcon from "../assets/logo.png";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { LanguageProvider } from "../hooks/useLanguage";
 import { getSiteSettings } from "../lib/leads-store";
+import { Analytics } from "@vercel/analytics/react";
 
 function NotFoundComponent() {
   return (
@@ -196,6 +197,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <Analytics />
         <Scripts />
       </body>
     </html>
